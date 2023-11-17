@@ -1,6 +1,6 @@
 # SpaceKeys
 <p align="center">
-    <a href="https://github.com/KTH-AGI/SpaceKeys/commits/master">
+    <a href="https://github.com/KTH-AGI/SpaceKeys/commits/main/">
         <img alt="Last Commit" src="https://img.shields.io/github/last-commit/DH2413-G5/project-1.svg?style=flat-square&logo=github&logoColor=white">
     </a>
     <a href="https://github.com/KTH-AGI/SpaceKeys/issues">
