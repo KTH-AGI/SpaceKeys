@@ -1,13 +1,13 @@
 # SpaceKeys
 <p align="center">
     <a href="https://github.com/KTH-AGI/SpaceKeys/commits/main/">
-        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/DH2413-G5/project-1.svg?style=flat-square&logo=github&logoColor=white">
+        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/KTH-AGI/SpaceKeys.svg?style=flat-square&logo=github&logoColor=white">
     </a>
     <a href="https://github.com/KTH-AGI/SpaceKeys/issues">
-        <img alt="Issues" src="https://img.shields.io/github/issues-raw/DH2413-G5/project-1.svg?style=flat-square&logo=github&logoColor=white">
+        <img alt="Issues" src="https://img.shields.io/github/issues-raw/KTH-AGI/SpaceKeys.svg?style=flat-square&logo=github&logoColor=white">
     </a>
     <a href="https://github.com/KTH-AGI/SpaceKeys/pulls">
-        <img alt="Pull Requests" src="https://img.shields.io/github/issues-pr-raw/DH2413-G5/project-1.svg?style=flat-square&logo=github&logoColor=white">
+        <img alt="Pull Requests" src="https://img.shields.io/github/issues-pr-raw/KTH-AGI/SpaceKeys.svg?style=flat-square&logo=github&logoColor=white">
     </a>
 </p>
 
