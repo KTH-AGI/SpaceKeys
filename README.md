@@ -47,6 +47,8 @@ This repository is contains Project 2 for the course *DH2413 Advanced Graphics a
 
 <a href="https://github.com/JackyL56"><img src="https://avatars.githubusercontent.com/u/22663725" width="25" height="25" style="vertical-align:middle;margin:0px 5px" alt="Jacky Liu" align="left"/></a> [Jacky Liu](https://github.com/JackyL56)
 
+<a href="https://github.com/sofiabergqvist"><img src="https://avatars.githubusercontent.com/u/77806658?v=4" width="25" height="25" style="vertical-align:middle;margin:0px 5px" alt="Sofia Bergqvist" align="left"/></a> [Sofia Bergqvist](https://github.com/sofiabergqvist)
+
 
 [*Fill in rest of members*]
 
