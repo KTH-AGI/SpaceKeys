@@ -4,33 +4,45 @@ using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class RpcTestNew : NetworkBehaviour
+public class PlayerDataRPC : NetworkBehaviour
 {
     [HideInInspector] // Otherwise, we get a Bug: it throws an InvalidCastException. Should be fixed when updating NGO to 1.7.0
     public NetworkVariable<Vector3> Position = new NetworkVariable<Vector3>();
     [HideInInspector] 
     public NetworkVariable<Quaternion> Rotation = new NetworkVariable<Quaternion>();
 
-    // private NetworkObject _networkObject;
+    // For development purposes. Remove when pushing for production.
+    private bool debug = true;
+    private TextMeshProUGUI DebugText;
+
+    private String debugText = "";
+    ////////////////////////////////////////////////////////////////
+    
     
     public override void OnNetworkSpawn()
     {
         if (NetworkManager.Singleton.IsClient)
         { 
-            // Input.gyro.enabled = true;
+            Input.gyro.enabled = true;
         }
     }
 
+    private void Start()
+    {
+        if (debug)
+        {
+            DebugText = FindObjectOfType<DebugHelper>().DebugText;
+        }    
+    }
 
     [ServerRpc(RequireOwnership = false)]
     void SubmitPositionRequestServerRpc(ServerRpcParams rpcParams = default)
     {
         
         // Get Gyro Rotation
-        // Rotation.Value = Input.gyro.attitude;
-        
+        Rotation.Value = GetGyroValues();
         // Add Acceleration Code Here
-        Position.Value = GetRandomPositionOnPlane();
+        // Position.Value = GetRandomPositionOnPlane();
 
 
     }
@@ -50,14 +62,17 @@ public class RpcTestNew : NetworkBehaviour
     {
         if (NetworkManager.Singleton.IsClient)
         {
+            debugText += "|| Gyro: " + Input.gyro.enabled +" "+ Input.gyro.attitude;
             SubmitPositionRequestServerRpc();
         }
+        
+        UpdateTransform();
     }
     
     void UpdateTransform()
     {
      
-        // transform.rotation = Rotation.Value;
+        transform.rotation = Rotation.Value;
         
         // Todo add acceleration to modify position
         transform.position = Position.Value;
@@ -66,10 +81,15 @@ public class RpcTestNew : NetworkBehaviour
 
     void Update()
     {
-        // DebugText.text = "";
-        UpdateMovement();
-        UpdateTransform();
+        debugText = "";
+        if (debug)
+        {
+            debugText += " || IsServer: " + IsServer + " || IsClient: " + IsClient + " || NetworkManager Client: " + NetworkManager.Singleton.IsClient + " || Network Server: " + NetworkManager.Singleton.IsServer;
+        }
 
-        String tmp = "    IsClient: " + IsClient + " NetworkManager Client: " + NetworkManager.Singleton.IsClient + "  NServer: " + NetworkManager.Singleton.IsServer;
+        UpdateMovement();
+        
+        
+        DebugText.text = debugText;
     }
 }
