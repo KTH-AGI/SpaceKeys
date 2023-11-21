@@ -10,7 +10,11 @@ public class PlayerDataRPC : NetworkBehaviour
     public NetworkVariable<Vector3> Position = new NetworkVariable<Vector3>();
     [HideInInspector] 
     public NetworkVariable<Quaternion> Rotation = new NetworkVariable<Quaternion>();
+    [HideInInspector] 
+    public NetworkVariable<Vector3> Acceleration = new NetworkVariable<Vector3>();
 
+    private Rigidbody rb;
+    
     // For development purposes. Remove when pushing for production.
     private bool debug = true;
     private TextMeshProUGUI DebugText;
@@ -32,18 +36,21 @@ public class PlayerDataRPC : NetworkBehaviour
         if (debug)
         {
             DebugText = FindObjectOfType<DebugHelper>().DebugText;
-        }    
+        }
+
+        rb = GetComponent<Rigidbody>();
     }
 
     [ServerRpc(RequireOwnership = false)]
-    void SubmitPositionRequestServerRpc(ServerRpcParams rpcParams = default)
+    void SubmitPositionRequestServerRpc(Vector3 acceleration, ServerRpcParams rpcParams = default)
     {
         
         // Get Gyro Rotation
-        Rotation.Value = GetGyroValues();
+        // Rotation.Value = gyroRotation;
         // Add Acceleration Code Here
         // Position.Value = GetRandomPositionOnPlane();
-
+        Acceleration.Value = acceleration;
+        
 
     }
 
@@ -62,8 +69,8 @@ public class PlayerDataRPC : NetworkBehaviour
     {
         if (NetworkManager.Singleton.IsClient)
         {
-            debugText += "|| Gyro: " + Input.gyro.enabled +" "+ Input.gyro.attitude;
-            SubmitPositionRequestServerRpc();
+            debugText += "|| Gyro: " + Input.gyro.userAcceleration;
+            SubmitPositionRequestServerRpc(Input.gyro.userAcceleration);
         }
         
         UpdateTransform();
@@ -72,24 +79,34 @@ public class PlayerDataRPC : NetworkBehaviour
     void UpdateTransform()
     {
      
-        transform.rotation = Rotation.Value;
+        // transform.rotation = Rotation.Value;
         
         // Todo add acceleration to modify position
-        transform.position = Position.Value;
-        
+        // transform.position = Position.Value;
+
+        transform.position += Acceleration.Value;
+
     }
 
-    void Update()
+    void FixedUpdate()
     {
         debugText = "";
         if (debug)
         {
-            debugText += " || IsServer: " + IsServer + " || IsClient: " + IsClient + " || NetworkManager Client: " + NetworkManager.Singleton.IsClient + " || Network Server: " + NetworkManager.Singleton.IsServer;
+            // debugText += " || IsServer: " + IsServer + " || IsClient: " + IsClient;
+            debugText += " || NetworkManager Client: " + NetworkManager.Singleton.IsClient + " || Network Server: " + NetworkManager.Singleton.IsServer;
+            if (NetworkManager.Singleton.IsServer)
+            {
+                debugText += " || Connected: " + NetworkManager.Singleton.ConnectedClients.Count;
+            }
         }
 
         UpdateMovement();
-        
-        
-        DebugText.text = debugText;
+
+        if (debug)
+        {
+            debugText += " || GyroAcceleration: " + Acceleration.Value;
+            DebugText.text = debugText;
+        }
     }
 }
