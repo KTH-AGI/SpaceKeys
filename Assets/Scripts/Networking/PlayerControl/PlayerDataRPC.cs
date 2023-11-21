@@ -4,52 +4,45 @@ using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class RpcTestNew : NetworkBehaviour
+public class PlayerDataRPC : NetworkBehaviour
 {
-    [SerializeField] private TMP_Text DebugText;
-    
     [HideInInspector] // Otherwise, we get a Bug: it throws an InvalidCastException. Should be fixed when updating NGO to 1.7.0
     public NetworkVariable<Vector3> Position = new NetworkVariable<Vector3>();
     [HideInInspector] 
     public NetworkVariable<Quaternion> Rotation = new NetworkVariable<Quaternion>();
 
-    // private NetworkObject _networkObject;
+    // For development purposes. Remove when pushing for production.
+    private bool debug = true;
+    private TextMeshProUGUI DebugText;
+
+    private String debugText = "";
+    ////////////////////////////////////////////////////////////////
+    
     
     public override void OnNetworkSpawn()
     {
         if (NetworkManager.Singleton.IsClient)
         { 
-            // Input.gyro.enabled = true;
+            Input.gyro.enabled = true;
         }
     }
 
-    /*public void Start()
+    private void Start()
     {
-        if (NetworkManager.Singleton.IsClient)
+        if (debug)
         {
-            // Input.gyro.enabled = true;
-        }
-
-        if (NetworkManager.Singleton.IsServer)
-        {
-            _networkObject = GetComponent<NetworkObject>();
-            _networkObject.Spawn();
-        }
-    }*/
+            DebugText = FindObjectOfType<DebugHelper>().DebugText;
+        }    
+    }
 
     [ServerRpc(RequireOwnership = false)]
     void SubmitPositionRequestServerRpc(ServerRpcParams rpcParams = default)
     {
         
-        // DebugText.text = "Inside if! " + Input.gyro.attitude;
-        
         // Get Gyro Rotation
-        // Rotation.Value = Input.gyro.attitude;
-        // Debug.Log("Rotating: " + Rotation.Value);
-        
+        Rotation.Value = GetGyroValues();
         // Add Acceleration Code Here
-        Position.Value = GetRandomPositionOnPlane();
-        DebugText.text += "   Updated Position ";
+        // Position.Value = GetRandomPositionOnPlane();
 
 
     }
@@ -67,32 +60,36 @@ public class RpcTestNew : NetworkBehaviour
 
     void UpdateMovement()
     {
-        DebugText.text += ("  |||  Update Transform  ||| ");
         if (NetworkManager.Singleton.IsClient)
         {
-            DebugText.text += " ||| Inside Submit Position  |||";
+            debugText += "|| Gyro: " + Input.gyro.enabled +" "+ Input.gyro.attitude;
             SubmitPositionRequestServerRpc();
         }
+        
+        UpdateTransform();
     }
     
     void UpdateTransform()
     {
      
-        // transform.rotation = Rotation.Value;
+        transform.rotation = Rotation.Value;
         
         // Todo add acceleration to modify position
         transform.position = Position.Value;
         
-        DebugText.text += ("  |||  Updated ||| ");
     }
 
     void Update()
     {
-        DebugText.text = "";
-        UpdateMovement();
-        UpdateTransform();
+        debugText = "";
+        if (debug)
+        {
+            debugText += " || IsServer: " + IsServer + " || IsClient: " + IsClient + " || NetworkManager Client: " + NetworkManager.Singleton.IsClient + " || Network Server: " + NetworkManager.Singleton.IsServer;
+        }
 
-        String tmp = "    IsClient: " + IsClient + " NetworkManager Client: " + NetworkManager.Singleton.IsClient + "  NServer: " + NetworkManager.Singleton.IsServer;
-        DebugText.text += tmp;
+        UpdateMovement();
+        
+        
+        DebugText.text = debugText;
     }
 }
