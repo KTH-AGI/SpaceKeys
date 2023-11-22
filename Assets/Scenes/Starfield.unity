@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 969474390}
   - component: {fileID: 969474389}
   - component: {fileID: 969474388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432568087}
   - component: {fileID: 1432568088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,12 +505,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSizeX: 4
-  gridSizeY: 100
+  gridSizeY: 10
   lineY: -10
-  lineLengthZ: 200
-  spaceBetweenXLines: 10
+  lineLengthZ: 180
+  spaceBetweenXLines: 8
   spaceBetweenYLines: 20
   moveSpeed: 5
+  lineWidth: 0.5
 --- !u!1 &1994178972
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +612,7 @@ Transform:
   m_GameObject: {fileID: 1994178972}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -10, z: 17.6}
+  m_LocalPosition: {x: -0.03, y: -11, z: 17.6}
   m_LocalScale: {x: 6.0324793, y: 1, z: 1.8650066}
   m_ConstrainProportionsScale: 0
   m_Children: []
