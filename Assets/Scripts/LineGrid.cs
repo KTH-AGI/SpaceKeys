@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 
 public class LineGrid : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class LineGrid : MonoBehaviour
     [SerializeField] float spaceBetweenXLines = 0.1f;
     [SerializeField] float spaceBetweenYLines = 0.1f;
     [SerializeField] float moveSpeed = 5.0f; // Speed of grid movement
+    [SerializeField] float lineWidth = 0.3f;
 
     GameObject gridParent;
     GameObject lineXParent;
@@ -48,8 +52,8 @@ public class LineGrid : MonoBehaviour
             lineRenderer.material = new Material(Shader.Find("Standard"));
             lineRenderer.startColor = Color.white;
             lineRenderer.endColor = Color.white;
-            lineRenderer.startWidth = 0.5f;
-            lineRenderer.endWidth = 0.5f;
+            lineRenderer.startWidth = lineWidth;
+            lineRenderer.endWidth = lineWidth;
 
             float spacingX = x * spaceBetweenXLines;
 
@@ -58,31 +62,11 @@ public class LineGrid : MonoBehaviour
             DrawLine(startPoint, endPoint, lineRenderer);
         }
 
-        float startX = (-gridSizeX + 1) * spaceBetweenXLines;
-        float endX = (gridSizeX - 1) * spaceBetweenXLines;
+        
 
         for (int y = 0; y < gridSizeY; y++)
         {
-            GameObject lineObject = new GameObject("YLine");
-            LineRenderer lineRenderer = lineObject.AddComponent<LineRenderer>();
-
-            lineObject.transform.parent = lineYParent.transform;
-            lineRenderer.useWorldSpace = false;
-
-            lineRenderer.material = new Material(Shader.Find("Standard"));
-            lineRenderer.startColor = Color.white;
-            lineRenderer.endColor = Color.white;
-            lineRenderer.startWidth = 0.5f;
-            lineRenderer.endWidth = 0.5f;
-
-
-            float spacingY = y * spaceBetweenYLines;
-
-            Vector3 startPoint = new Vector3(startX, lineY, spacingY);
-            Vector3 endPoint = new Vector3(endX, lineY, spacingY);
-            DrawLine(startPoint, endPoint, lineRenderer);
-
-            gridYLines.Add(lineObject);
+            createYLine();
         }
     }
 
@@ -96,25 +80,48 @@ public class LineGrid : MonoBehaviour
 
     void MoveGrid()
     {
-        lineYParent.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+        for (int i = 0; i < gridYLines.Count; i++)
+        {
+            GameObject yLine = gridYLines[i];
+            yLine.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+        }
 
-        //for (int i = 0; i < gridYLines.Count; i++)
-        //{
-        //    if (gridYLines[i].transform.position.z < 0)
-        //    {
-        //        Destroy(gridYLines[i]);
-        //        gridYLines.RemoveAt(i);
-        //        i--;
-        //    }
-        //}
+        if (gridYLines[0].transform.position.z < 0)
+        {
+            Destroy(gridYLines[0]);
+            gridYLines.RemoveAt(0);
 
-        // Add new grid blocks at the end
-        //for (int x = 0; x < gridSizeX; x++)
-        //{
-        //    GameObject grid = Instantiate(gridPrefab, new Vector3(x * (cellSize + spaceBetweenCells), -10f, -spaceBetweenCells), Quaternion.identity);
-        //    gridBlocks.Add(grid);
-        //}
+            createYLine();
+        }
 
+
+    }
+
+    void createYLine()
+    {
+        float zPosition = gridYLines.Count * spaceBetweenYLines;
+        float startX = (-gridSizeX + 1) * spaceBetweenXLines;
+        float endX = (gridSizeX - 1) * spaceBetweenXLines;
+
+        GameObject lineObject = new GameObject("YLine");
+        LineRenderer lineRenderer = lineObject.AddComponent<LineRenderer>();
+
+        lineObject.transform.parent = lineYParent.transform;
+        lineRenderer.useWorldSpace = false;
+
+        lineRenderer.material = new Material(Shader.Find("Standard"));
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.white;
+        lineRenderer.startWidth = lineWidth;
+        lineRenderer.endWidth = lineWidth;
+
+        Vector3 startPoint = new Vector3(startX, lineY, 0);
+        Vector3 endPoint = new Vector3(endX, lineY, 0);
+        
+        DrawLine(startPoint, endPoint, lineRenderer);
+        lineObject.transform.Translate(0, 0, zPosition);
+
+        gridYLines.Add(lineObject);
     }
 
 }
