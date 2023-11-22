@@ -16,7 +16,6 @@ public class AccelerometerController : MonoBehaviour
     public Vector3 GetUserAcceleration()
     {
         Vector3 acceleration = GetAccelerationAndCheckForDrift();
-
         acceleration = AndroidToUnity(acceleration);
         
         return acceleration;
@@ -30,6 +29,8 @@ public class AccelerometerController : MonoBehaviour
         unityAcceleration.x = -androidAcceleration.x;
         unityAcceleration.y = -androidAcceleration.y;
 
+        // Todo take the phones rotation into account. Currently, it assumes that the phone is facing towards the player.
+        
         if (unityAcceleration.sqrMagnitude > 1)
         {
             unityAcceleration.Normalize();
@@ -37,6 +38,7 @@ public class AccelerometerController : MonoBehaviour
 
         return unityAcceleration;
     }
+    
     
     private Vector3 GetAccelerationAndCheckForDrift()
     {

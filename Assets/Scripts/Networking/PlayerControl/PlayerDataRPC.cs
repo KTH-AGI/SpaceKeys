@@ -40,28 +40,25 @@ public class PlayerDataRPC : NetworkBehaviour
         }
     }
 
+    
+    /// <summary>
+    /// Method used to update information received from client. Executed Server-side.
+    /// </summary>
+    /// <param name="acceleration"></param> acceleration value obtained from client.
+    /// <param name="rpcParams"></param>
     [ServerRpc(RequireOwnership = false)]
     void SubmitPositionRequestServerRpc(Vector3 acceleration, ServerRpcParams rpcParams = default)
     {
         
         // Get Gyro Rotation
         // Rotation.Value = gyroRotation;
-        // Add Acceleration Code Here
-        // Position.Value = GetRandomPositionOnPlane();
         Acceleration.Value = acceleration;
-        
-
     }
 
     Quaternion GetGyroValues()
     {
         // TODO might have to fix x axis alignment
         return Input.gyro.attitude;
-    }
-    
-    static Vector3 GetRandomPositionOnPlane()
-    {
-        return new Vector3(Random.Range(-3f, 3f), 1f, 0f);
     }
 
     void UpdateMovement()
@@ -71,6 +68,8 @@ public class PlayerDataRPC : NetworkBehaviour
             Vector3 acceleration = _accelerometerController.GetUserAcceleration();
             debugText += "|| Gyro: " + Input.gyro.userAcceleration;
             debugText += "|| Acceleration added: " + acceleration;
+            
+            // Send data to Server
             SubmitPositionRequestServerRpc(acceleration);
         }
         
@@ -79,14 +78,11 @@ public class PlayerDataRPC : NetworkBehaviour
     
     void UpdateTransform()
     {
-     
         // transform.rotation = Rotation.Value;
-        
-        // Todo add acceleration to modify position
         // transform.position = Position.Value;
 
         transform.position += Acceleration.Value;
-        // transform.Translate(Acceleration.Value);
+        // transform.Translate(Acceleration.Value);  // Does the same thing?
 
     }
 
