@@ -13,7 +13,7 @@ public class PlayerDataRPC : NetworkBehaviour
     [HideInInspector] 
     public NetworkVariable<Vector3> Acceleration = new NetworkVariable<Vector3>();
 
-    private Rigidbody rb;
+    private AccelerometerController _accelerometerController;
     
     // For development purposes. Remove when pushing for production.
     private bool debug = true;
@@ -28,6 +28,7 @@ public class PlayerDataRPC : NetworkBehaviour
         if (NetworkManager.Singleton.IsClient)
         { 
             Input.gyro.enabled = true;
+            _accelerometerController = FindObjectOfType<AccelerometerController>();
         }
     }
 
@@ -37,8 +38,6 @@ public class PlayerDataRPC : NetworkBehaviour
         {
             DebugText = FindObjectOfType<DebugHelper>().DebugText;
         }
-
-        rb = GetComponent<Rigidbody>();
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -69,8 +68,10 @@ public class PlayerDataRPC : NetworkBehaviour
     {
         if (NetworkManager.Singleton.IsClient)
         {
+            Vector3 acceleration = _accelerometerController.GetUserAcceleration();
             debugText += "|| Gyro: " + Input.gyro.userAcceleration;
-            SubmitPositionRequestServerRpc(Input.gyro.userAcceleration);
+            debugText += "|| Acceleration added: " + acceleration;
+            SubmitPositionRequestServerRpc(acceleration);
         }
         
         UpdateTransform();
@@ -85,14 +86,15 @@ public class PlayerDataRPC : NetworkBehaviour
         // transform.position = Position.Value;
 
         transform.position += Acceleration.Value;
+        // transform.Translate(Acceleration.Value);
 
     }
 
     void FixedUpdate()
     {
-        debugText = "";
         if (debug)
         {
+            debugText = "";
             // debugText += " || IsServer: " + IsServer + " || IsClient: " + IsClient;
             debugText += " || NetworkManager Client: " + NetworkManager.Singleton.IsClient + " || Network Server: " + NetworkManager.Singleton.IsServer;
             if (NetworkManager.Singleton.IsServer)
