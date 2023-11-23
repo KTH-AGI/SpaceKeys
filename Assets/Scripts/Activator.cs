@@ -8,6 +8,8 @@ public class Activator : MonoBehaviour
     bool active = false;
 
     GameObject note;
+    [SerializeField] GameObject player;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +20,20 @@ public class Activator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(key) &&active)
+        float playerPositionX = player.transform.position.x;
+        if (note != null)
         {
-            Destroy(note);
+            float notePositionX = note.transform.position.x;
+            float difference = Mathf.Abs(playerPositionX - notePositionX);
+            Debug.Log(difference);
+
+            if (Input.GetKeyDown(key) && active && difference < 1)
+            {
+                Destroy(note);
+            }
         }
+        
+        
     }
 
     void OnTriggerEnter(Collider col)
@@ -30,7 +42,6 @@ public class Activator : MonoBehaviour
         if (col.gameObject.CompareTag("Note"))
         {
             note = col.gameObject;
-            //Destroy(col.gameObject);
         }
     }
 
