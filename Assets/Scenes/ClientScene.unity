@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71126877df1f408a9ba959309f7a6147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumAcceleration: 0.22
+  minimumAcceleration: 0.04
 --- !u!4 &933550909
 Transform:
   m_ObjectHideFlags: 0

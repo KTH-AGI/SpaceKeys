@@ -6,7 +6,7 @@ public class AccelerometerController : MonoBehaviour
 
     // Minimum threshold needed to surpass for movement detection. Todo: Confirm if input acceleration range is in [0,1]
     [SerializeField, Range(0,1)] 
-    private float minimumAcceleration = 0.03f;
+    private float minimumAcceleration = 0.04f;
 
     private void Start()
     {
@@ -44,6 +44,7 @@ public class AccelerometerController : MonoBehaviour
     {
         Vector3 acceleration = Vector3.zero;
         Vector3 userAcceleration = Input.gyro.userAcceleration;
+        
         
         if (Math.Abs(userAcceleration.x) > minimumAcceleration )
         {

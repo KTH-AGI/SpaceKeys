@@ -14,6 +14,10 @@ public class PlayerDataRPC : NetworkBehaviour
     public NetworkVariable<Vector3> Acceleration = new NetworkVariable<Vector3>();
 
     private AccelerometerController _accelerometerController;
+
+    [SerializeField]
+    private float smoothingFactor = 0.5f;
+    private Rigidbody rb;
     
     // For development purposes. Remove when pushing for production.
     private bool debug = true;
@@ -34,6 +38,7 @@ public class PlayerDataRPC : NetworkBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         if (debug)
         {
             DebugText = FindObjectOfType<DebugHelper>().DebugText;
@@ -81,8 +86,16 @@ public class PlayerDataRPC : NetworkBehaviour
         // transform.rotation = Rotation.Value;
         // transform.position = Position.Value;
 
-        transform.position += Acceleration.Value;
+        // transform.position += Acceleration.Value;
+        
+        // Apply Exponential Smoothing
+        Vector3 tmp = transform.position + Acceleration.Value;
+
+        transform.position = smoothingFactor * transform.position + (1 - smoothingFactor) * tmp;
+
+
         // transform.Translate(Acceleration.Value);  // Does the same thing?
+        // rb.AddForce(Acceleration.Value * 10f, ForceMode.Acceleration);
 
     }
 
