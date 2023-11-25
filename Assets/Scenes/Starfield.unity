@@ -1071,7 +1071,7 @@ MonoBehaviour:
   lineLengthZ: 180
   spaceBetweenXLines: 6
   spaceBetweenYLines: 20
-  moveSpeed: 10
+  moveSpeed: 5
   lineWidth: 0.8
 --- !u!1 &1823299416
 GameObject:
@@ -1089,7 +1089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1823299417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,6 +1102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9532232f18ec27343b29428a9eccd425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  note: {fileID: 1146802146480907514, guid: 822fb9b53e21e6649916b243e3c313df, type: 3}
+  positionZ: 180
+  positionY: -8
+  creationInterval: 1
+  possiblePositionsX: []
 --- !u!4 &1823299418
 Transform:
   m_ObjectHideFlags: 0
