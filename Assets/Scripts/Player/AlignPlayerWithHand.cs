@@ -1,0 +1,94 @@
+using Mediapipe.Unity;
+using UnityEngine;
+
+public class AlignPlayerWithHand : MonoBehaviour
+{
+
+    [SerializeField] private MultiHandLandmarkListAnnotation _handLandmarkListAnnotation;
+    [SerializeField] private GameObject _player;
+    [SerializeField] private float _playerZValue = 100;
+    
+    // List containing the Hand Landmarks
+    private HandLandmarkListAnnotation _handLandmarkList;
+
+    private float _screenWidth = 1920;
+    private float _screenHeight = 1020;
+    
+    // Boolean used to check if hands were already initialized before.
+    private bool initialized = false;
+    
+    void Update()
+    {
+        // Find hand position first before updating player position
+        if (FindHands())
+        {
+            // Get player position in worlds space from hand position in screen space.
+            var playerPosition = ModifyClippingPlane(GetPalmLocalPosition(),_playerZValue);
+            playerPosition = OffsetHandLandmarks(playerPosition);
+            playerPosition = Camera.main.ScreenToWorldPoint(playerPosition);
+            
+            _player.transform.position = playerPosition;
+        }
+    }
+
+    private bool FindHands()
+    {
+        // No Hands found yet, can't set Hand Landmark List yet!
+        if (_handLandmarkListAnnotation.count <= 0) return false;
+        
+        // Hands already found and initialized!
+        if (initialized) return true;
+        
+        // Found hands! Initialize List and Screen Size
+        _handLandmarkList = _handLandmarkListAnnotation[0];
+        InitializeScreenDimensions();
+        initialized = true;
+        return true;
+    }
+
+    private void InitializeScreenDimensions()
+    {
+        _screenWidth = _handLandmarkListAnnotation.GetScreenRect().width;
+        _screenHeight = _handLandmarkListAnnotation.GetScreenRect().height;
+    }
+    
+    // Indices of each hand landmark defined at https://developers.google.com/mediapipe/solutions/vision/hand_landmarker
+    private PointAnnotation GetHandLandmark(int index)
+    {
+        return _handLandmarkList[index];
+    }
+    
+    private Vector3 GetWristLocalPosition()
+    {
+        // Wrist Landmark has Index 0 in the list. 
+        return GetHandLandmark(0).transform.localPosition;
+    }
+
+    private Vector3 GetMiddleFingerMcpLocalPosition()
+    {
+        return GetHandLandmark(9).transform.localPosition;
+    }
+
+    // Returns the local position of the center point of the palm. Approximated by the mid point between the wrist point
+    // and middle finger MCP point.
+    private Vector3 GetPalmLocalPosition()
+    {
+        return (GetWristLocalPosition() + GetMiddleFingerMcpLocalPosition()) / 2;
+    }
+
+    // Here specifically, the clipping plane determines how far the object should be rendered from the camera.
+    private Vector3 ModifyClippingPlane(Vector3 v ,float z)
+    {
+        v.z = z;
+        return v;
+    }
+
+    // Assumes the current Origin(0,0) is in the middle of the Screen and returns a Vector3 position
+    // where the new Origin is at the bottom right.
+    private Vector3 OffsetHandLandmarks(Vector3 v)
+    {
+        return new Vector3(v.x + _screenWidth / 2, v.y + _screenHeight / 2, v.z);
+    }
+    
+    
+}
