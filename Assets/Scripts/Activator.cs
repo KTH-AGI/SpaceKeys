@@ -44,7 +44,8 @@ public class Activator : MonoBehaviour
                     
                     Debug.Log("Music object audio played");
                 }
-                Destroy(note);   
+                note.SetActive(false);
+                note = null;
             }
         }
         
