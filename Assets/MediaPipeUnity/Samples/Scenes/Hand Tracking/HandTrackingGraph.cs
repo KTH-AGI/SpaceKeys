@@ -231,7 +231,7 @@ namespace Mediapipe.Unity.Sample.HandTracking
     {
       var sidePacket = new PacketMap();
 
-      SetImageTransformationOptions(sidePacket, imageSource, true);
+      SetImageTransformationOptions(sidePacket, imageSource, false);
       sidePacket.Emplace("model_complexity", new IntPacket((int)modelComplexity));
       sidePacket.Emplace("num_hands", new IntPacket(maxNumHands));
 
