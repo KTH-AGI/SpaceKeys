@@ -10,11 +10,15 @@ public class Activator : MonoBehaviour
     GameObject note;
     [SerializeField] GameObject player;
     
+    private AudioSource audioSource;
+
+    [SerializeField] 
+    private int radarDiameter;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        radarDiameter = 4;
     }
 
     // Update is called once per frame
@@ -27,9 +31,20 @@ public class Activator : MonoBehaviour
             float difference = Mathf.Abs(playerPositionX - notePositionX);
             Debug.Log(difference);
 
-            if (Input.GetKeyDown(key) && active && difference < 1)
+            if (active && difference < radarDiameter)
             {
-                Destroy(note);
+                audioSource = note.GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    // audioSource.PlayOneShot(audioSource.clip);
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.Play();
+                    }   
+                    
+                    Debug.Log("Music object audio played");
+                }
+                Destroy(note);   
             }
         }
         
