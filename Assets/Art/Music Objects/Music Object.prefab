@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4990048470377861169}
   - component: {fileID: 7011345776212456018}
   m_Layer: 0
-  m_Name: Music Object (3)
+  m_Name: Music Object
   m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
