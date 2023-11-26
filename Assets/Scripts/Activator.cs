@@ -29,18 +29,21 @@ public class Activator : MonoBehaviour
         {
             float notePositionX = note.transform.position.x;
             float difference = Mathf.Abs(playerPositionX - notePositionX);
-            Debug.Log(difference);
+            // Debug.Log(difference);
 
             if (active && difference < radarDiameter)
             {
                 audioSource = note.GetComponent<AudioSource>();
                 if (audioSource != null)
                 {
+                    // Debug.Log("Audio source volume: " + audioSource.volume);
+                    // Debug.Log("Distance cam-music object: " + Vector3.Distance(note.transform.position, Camera.main.transform.position));
                     // audioSource.PlayOneShot(audioSource.clip);
                     if (!audioSource.isPlaying)
                     {
                         audioSource.Play();
-                    }   
+                        Debug.Log("Music object audio played with Play()");
+                    }
                     
                     Debug.Log("Music object audio played");
                 }
