@@ -38,7 +38,7 @@ public class GenerateObjects : MonoBehaviour
             timer = 0.0f;
         }
 
-        if (notes[0].transform.position.z < 0)
+        if (notes.Count > 0 && notes[0].transform.position.z < 0)
         {
             Destroy(notes[0]);
             notes.RemoveAt(0);
