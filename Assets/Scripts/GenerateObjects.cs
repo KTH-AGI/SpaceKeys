@@ -14,9 +14,12 @@ public class GenerateObjects : MonoBehaviour
     public float[] possiblePositionsX;
     private float timer = 0.0f;
 
+    GameObject noteParent;
+
     // Start is called before the first frame update
     void Start()
     {
+        noteParent = new GameObject("notes");
         possiblePositionsX = new float[]{ -14.9f, -9f, -3.0f, 3f, 9f, 14.9f };
     }
 
@@ -30,7 +33,7 @@ public class GenerateObjects : MonoBehaviour
             int randomIndex = Random.Range(0, possiblePositionsX.Length);
             Vector3 position = new Vector3(possiblePositionsX[randomIndex], -8, 180);
             GameObject newNote = Instantiate(note, position, Quaternion.identity);
-
+            newNote.transform.parent = noteParent.transform;
             // Add the new object to the list
             notes.Add(newNote);
 
@@ -38,10 +41,12 @@ public class GenerateObjects : MonoBehaviour
             timer = 0.0f;
         }
 
-        if (notes.Count > 0 && notes[0].transform.position.z < 0)
+        if (notes.Count > 0) {
+            if (notes[0].transform.position.z < 0 || !notes[0].activeSelf)
         {
-            Destroy(notes[0]);
-            notes.RemoveAt(0);
+                Destroy(notes[0]);
+                notes.RemoveAt(0);
+            }
         }
 
 
