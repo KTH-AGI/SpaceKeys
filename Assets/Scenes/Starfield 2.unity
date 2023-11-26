@@ -966,7 +966,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9532232f18ec27343b29428a9eccd425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note: {fileID: 1146802146480907514, guid: 822fb9b53e21e6649916b243e3c313df, type: 3}
+  note1: {fileID: 1146802146480907514, guid: 822fb9b53e21e6649916b243e3c313df, type: 3}
+  note2: {fileID: 1146802146480907514, guid: 79a8074aeaf92e148931a035d2db6213, type: 3}
+  note3: {fileID: 1146802146480907514, guid: 7c12600f916291d4c895d22615e25e46, type: 3}
+  note4: {fileID: 1146802146480907514, guid: 1d974539038127a408d5355fa2327310, type: 3}
+  note5: {fileID: 1146802146480907514, guid: 96b7d5db66b1d0b4f8890e0c445e0c20, type: 3}
+  note6: {fileID: 1146802146480907514, guid: 4c38aed0d787f92438e1ae490722c67f, type: 3}
   positionZ: 180
   positionY: -8
   creationInterval: 1
