@@ -7,6 +7,7 @@ using UnityEngine.Rendering.Universal;
 
 public class LineGrid : MonoBehaviour
 {
+    [SerializeField] Material lineMaterial;
     [SerializeField] public int gridSizeX = 10;
     [SerializeField] public int gridSizeY = 10;
     [SerializeField] public int lineY = -10;
@@ -47,11 +48,14 @@ public class LineGrid : MonoBehaviour
             GameObject lineObject = new GameObject("XLine");
             LineRenderer lineRenderer = lineObject.AddComponent<LineRenderer>();
 
-            lineObject.transform.parent = lineXParent.transform; 
+            lineObject.transform.parent = lineXParent.transform;
 
-            lineRenderer.material = new Material(Shader.Find("Standard"));
-            lineRenderer.startColor = Color.white;
-            lineRenderer.endColor = Color.white;
+            //lineRenderer.material = new Material(Shader.Find("Standard"));
+            lineRenderer.material = lineMaterial;
+            //lineRenderer.material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+
+            //lineRenderer.startColor = Color.white;
+            //lineRenderer.endColor = Color.white;
             lineRenderer.startWidth = lineWidth;
             lineRenderer.endWidth = lineWidth;
 
@@ -109,9 +113,12 @@ public class LineGrid : MonoBehaviour
         lineObject.transform.parent = lineYParent.transform;
         lineRenderer.useWorldSpace = false;
 
-        lineRenderer.material = new Material(Shader.Find("Standard"));
-        lineRenderer.startColor = Color.white;
-        lineRenderer.endColor = Color.white;
+        //lineRenderer.material = new Material(Shader.Find("Standard"));
+        //lineRenderer.material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+        lineRenderer.material = lineMaterial;
+
+        //lineRenderer.startColor = Color.white;
+        //lineRenderer.endColor = Color.white;
         lineRenderer.startWidth = lineWidth;
         lineRenderer.endWidth = lineWidth;
 
