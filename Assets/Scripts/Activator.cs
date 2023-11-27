@@ -10,7 +10,7 @@ public class Activator : MonoBehaviour
     GameObject note;
     [SerializeField] GameObject player;
     
-    private AudioSource audioSource;
+    AudioSource audioSource;
 
     [SerializeField] 
     private int radarDiameter;
@@ -33,20 +33,8 @@ public class Activator : MonoBehaviour
 
             if (active && difference < radarDiameter)
             {
-                audioSource = note.GetComponent<AudioSource>();
-                if (audioSource != null)
-                {
-                    // Debug.Log("Audio source volume: " + audioSource.volume);
-                    // Debug.Log("Distance cam-music object: " + Vector3.Distance(note.transform.position, Camera.main.transform.position));
-                    // audioSource.PlayOneShot(audioSource.clip);
-                    if (!audioSource.isPlaying)
-                    {
-                        audioSource.Play();
-                        Debug.Log("Music object audio played with Play()");
-                    }
-                    
-                    Debug.Log("Music object audio played");
-                }
+                AudioSource.PlayClipAtPoint(audioSource.clip, Camera.main.transform.position);          
+                Debug.Log("Music object audio played");
                 note.SetActive(false);
                 note = null;
             }
@@ -61,6 +49,7 @@ public class Activator : MonoBehaviour
         if (col.gameObject.CompareTag("Note"))
         {
             note = col.gameObject;
+            audioSource = note.GetComponent<AudioSource>();
         }
     }
 
