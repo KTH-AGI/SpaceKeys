@@ -1,10 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GenerateObjects : MonoBehaviour
 {
-    [SerializeField] public GameObject note;
+    [SerializeField] public GameObject note1;
+    [SerializeField] public GameObject note2;
+    [SerializeField] public GameObject note3;
+    [SerializeField] public GameObject note4;
+    [SerializeField] public GameObject note5;
+    [SerializeField] public GameObject note6;
+
     [SerializeField] public float positionZ = 180;
     [SerializeField] public float positionY = -8;
     [SerializeField] public float creationInterval = 1.0f;
@@ -30,9 +37,37 @@ public class GenerateObjects : MonoBehaviour
         if (timer >= creationInterval)
         {
             // Instantiate a new object
-            int randomIndex = Random.Range(0, possiblePositionsX.Length);
+            int randomIndex = UnityEngine.Random.Range(0, possiblePositionsX.Length);
             Vector3 position = new Vector3(possiblePositionsX[randomIndex], -8, 180);
-            GameObject newNote = Instantiate(note, position, Quaternion.identity);
+
+            GameObject newNote = null;
+            switch (randomIndex)
+            {
+                case 0: 
+                    newNote = Instantiate(note1, position, Quaternion.identity);
+                    break;
+
+                case 1: 
+                    newNote = Instantiate(note2, position, Quaternion.identity);
+                    break;
+
+                case 2: 
+                    newNote = Instantiate(note3, position, Quaternion.identity);
+                    break;
+
+                case 3: 
+                    newNote = Instantiate(note4, position, Quaternion.identity);
+                    break;
+
+                case 4: 
+                    newNote = Instantiate(note5, position, Quaternion.identity);
+                    break;
+
+                case 5:
+                    newNote = Instantiate(note6, position, Quaternion.identity);
+                    break;
+            }
+
             newNote.transform.parent = noteParent.transform;
             // Add the new object to the list
             notes.Add(newNote);
