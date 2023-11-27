@@ -74,7 +74,7 @@ namespace Mediapipe.Unity
 
         if (rotation == RotationAngle.Rotation0 || rotation == RotationAngle.Rotation180)
         {
-          // rect = FlipHorizontally(rect);   // Commented out, since we want the screen to be mirrored!
+          rect = FlipHorizontally(rect);   // Commented out, since we want the screen to be mirrored!
         }
         else
         {
