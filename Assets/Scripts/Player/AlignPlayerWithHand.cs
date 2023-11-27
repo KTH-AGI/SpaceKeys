@@ -7,6 +7,8 @@ public class AlignPlayerWithHand : MonoBehaviour
     [SerializeField] private MultiHandLandmarkListAnnotation _handLandmarkListAnnotation;
     [SerializeField] private GameObject _player;
     [SerializeField] private float _playerZValue = 100;
+
+
     
     // List containing the Hand Landmarks
     private HandLandmarkListAnnotation _handLandmarkList;
@@ -26,7 +28,7 @@ public class AlignPlayerWithHand : MonoBehaviour
             var playerPosition = ModifyClippingPlane(GetPalmLocalPosition(),_playerZValue);
             playerPosition = OffsetHandLandmarks(playerPosition);
             playerPosition = Camera.main.ScreenToWorldPoint(playerPosition);
-            
+
             _player.transform.position = playerPosition;
         }
     }
