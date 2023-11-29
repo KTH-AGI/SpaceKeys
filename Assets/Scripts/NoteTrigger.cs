@@ -1,7 +1,14 @@
 using UnityEngine;
+using UnityEngine.Assertions;
 
-public class SpotlightTrigger : MonoBehaviour
+[RequireComponent(typeof(Collider))]
+public class NoteTrigger : MonoBehaviour
 {
+    private void Start()
+    {
+        Assert.IsTrue(gameObject.GetComponent<Collider>().isTrigger);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         GameObject note = other.gameObject;

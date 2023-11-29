@@ -36,7 +36,11 @@ public class AlignPlayerWithHand : MonoBehaviour
     private bool FindHands()
     {
         // No Hands found yet, can't set Hand Landmark List yet!
-        if (_handLandmarkListAnnotation.count <= 0) return false;
+        if (_handLandmarkListAnnotation.count <= 0)
+        {
+            initialized = false;
+            return false;
+        }
         
         // Hands already found and initialized!
         if (initialized) return true;
