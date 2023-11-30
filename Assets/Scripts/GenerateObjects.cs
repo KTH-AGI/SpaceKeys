@@ -38,7 +38,8 @@ public class GenerateObjects : MonoBehaviour
         {
             // Instantiate a new object
             int randomIndex = UnityEngine.Random.Range(0, possiblePositionsX.Length);
-            Vector3 position = new Vector3(possiblePositionsX[randomIndex], -8, 180);
+            int randomY = UnityEngine.Random.Range(-10, 10);
+            Vector3 position = new Vector3(possiblePositionsX[randomIndex], randomY, 180);
 
             GameObject newNote = null;
             switch (randomIndex)
