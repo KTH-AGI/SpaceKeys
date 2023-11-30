@@ -28,7 +28,7 @@ public class CircularGrid : MonoBehaviour
 
     void Start()
     {
-        gridParent = new GameObject("LineGrid");
+        gridParent = new GameObject("CircularGrid");
         lineXParent = new GameObject("XLines");
         lineZParent = new GameObject("ZLines");
         lineXParent.transform.parent = gridParent.transform;
@@ -108,9 +108,9 @@ public class CircularGrid : MonoBehaviour
 
     void createZCircle()
     {
-        GameObject lineObject = new GameObject("XLine");
+        GameObject lineObject = new GameObject("ZLine");
         LineRenderer lineRenderer = lineObject.AddComponent<LineRenderer>();
-        lineObject.transform.parent = lineXParent.transform;
+        lineObject.transform.parent = lineZParent.transform;
         lineRenderer.useWorldSpace = false;
 
         lineRenderer.material = lineMaterial;
@@ -126,7 +126,7 @@ public class CircularGrid : MonoBehaviour
             float y = Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
             
 
-            Vector3 point = new Vector3(x, y, z);
+            Vector3 point = new Vector3(x, y, 0);
             lineRenderer.SetPosition(i, point);
             if (i == 0) { lineRenderer.SetPosition(gridSize, point); }
         }
