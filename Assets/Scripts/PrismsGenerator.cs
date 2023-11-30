@@ -11,8 +11,6 @@ public class PrismsGenerator : MonoBehaviour
 
     [SerializeField] int numberOfPrisms = 20;
 
-    [SerializeField] float moveSpeed = 5.0f;
-
     GameObject prismParent;
     GameObject prismLeft;
     GameObject prismRight;
