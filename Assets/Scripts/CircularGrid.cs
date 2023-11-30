@@ -40,7 +40,7 @@ public class CircularGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //MoveGrid();
+        MoveGrid();
     }
 
 
@@ -86,24 +86,24 @@ public class CircularGrid : MonoBehaviour
     }
 
 
-    //void MoveGrid()
-    //{
-    //    for (int i = 0; i < gridZLines.Count; i++)
-    //    {
-    //        GameObject yLine = gridZLines[i];
-    //        yLine.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
-    //    }
+    void MoveGrid()
+    {
+        for (int i = 0; i < gridZLines.Count; i++)
+        {
+            GameObject yLine = gridZLines[i];
+            yLine.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+        }
 
-    //    if (gridZLines[0].transform.position.z < 0)
-    //    {
-    //        Destroy(gridZLines[0]);
-    //        gridZLines.RemoveAt(0);
+        if (gridZLines[0].transform.position.z < 0)
+        {
+            Destroy(gridZLines[0]);
+            gridZLines.RemoveAt(0);
 
-    //        createZLine();
-    //    }
+            createZCircle();
+        }
 
 
-    //}
+    }
 
 
     void createZCircle()
