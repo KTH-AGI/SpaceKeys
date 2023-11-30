@@ -2128,17 +2128,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d3162679239d444a7f5f3b69388d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineMaterial: {fileID: 2100000, guid: c2713fc2f90ae294e80557b92ee35f2a, type: 2}
+  lineMaterial: {fileID: 2100000, guid: 30a126cd06be9f746a3cd43273d40271, type: 2}
   gridSizeX: 10
   gridSizeZ: 10
-  gridSize: 10
+  gridSize: 20
   lineY: -10
   lineLengthZ: 180
   spaceBetweenXLines: 6
   spaceBetweenZLines: 20
   moveSpeed: 5
-  lineWidth: 0.8
-  radius: 10
+  lineWidth: 0.2
+  radius: 20
 --- !u!1 &1673993324
 GameObject:
   m_ObjectHideFlags: 0
