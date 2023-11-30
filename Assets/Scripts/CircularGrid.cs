@@ -111,6 +111,7 @@ public class CircularGrid : MonoBehaviour
         GameObject lineObject = new GameObject("XLine");
         LineRenderer lineRenderer = lineObject.AddComponent<LineRenderer>();
         lineObject.transform.parent = lineXParent.transform;
+        lineRenderer.useWorldSpace = false;
 
         lineRenderer.material = lineMaterial;
         lineRenderer.startWidth = lineWidth;
