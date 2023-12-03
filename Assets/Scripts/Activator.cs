@@ -1,6 +1,7 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Activator : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class Activator : MonoBehaviour
     
     AudioSource audioSource;
 
-    [SerializeField] 
-    private int radarDiameter;
+    [SerializeField] private int radarDiameter;
+
+    [SerializeField] private EventReference musicObjectSound;
 
     // Start is called before the first frame update
     void Start()
@@ -33,10 +35,7 @@ public class Activator : MonoBehaviour
 
             if (active && difference < radarDiameter)
             {
-                AudioSource.PlayClipAtPoint(audioSource.clip, Camera.main.transform.position);          
-                Debug.Log("Music object audio played");
-                note.SetActive(false);
-                note = null;
+                CollectMusicObject();
             }
         }
         
@@ -57,4 +56,15 @@ public class Activator : MonoBehaviour
     {
         active = false;
     }
+
+    void CollectMusicObject()
+    {
+        // AudioSource.PlayClipAtPoint(audioSource.clip, Camera.main.transform.position);          
+        AudioManager.instance.PlayOneShot(musicObjectSound, Camera.main.transform.position);  // change to this later?: this.transform.position
+        Debug.Log("Music object audio played");
+        note.SetActive(false);
+        note = null;
+    }
 }
+
+*/
