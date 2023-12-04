@@ -4,11 +4,35 @@ using UnityEngine;
 using FMODUnity;
 
 /**
- * Code inspired by https://www.youtube.com/watch?v=rcBHIOjZDpk
+ * Parts of code from https://github.com/shapedbyrainstudios/fmod-audio-system
 */
 
 public class FMODEvents : MonoBehaviour
 {
+    [field: Header("Background 1")]
+    [field: SerializeField] public EventReference background1 { get; private set; }
+
+    [field: Header("Background 2")]
+    [field: SerializeField] public EventReference background2 { get; private set; }
+
+    [field: Header("Background 3")]
+    [field: SerializeField] public EventReference background3 { get; private set; }
+
+    [field: Header("Drums 1")]
+    [field: SerializeField] public EventReference drums1 { get; private set; }
+
+    [field: Header("Drums 2")]
+    [field: SerializeField] public EventReference drums2 { get; private set; }
+
+    [field: Header("Bass 1")]
+    [field: SerializeField] public EventReference bass1 { get; private set; }
+
+    [field: Header("Harmony 1")]
+    [field: SerializeField] public EventReference harmony1 { get; private set; }
+
+    [field: Header("Harmony 2")]
+    [field: SerializeField] public EventReference harmony2 { get; private set; }
+    
     [field: Header("Melody Bb2")]
     [field: SerializeField] public EventReference melodyBb2 { get; private set; }
     
@@ -26,6 +50,10 @@ public class FMODEvents : MonoBehaviour
     
     [field: Header("Melody Bb3")]
     [field: SerializeField] public EventReference melodyBb3 { get; private set; }
+
+    [field: Header("Space Probe")]
+    [field: SerializeField] public EventReference spaceProbe { get; private set; }
+
 
 
     public static FMODEvents instance { get; private set; }

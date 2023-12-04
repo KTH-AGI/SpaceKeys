@@ -3,7 +3,13 @@ guid: 9532232f18ec27343b29428a9eccd425
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - note1: {instanceID: 0}
+  - note2: {instanceID: 0}
+  - note3: {instanceID: 0}
+  - note4: {instanceID: 0}
+  - note5: {instanceID: 0}
+  - spaceProbe: {fileID: 1412742708598286, guid: 18e38bc29867e4e4aa3ae695505f66cf, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
