@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708983, g: 0.37837014, b: 0.35722524, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -366,7 +366,7 @@ MonoBehaviour:
   _openGlEsConfig: {fileID: 4900000, guid: 155e81a0de3136db88c8ac8c72fad8b7, type: 3}
   _timeoutMicrosec: 50000
   modelComplexity: 1
-  maxNumHands: 1
+  maxNumHands: 2
 --- !u!114 &275874969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,7 +383,7 @@ MonoBehaviour:
   screen: {fileID: 841116734}
   graphRunner: {fileID: 275874968}
   textureFramePool: {fileID: 275874970}
-  runningMode: 0
+  runningMode: 2
   _palmDetectionsAnnotationController: {fileID: 841116733}
   _handRectsFromPalmDetectionsAnnotationController: {fileID: 841116732}
   _handLandmarksAnnotationController: {fileID: 841116731}
@@ -2133,7 +2133,6 @@ MonoBehaviour:
   note3: {fileID: 1146802146480907514, guid: 7c12600f916291d4c895d22615e25e46, type: 3}
   note4: {fileID: 1146802146480907514, guid: 1d974539038127a408d5355fa2327310, type: 3}
   note5: {fileID: 1146802146480907514, guid: 96b7d5db66b1d0b4f8890e0c445e0c20, type: 3}
-  note6: {fileID: 1146802146480907514, guid: 4c38aed0d787f92438e1ae490722c67f, type: 3}
   positionZ: 180
   positionY: -8
   creationInterval: 1
@@ -2294,7 +2293,6 @@ MonoBehaviour:
   spaceBetweenPrisms: 10
   prism: {fileID: 3350511565390735610, guid: 3457baa2d6db6ca449d34701af6139eb, type: 3}
   numberOfPrisms: 30
-  moveSpeed: 5
 --- !u!4 &1921044101
 Transform:
   m_ObjectHideFlags: 0
