@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     private List<EventInstance> eventInstances;
     private List<StudioEventEmitter> eventEmitters;
     private EventInstance eventInstance;
+    private StudioEventEmitter eventEmitter;
     public static AudioManager instance { get; private set; }
 
     private void Awake()
@@ -58,7 +59,27 @@ public class AudioManager : MonoBehaviour
         eventInstance.start();
     }
 
+    public void SetEventInstanceParameter(EventReference eventReference, string parameterName, float parameterValue)
+    {
+        eventInstance = CreateInstance(eventReference);
+        eventInstance.setParameterByName(parameterName, parameterValue);
+    }
 
+    public void SetParameterForSeconds(string parameterName, float parameterStartValue, float parameterEndValue, float seconds)
+    {
+        RuntimeManager.StudioSystem.setParameterByName(parameterName, parameterStartValue);
+        Debug.Log(parameterName + " set to " + parameterStartValue + " for " + seconds + " seconds, with reset value " + parameterEndValue);
+        StartCoroutine(SetParameterAfterDelay(parameterName, parameterEndValue, seconds));
+    }
+    private System.Collections.IEnumerator SetParameterAfterDelay(string parameterName, float parameterEndValue, float delay)
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
+
+        // Set the parameter after the delay
+        RuntimeManager.StudioSystem.setParameterByName(parameterName, parameterEndValue);
+        Debug.Log(parameterName + " reset to " + parameterEndValue);
+    }
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
@@ -88,9 +109,9 @@ public class AudioManager : MonoBehaviour
             eventInstance.release();
         }
         // stop all of the event emitters, because if we don't they may hang around in other scenes
-        foreach (StudioEventEmitter emitter in eventEmitters)
+        foreach (StudioEventEmitter eventEmitter in eventEmitters)
         {
-            emitter.Stop();
+            eventEmitter.Stop();
         }
     }
 

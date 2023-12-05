@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{55e1f11c-49ea-4323-acc1-e7a250db8925}">
+		<property name="name">
+			<value>Low-Pass Threshold</value>
+		</property>
+		<relationship name="folder">
+			<destination>{30f64823-f7d4-4662-a11c-1d691051ac8c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3f066eef-dc38-4c68-9614-2d9604f8623a}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3f066eef-dc38-4c68-9614-2d9604f8623a}">
+		<property name="minimum">
+			<value>10</value>
+		</property>
+		<property name="maximum">
+			<value>22000</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>22000</value>
+		</property>
+		<property name="seekSpeed">
+			<value>5800</value>
+		</property>
+		<property name="seekSpeedDescending">
+			<value>18400</value>
+		</property>
+		<property name="seekSpeedAsymmetric">
+			<value>true</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
