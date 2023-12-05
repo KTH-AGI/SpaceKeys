@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Note
+  - Global Resource
+  - Star
+  - Melody Bb2
+  - Melody Db3
+  - Melody Eb3
+  - Melody F3
+  - Melody Ab3
+  - Melody Bb3
   layers:
   - Default
   - TransparentFX

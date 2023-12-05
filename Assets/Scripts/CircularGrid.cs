@@ -28,7 +28,7 @@ public class CircularGrid : MonoBehaviour
 
     void Start()
     {
-        gridParent = new GameObject("LineGrid");
+        gridParent = new GameObject("CircularGrid");
         lineXParent = new GameObject("XLines");
         lineZParent = new GameObject("ZLines");
         lineXParent.transform.parent = gridParent.transform;
@@ -40,7 +40,7 @@ public class CircularGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //MoveGrid();
+        MoveGrid();
     }
 
 
@@ -86,31 +86,32 @@ public class CircularGrid : MonoBehaviour
     }
 
 
-    //void MoveGrid()
-    //{
-    //    for (int i = 0; i < gridZLines.Count; i++)
-    //    {
-    //        GameObject yLine = gridZLines[i];
-    //        yLine.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
-    //    }
+    void MoveGrid()
+    {
+        for (int i = 0; i < gridZLines.Count; i++)
+        {
+            GameObject yLine = gridZLines[i];
+            yLine.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+        }
 
-    //    if (gridZLines[0].transform.position.z < 0)
-    //    {
-    //        Destroy(gridZLines[0]);
-    //        gridZLines.RemoveAt(0);
+        if (gridZLines[0].transform.position.z < 0)
+        {
+            Destroy(gridZLines[0]);
+            gridZLines.RemoveAt(0);
 
-    //        createZLine();
-    //    }
+            createZCircle();
+        }
 
 
-    //}
+    }
 
 
     void createZCircle()
     {
-        GameObject lineObject = new GameObject("XLine");
+        GameObject lineObject = new GameObject("ZLine");
         LineRenderer lineRenderer = lineObject.AddComponent<LineRenderer>();
-        lineObject.transform.parent = lineXParent.transform;
+        lineObject.transform.parent = lineZParent.transform;
+        lineRenderer.useWorldSpace = false;
 
         lineRenderer.material = lineMaterial;
         lineRenderer.startWidth = lineWidth;
@@ -125,7 +126,7 @@ public class CircularGrid : MonoBehaviour
             float y = Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
             
 
-            Vector3 point = new Vector3(x, y, z);
+            Vector3 point = new Vector3(x, y, 0);
             lineRenderer.SetPosition(i, point);
             if (i == 0) { lineRenderer.SetPosition(gridSize, point); }
         }
