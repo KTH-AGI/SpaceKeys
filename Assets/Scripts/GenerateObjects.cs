@@ -10,6 +10,8 @@ public class GenerateObjects : MonoBehaviour
     [SerializeField] public GameObject note3;
     [SerializeField] public GameObject note4;
     [SerializeField] public GameObject note5;
+    [SerializeField] public GameObject note6;
+    [SerializeField] public GameObject note7;
 
     [SerializeField] public float positionZ = 180;
     [SerializeField] public float positionY = -8;
@@ -26,7 +28,7 @@ public class GenerateObjects : MonoBehaviour
     void Start()
     {
         noteParent = new GameObject("notes");
-        possiblePositionsX = new float[]{ -12f, -6f, 0, 6f, 12f };
+        possiblePositionsX = new float[]{ -12f, -8f, -4f, 0, 4f, 8f, 12f };
     }
 
     // Update is called once per frame
@@ -38,6 +40,7 @@ public class GenerateObjects : MonoBehaviour
             // Instantiate a new object
             int randomIndex = UnityEngine.Random.Range(0, possiblePositionsX.Length);
             int randomY = UnityEngine.Random.Range(-10, 10);
+            
             Vector3 position = new Vector3(possiblePositionsX[randomIndex], randomY, 180);
 
             GameObject newNote = null;
@@ -61,6 +64,15 @@ public class GenerateObjects : MonoBehaviour
 
                 case 4: 
                     newNote = Instantiate(note5, position, Quaternion.identity);
+                    break;
+
+                case 5:
+                    newNote = Instantiate(note6, position, Quaternion.identity);
+                    break;
+
+                case 6:
+                    Debug.Log(randomIndex);
+                    newNote = Instantiate(note7, position, Quaternion.identity);
                     break;
             }
 
