@@ -33,6 +33,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Harmony 2")]
     [field: SerializeField] public EventReference harmony2 { get; private set; }
     
+    [field: Header("Melody Ab2")]
+    [field: SerializeField] public EventReference melodyAb2 { get; private set; }
+    
     [field: Header("Melody Bb2")]
     [field: SerializeField] public EventReference melodyBb2 { get; private set; }
     

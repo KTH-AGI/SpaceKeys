@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{bc4eebc7-c734-4b3f-afb6-693c9f41810d}">
+		<property name="name">
+			<value>Melody Low-Pass Threshold</value>
+		</property>
+		<relationship name="folder">
+			<destination>{30f64823-f7d4-4662-a11c-1d691051ac8c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{86425680-3331-4583-ad00-4f83c70cb712}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{86425680-3331-4583-ad00-4f83c70cb712}">
+		<property name="minimum">
+			<value>10</value>
+		</property>
+		<property name="maximum">
+			<value>22000</value>
+		</property>
+		<property name="initialValue">
+			<value>22000</value>
+		</property>
+		<property name="seekSpeed">
+			<value>5800</value>
+		</property>
+		<property name="seekSpeedDescending">
+			<value>18400</value>
+		</property>
+		<property name="seekSpeedAsymmetric">
+			<value>true</value>
+		</property>
+	</object>
+</objects>

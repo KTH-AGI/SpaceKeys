@@ -67,14 +67,14 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 620b29b7b5cac0a42be247eb7a4227c8, type: 2}
+      objectReference: {fileID: 2100000, guid: d66a62836944f4904a43acf37d96a650, type: 2}
     - target: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_Name
-      value: Star1
+      value: Nebula
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_TagString
-      value: Melody Ab3
+      value: Reverb
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -89,22 +89,22 @@ PrefabInstance:
       addedObject: {fileID: 7374516539849286337}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4181871936602595687}
+      addedObject: {fileID: -7514493978278311588}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6890827725994513798}
+      addedObject: {fileID: 8316920706836630403}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -1704289428759262716}
+      addedObject: {fileID: -410230277668956484}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8469858627877777501}
+      addedObject: {fileID: 5233633473731254171}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -6469803615754837818}
+      addedObject: {fileID: -8073584140084250127}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -2904261243013601970}
+      addedObject: {fileID: -7520347585540383452}
   m_SourcePrefab: {fileID: 100100000, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
 --- !u!1 &5893724041772628928 stripped
 GameObject:
@@ -227,7 +227,7 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &-4181871936602595687
+--- !u!114 &-7514493978278311588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: -10
---- !u!54 &6890827725994513798
+--- !u!54 &8316920706836630403
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,7 +267,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-1704289428759262716
+--- !u!65 &-410230277668956484
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +288,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.041181557, y: 0.045598134, z: 0.049060196}
   m_Center: {x: 0.00054011587, y: -0.0027974462, z: 0.0007347651}
---- !u!114 &-8469858627877777501
+--- !u!114 &5233633473731254171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,7 +319,7 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &-6469803615754837818
+--- !u!114 &-8073584140084250127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ea82b12fd884b1eb7a943a418d573f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2904261243013601970
+--- !u!114 &-7520347585540383452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,12 +340,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5893724041772628928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87db39d67b84d45865ac23182982fe, type: 3}
+  m_Script: {fileID: 11500000, guid: b7c19e5863bef4f92b940c7a10799c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missedNoteMaterial: {fileID: 2100000, guid: ffd02689fa14d26419fda6526baf6ea3, type: 2}
-  lightMaterial: {fileID: 2100000, guid: 620b29b7b5cac0a42be247eb7a4227c8, type: 2}
-  moveSpeed: 5
-  lineWidth: 0.3
-  zSpawn: 50
-  playerPosition: 25
+  selectedEffect: 0
