@@ -1024,10 +1024,10 @@ PrefabInstance:
       addedObject: {fileID: 973902680}
     - targetCorrespondingSourceObject: {fileID: 5193750821564920115, guid: 02f380e6cf9dec14c8565b8a442eff47, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 973902684}
+      addedObject: {fileID: 973902687}
     - targetCorrespondingSourceObject: {fileID: 5193750821564920115, guid: 02f380e6cf9dec14c8565b8a442eff47, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 973902687}
+      addedObject: {fileID: 973902688}
   m_SourcePrefab: {fileID: 100100000, guid: 02f380e6cf9dec14c8565b8a442eff47, type: 3}
 --- !u!1 &973902678 stripped
 GameObject:
@@ -1046,7 +1046,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f79017dbee26043a3499907b1dea1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &973902684
+--- !u!114 &973902687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973902678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87db39d67b84d45865ac23182982fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightMaterial: {fileID: 2100000, guid: 3e92b9cc9c4037444a03f4604d52e467, type: 2}
+  moveSpeed: 5
+  lineWidth: 1
+  zSpawn: 50
+  playerPosition: 0
+--- !u!65 &973902688
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1065,24 +1082,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 52.721462, y: 17.520857, z: 23.593721}
-  m_Center: {x: 0.5434799, y: 6.484158, z: 11.296859}
---- !u!114 &973902687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973902678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87db39d67b84d45865ac23182982fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightMaterial: {fileID: 2100000, guid: 3e92b9cc9c4037444a03f4604d52e467, type: 2}
-  moveSpeed: 5
-  lineWidth: 1
-  zSpawn: 50
+  m_Size: {x: 50, y: 20, z: 10}
+  m_Center: {x: 0, y: 1, z: -5}
 --- !u!1001 &1001273722
 PrefabInstance:
   m_ObjectHideFlags: 0
