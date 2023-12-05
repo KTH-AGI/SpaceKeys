@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3e92b9cc9c4037444a03f4604d52e467, type: 2}
+      objectReference: {fileID: 2100000, guid: 8e94ed33603bcda4eac5613506291d55, type: 2}
     - target: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_Name
       value: StarEb3
@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87db39d67b84d45865ac23182982fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightMaterial: {fileID: 2100000, guid: 3e92b9cc9c4037444a03f4604d52e467, type: 2}
+  lightMaterial: {fileID: 2100000, guid: 8e94ed33603bcda4eac5613506291d55, type: 2}
   moveSpeed: 5
   lineWidth: 0.3
+  zSpawn: 50
