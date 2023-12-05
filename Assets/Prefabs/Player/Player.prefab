@@ -83,7 +83,7 @@ PrefabInstance:
     - target: {fileID: 2400143401217904245, guid: 380cbd36ec8086b47a91260418fddde8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ff8bd5db80ca2d140aef1dd7102105ac, type: 2}
+      objectReference: {fileID: 2100000, guid: 3e92b9cc9c4037444a03f4604d52e467, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b10bca162dadd741bee7a09c6768df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -18
-  maxX: 18
-  minZ: -5
-  maxZ: 5
-  moveSpeed: 20
+  minX: -20
+  maxX: 20
+  minZ: -20
+  maxZ: 20
+  moveSpeed: 30

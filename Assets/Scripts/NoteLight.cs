@@ -11,6 +11,7 @@ public class NoteLight : MonoBehaviour
     [SerializeField] float moveSpeed = 5.0f;
     [SerializeField] float lineWidth = 0.5f;
     [SerializeField] int zSpawn = 50;
+    [SerializeField] int playerPosition = 25;
     GameObject circularLight;
 
     //LineRenderer lineRenderer;
@@ -25,7 +26,7 @@ public class NoteLight : MonoBehaviour
     void Update()
     {
         float zPosition = transform.position.z;
-        if (zPosition < zSpawn)
+        if (zPosition < zSpawn && zPosition > playerPosition) //25 is the player position, need to change this later
         {
             circularLight.SetActive(true);
             LineRenderer lineRenderer = circularLight.GetComponent<LineRenderer>();
@@ -41,9 +42,8 @@ public class NoteLight : MonoBehaviour
                 if (i == 0) { lineRenderer.SetPosition(gridSize, point); }
             }
         }
+        else { circularLight.SetActive(false); }
         
-
-
     }
 
 
