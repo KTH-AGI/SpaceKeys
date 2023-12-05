@@ -496,7 +496,7 @@ MonoBehaviour:
   sourceProjectPath: Assets/FMOD Studio/SpaceKeys/SpaceKeys.fspro
   sourceBankPath: Assets/FMOD Studio/SpaceKeys/Build
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -533,7 +533,7 @@ MonoBehaviour:
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131609
-  HideSetupWizard: 0
+  HideSetupWizard: 1
   LastEventReferenceScanVersion: 131609
   Platforms:
   - {fileID: -10936621254022785}
