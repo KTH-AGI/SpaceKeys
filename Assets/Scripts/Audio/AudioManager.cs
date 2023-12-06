@@ -59,12 +59,6 @@ public class AudioManager : MonoBehaviour
         eventInstance.start();
     }
 
-    public void SetEventInstanceParameter(EventReference eventReference, string parameterName, float parameterValue)
-    {
-        eventInstance = CreateInstance(eventReference);
-        eventInstance.setParameterByName(parameterName, parameterValue);
-    }
-
     public void SetParameterForSeconds(string parameterName, float parameterStartValue, float parameterEndValue, float seconds)
     {
         RuntimeManager.StudioSystem.setParameterByName(parameterName, parameterStartValue);
@@ -80,9 +74,20 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.StudioSystem.setParameterByName(parameterName, parameterEndValue);
         Debug.Log(parameterName + " reset to " + parameterEndValue);
     }
-    public void PlayOneShot(EventReference sound, Vector3 worldPos)
+    public void SetParameterAndPlay(EventReference sound, string parameterName, float parameterValue)  // Vector3 worldPos, 
     {
-        RuntimeManager.PlayOneShot(sound, worldPos);
+        // Set parameter
+        eventInstance = CreateInstance(sound);
+        eventInstance.setParameterByName(parameterName, parameterValue);
+
+        // Log to make sure the value is set correctly
+        float setParameterValue;
+        eventInstance.getParameterByName(parameterName, out setParameterValue);
+        Debug.Log(parameterName + " is set to " + setParameterValue);
+
+        // Play audio
+        // RuntimeManager.PlayOneShot(sound, worldPos);
+        eventInstance.start();
     }
 
     public EventInstance CreateInstance(EventReference eventReference)
