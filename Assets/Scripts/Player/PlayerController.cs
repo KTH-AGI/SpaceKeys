@@ -25,18 +25,21 @@ public class PlayerController : MonoBehaviour
     private bool isLeftFistMade = false;
     private bool isRightFistMade = false;
     
-    
     public delegate void FistDetectedHandler(bool isFistMade); 
     public event FistDetectedHandler OnFistDetected;
 
     void Update()
     {
         // Find hand position first before updating player position
-        if (FindHands())
+        if (FindHands()) 
         {
-            AlignPlayer();
+            if (!GameManager.Instance.IsGamePaused)
+            {
+                AlignPlayer();
+            }
             FistDetection();
         }
+
     }
 
     private void AlignPlayer()
@@ -239,12 +242,14 @@ public class PlayerController : MonoBehaviour
 
     void OnGUI()
     {
+        GUIStyle myLabelStyle = new GUIStyle(GUI.skin.label);
+        myLabelStyle.fontSize = 30; 
         // Display the ratios on the GUI
         /*GUI.Label(new Rect(120, 10, 300, 20), $"Ratio Index Base/Tip: {ratioIndex}");
         GUI.Label(new Rect(120, 30, 300, 20), $"Ratio Middle Base/Tip: {ratioMiddle}");
         GUI.Label(new Rect(120, 50, 300, 20), $"Ratio Ring Base/Tip: {ratioRing}");
         GUI.Label(new Rect(120, 70, 300, 20), $"Ratio Pinky Base/Tip: {ratioPinky}");*/
-        GUI.Label(new Rect(120, 10, 300, 20), $"Left Hand Is Fist: {isLeftFistMade}");
-        GUI.Label(new Rect(120, 30, 300, 20), $"Right Hand Is Fist: {isRightFistMade}");
+        GUI.Label(new Rect(20, 10, 500, 50), $"Left Hand Is Fist: {isLeftFistMade}", myLabelStyle);
+        GUI.Label(new Rect(20, 60, 500, 50), $"Right Hand Is Fist: {isRightFistMade}", myLabelStyle);
     }
 }
