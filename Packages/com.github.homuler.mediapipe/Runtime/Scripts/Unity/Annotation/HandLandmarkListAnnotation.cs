@@ -28,6 +28,8 @@ namespace Mediapipe.Unity
       Right,
     }
 
+    private string _handedness;
+
     private const int _LandmarkCount = 21;
     private readonly List<(int, int)> _connections = new List<(int, int)> {
       (0, 1),
@@ -80,7 +82,12 @@ namespace Mediapipe.Unity
       _landmarkListAnnotation.Fill(_LandmarkCount);
       _connectionListAnnotation.Fill(_connections, _landmarkListAnnotation);
     }
-
+    
+    public string GetHandedness()
+    {
+      return _handedness;
+    }
+    
     public void SetLeftLandmarkColor(Color leftLandmarkColor)
     {
       _leftLandmarkColor = leftLandmarkColor;
@@ -111,20 +118,22 @@ namespace Mediapipe.Unity
       if (handedness == Hand.Left)
       {
         _landmarkListAnnotation.SetColor(_leftLandmarkColor);
+        _handedness = "left";
       }
       else if (handedness == Hand.Right)
       {
         _landmarkListAnnotation.SetColor(_rightLandmarkColor);
+        _handedness = "right";
       }
     }
 
     public void SetHandedness(IReadOnlyList<Classification> handedness)
     {
-      if (handedness == null || handedness.Count == 0 || handedness[0].Label == "Left")
+      if (handedness == null || handedness.Count == 0 || handedness[0].Label == "Left"+"\r")
       {
         SetHandedness(Hand.Left);
       }
-      else if (handedness[0].Label == "Right")
+      else if (handedness[0].Label == "Right"+"\r")
       {
         SetHandedness(Hand.Right);
       }
