@@ -54,6 +54,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 1
     - _FresnelPower: 2
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -62,9 +63,9 @@ Material:
     - _SphereRadius: 0.5
     - _VertexFrequency: 5
     m_Colors:
-    - _BackColor: {r: 0.0039017706, g: 0.009105796, b: 0.019236635, a: 0.24705882}
-    - _FresnelColor: {r: 1.0575602, g: 0.28630838, b: 2.639016, a: 1}
-    - _FrontColor: {r: 0, g: 56.59386, b: 1351.1758, a: 1}
+    - _BackColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FresnelColor: {r: 0.89411765, g: 0.3405433, b: 0.1254902, a: 1}
+    - _FrontColor: {r: 4.541207, g: 0.96238387, b: 0, a: 1}
     - _SphereCenter: {r: 0, g: 0, b: 0, a: 0}
-    - _VertexAmount: {r: 0.02, g: 0.02, b: 0.02, a: 0}
+    - _VertexAmount: {r: 0.05, g: 0.05, b: 0.05, a: 0}
   m_BuildTextureStacks: []
