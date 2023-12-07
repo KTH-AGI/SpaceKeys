@@ -65,7 +65,7 @@ Material:
     m_Colors:
     - _BackColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 0.89411765, g: 0.3405433, b: 0.1254902, a: 1}
-    - _FrontColor: {r: 4.541207, g: 0.96238387, b: 0, a: 1}
+    - _FrontColor: {r: 2.2706034, g: 0.48119193, b: 0, a: 0.69411767}
     - _SphereCenter: {r: 0, g: 0, b: 0, a: 0}
     - _VertexAmount: {r: 0.05, g: 0.05, b: 0.05, a: 0}
   m_BuildTextureStacks: []
