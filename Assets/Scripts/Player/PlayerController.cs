@@ -89,8 +89,19 @@ public class PlayerController : MonoBehaviour
         if (initialized) return true;
 
         // Found hands! Initialize Lists and Screen Size
-        _handLandmarkListLeftHand = _handLandmarkListAnnotation[0];
-        _handLandmarkListRightHand = _handLandmarkListAnnotation[1];
+        for (int i = 0; i < 2; i++)
+        {
+            HandLandmarkListAnnotation hand = _handLandmarkListAnnotation[i];
+            if(hand.GetHandedness()=="left")
+            {
+                _handLandmarkListLeftHand = hand;
+            }
+            else if(hand.GetHandedness()=="right")
+            {
+                _handLandmarkListRightHand = hand;
+            }
+        }
+
         InitializeScreenDimensions();
         initialized = true;
         return true;
