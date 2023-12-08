@@ -888,7 +888,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handLandmarkListAnnotation: {fileID: 1465467706}
-  _player: {fileID: 973902678}
+  _playerLeft: {fileID: 0}
+  _playerRight: {fileID: 0}
   _playerZValue: 32
 --- !u!1 &1223870913
 GameObject:
@@ -1342,14 +1343,12 @@ MonoBehaviour:
   lineMaterial: {fileID: 2100000, guid: 30a126cd06be9f746a3cd43273d40271, type: 2}
   gridSizeX: 10
   gridSizeZ: 10
-  gridSize: 20
   lineY: -10
   lineLengthZ: 180
   spaceBetweenXLines: 6
   spaceBetweenZLines: 20
   moveSpeed: 5
   lineWidth: 0.2
-  radius: 20
 --- !u!1 &1673993324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1398,8 @@ MonoBehaviour:
   note3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
   note4: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
   note5: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
+  note6: {fileID: 0}
+  note7: {fileID: 0}
   positionZ: 180
   positionY: -8
   creationInterval: 1

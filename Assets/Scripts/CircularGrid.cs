@@ -12,14 +12,16 @@ public class CircularGrid : MonoBehaviour
     [SerializeField] Material lineMaterial;
     [SerializeField] public int gridSizeX = 10;
     [SerializeField] public int gridSizeZ = 10;
-    [SerializeField] public int gridSize = 10;
+    
     [SerializeField] public int lineY = -10;
     [SerializeField] public int lineLengthZ = 150;
     [SerializeField] float spaceBetweenXLines = 0.1f;
     [SerializeField] float spaceBetweenZLines = 0.1f;
     [SerializeField] float moveSpeed = 5.0f; // Speed of grid movement
     [SerializeField] float lineWidth = 0.3f;
-    [SerializeField] float radius = 10f;
+
+    public static int gridSize = 10;
+    public static float radius = 20;
 
     GameObject gridParent;
     GameObject lineXParent;
@@ -134,5 +136,6 @@ public class CircularGrid : MonoBehaviour
         lineObject.transform.Translate(0, 0, z);
         gridZLines.Add(lineObject);
     }
+
 
 }

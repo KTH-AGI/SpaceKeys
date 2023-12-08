@@ -25,12 +25,63 @@
 	</object>
 	<object class="MixerBusPanner" id="{3f644835-8789-4d65-b264-69aecab51fde}" />
 	<object class="SFXReverbEffect" id="{96be4e05-eba2-4889-ad14-5f3ab13e589f}">
+		<property name="decayTime">
+			<value>6000</value>
+		</property>
+		<property name="lowShelfGain">
+			<value>-2</value>
+		</property>
+		<property name="highCut">
+			<value>5400</value>
+		</property>
 		<property name="wetLevel">
 			<value>0</value>
 		</property>
 		<property name="dryLevel">
 			<value>-80</value>
 		</property>
+		<relationship name="automators">
+			<destination>{7414cf1b-a507-4c42-8cf6-ea46244e193d}</destination>
+		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{9275c543-ad5e-4e63-a9d1-889c73005c96}" />
+	<object class="Automator" id="{7414cf1b-a507-4c42-8cf6-ea46244e193d}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>wetLevel</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{6606cc8d-f90f-434a-a6ee-8ab36029326b}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{6606cc8d-f90f-434a-a6ee-8ab36029326b}">
+		<relationship name="parameter">
+			<destination>{5f2bb7c8-82d9-4380-8beb-2f7982815eac}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{f6d746e2-0f64-4d01-aa9a-50b7e291ebaa}</destination>
+			<destination>{27374112-8e86-423d-83f9-14446a63de50}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{f6d746e2-0f64-4d01-aa9a-50b7e291ebaa}">
+		<property name="position">
+			<value>0.0098870056497175132</value>
+		</property>
+		<property name="value">
+			<value>-80</value>
+		</property>
+		<property name="curveShape">
+			<value>0.5</value>
+		</property>
+		<property name="isSCurve">
+			<value>true</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{27374112-8e86-423d-83f9-14446a63de50}">
+		<property name="position">
+			<value>0.99011299435028244</value>
+		</property>
+		<property name="value">
+			<value>-3</value>
+		</property>
+	</object>
 </objects>

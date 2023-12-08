@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{19c711f0-3a9c-47a9-8409-88aba2f65142}">
+		<property name="name">
+			<value>Reverb Wetness</value>
+		</property>
+		<relationship name="folder">
+			<destination>{30f64823-f7d4-4662-a11c-1d691051ac8c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{5f2bb7c8-82d9-4380-8beb-2f7982815eac}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{5f2bb7c8-82d9-4380-8beb-2f7982815eac}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeedDescending">
+			<value>4</value>
+		</property>
+		<property name="seekSpeedAsymmetric">
+			<value>true</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
