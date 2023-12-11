@@ -10,7 +10,7 @@ public class AsteroidField_Animation : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            float torqueValue = Random.Range(1.0f, 40.0f);
+            float torqueValue = Random.Range(2.0f, 40.0f);
             Vector3 randomDirection = Random.onUnitSphere;
 
             // Ensure the random direction is not the same as transform.up
