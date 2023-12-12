@@ -4,37 +4,66 @@ using UnityEngine;
 
 public class Sequence
 {
-    public static MusicObjectInfo[] sequence = new MusicObjectInfo[2000];
+    private static int lenghtOfSongInSamples = 2000;
+    public static MusicObjectInfo[] sequence = new MusicObjectInfo[lenghtOfSongInSamples];
+    private static float playerZ;
+
+    // The offset in number of seconds
+    private static float timeOffset;
+    // / interval between samples
+    public static int offset;
+    private static float sixteenthTime = GenerateObjects.creationInterval;
+
+    playerZ = 25f;  //GameObject.FindWithTag("Player").transform.position.z;
+    private static float additionalOffset = 23f;
+
+    void Awake() {
+        timeOffset = (GenerateObjects.positionZ - playerZ) * MusicObjectMovement.movementSpeed;
+        offset = (int)((timeOffset + additionalOffset) / sixteenthTime);
+    }
 
     static Sequence()
     {
         // Intro
-        sequence[1] = new MusicObjectInfo("StarBb2", 0.5f);
-        sequence[2] = new MusicObjectInfo("StarAb2", 0.5f);
-        sequence[3] = new MusicObjectInfo("StarEb3", 0.5f);
-        sequence[4] = new MusicObjectInfo("StarBb2", 0.5f);
-        //sequence[31] = new MusicObjectInfo("Asteroid Field", 0.5f);
-        //sequence[63] = new MusicObjectInfo("Asteroid Field", 0.5f);
-        //sequence[95] = new MusicObjectInfo("Supernova", 0.5f);
-        //sequence[159] = new MusicObjectInfo("Star Cluster Big 1", 0.5f);
-        //sequence[223] = new MusicObjectInfo("Star Cluster Big 2", 0.5f);
+        // sequence[musicNotationToOffsetSample(3, 1)] = new MusicObjectInfo("Asteroid Field", 0.5f);
+        //sequence[musicNotationToOffsetSample(5, 1)] = new MusicObjectInfo("Asteroid Field", 0.5f);
+        //sequence[musicNotationToOffsetSample(7, 1)] = new MusicObjectInfo("Supernova", 0.5f);
+        //sequence[musicNotationToOffsetSample(11, 1)] = new MusicObjectInfo("Star Cluster Big 1", 0.5f);
+        //sequence[musicNotationToOffsetSample(15, 1)] = new MusicObjectInfo("Star Cluster Big 2", 0.5f);
 
         // Verse
-        sequence[286] = new MusicObjectInfo("StarBb2", 0.3f );
-        sequence[299] = new MusicObjectInfo("StarAb2", 0.3f );
-        sequence[303] = new MusicObjectInfo("StarBb2", 0.3f );
-        sequence[319] = new MusicObjectInfo("StarEb3", 0.3f );
-        sequence[335] = new MusicObjectInfo("StarDb3", 0.3f );
-        sequence[347] = new MusicObjectInfo("StarAb2", 0.3f );
+        sequence[musicNotationToOffsetSample(19, 1)] = new MusicObjectInfo("StarBb2", 0.3f);
+        sequence[musicNotationToOffsetSample(19, 4)] = new MusicObjectInfo("StarAb2", 0.3f);
+        sequence[musicNotationToOffsetSample(20, 1)] = new MusicObjectInfo("StarBb2", 0.3f);
+        sequence[musicNotationToOffsetSample(21, 1)] = new MusicObjectInfo("StarEb3", 0.3f);
+        sequence[musicNotationToOffsetSample(22, 1)] = new MusicObjectInfo("StarC3", 0.3f);
+        sequence[musicNotationToOffsetSample(22, 4)] = new MusicObjectInfo("StarAb2", 0.3f);
 
-        sequence[351] = new MusicObjectInfo("StarBb2", 0.3f );
-        sequence[363] = new MusicObjectInfo("StarAb2", 0.35f );
-        sequence[367] = new MusicObjectInfo("StarBb2", 0.38f );
-        sequence[383] = new MusicObjectInfo("StarEb3", 0.45f );
-        sequence[399] = new MusicObjectInfo("StarDb3", 0.5f );
-        sequence[411] = new MusicObjectInfo("StarAb2", 0.55f );
+        sequence[musicNotationToOffsetSample(23, 1)] = new MusicObjectInfo("StarBb2", 0.3f);
+        sequence[musicNotationToOffsetSample(23, 4)] = new MusicObjectInfo("StarAb2", 0.35f);
+        sequence[musicNotationToOffsetSample(24, 1)] = new MusicObjectInfo("StarBb2", 0.38f);
+        sequence[musicNotationToOffsetSample(25, 1)] = new MusicObjectInfo("StarEb3", 0.45f);
+        sequence[musicNotationToOffsetSample(26, 1)] = new MusicObjectInfo("StarC3", 0.5f);
+        sequence[musicNotationToOffsetSample(26, 4)] = new MusicObjectInfo("StarAb2", 0.55f);
 
-        sequence[415] = new MusicObjectInfo("StarBb2", 0.58f );
+        sequence[musicNotationToOffsetSample(27, 1)] = new MusicObjectInfo("StarBb2", 0.58f);
+    }
+
+    /* Input time at which the audio should be triggered, returns corresponding offset sample 
+    bar, beat and sixteenth are 1-indexed 
+    offset is to compensate for the distance between spawning position and player position */
+    private static int musicNotationToOffsetSample(int bar, int beat, int sixteenth = 0)
+    {
+        float timeInSeconds = (float)(bar - 1) * sixteenthTime * 16 + (float)(beat - 1) * sixteenthTime * 4 + (float)(sixteenth - 1) * sixteenthTime;
+        int offsetSample = (int) (timeInSeconds / sixteenthTime) + offset - 1;
+        if (offsetSample >= 0)
+        {
+            return offsetSample;
+        }
+        else
+        {
+            return lenghtOfSongInSamples;  // TODO: change this later to a better solution
+        }
     }
 
 }

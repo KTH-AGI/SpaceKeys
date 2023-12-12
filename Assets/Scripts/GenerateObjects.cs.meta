@@ -4,12 +4,13 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - note1: {instanceID: 0}
-  - note2: {instanceID: 0}
-  - note3: {instanceID: 0}
-  - note4: {instanceID: 0}
-  - note5: {instanceID: 0}
-  - spaceProbe: {fileID: 1412742708598286, guid: 18e38bc29867e4e4aa3ae695505f66cf, type: 3}
+  - StarAb2: {fileID: 5893724041772628928, guid: fe12ab985e600af418cba97dd5c661ed, type: 3}
+  - StarBb2: {fileID: 5893724041772628928, guid: 8dfb554187516d34a996df4fb9ceb08e, type: 3}
+  - StarDb3: {fileID: 5893724041772628928, guid: 7f46f89a217e4504c8939543520fd3da, type: 3}
+  - StarEb3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
+  - StarF3: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
+  - StarAb3: {instanceID: 0}
+  - StarBb3: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

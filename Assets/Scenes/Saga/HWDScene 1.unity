@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311932, g: 0.38073996, b: 0.3587271, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -411,12 +411,12 @@ GameObject:
   m_Component:
   - component: {fileID: 328897173}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: Managers old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &328897173
 Transform:
   m_ObjectHideFlags: 0
@@ -795,6 +795,13 @@ MonoBehaviour:
       Data3: -14653553
       Data4: -944186534
     Path: event:/Level1/Melody/Melody-Bb2
+  <melodyC3>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <melodyDb3>k__BackingField:
     Guid:
       Data1: 245994585
@@ -816,6 +823,13 @@ MonoBehaviour:
       Data3: 463528071
       Data4: 614777422
     Path: event:/Level1/Melody/Melody-F3
+  <melodyGb3>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <melodyAb3>k__BackingField:
     Guid:
       Data1: 555188312
@@ -1168,6 +1182,103 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6521606326646808954, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
   m_PrefabInstance: {fileID: 1185015033}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1145612381
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842623569456624942, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507367428111801968, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: m_Name
+      value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyC3>k__BackingField.Path
+      value: event:/Level1/Melody/Melody-C3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyGb3>k__BackingField.Path
+      value: event:/Level1/Melody/Melody-Gb3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyC3>k__BackingField.Guid.Data1
+      value: -1596581215
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyC3>k__BackingField.Guid.Data2
+      value: 1158122461
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyC3>k__BackingField.Guid.Data3
+      value: -1551806300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyC3>k__BackingField.Guid.Data4
+      value: -2086464906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyGb3>k__BackingField.Guid.Data1
+      value: 200678615
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyGb3>k__BackingField.Guid.Data2
+      value: 1227985028
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyGb3>k__BackingField.Guid.Data3
+      value: -2031234129
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754151872407537518, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
+      propertyPath: <melodyGb3>k__BackingField.Guid.Data4
+      value: -340534805
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9e97335ee272483c847e10c3df93b86, type: 3}
 --- !u!1 &1157776953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,7 +1983,7 @@ Transform:
   m_GameObject: {fileID: 1673993324}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2148323, y: -0.8093233, z: 60.318993}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1892,14 +2003,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StarAb2: {fileID: 5893724041772628928, guid: fe12ab985e600af418cba97dd5c661ed, type: 3}
   StarBb2: {fileID: 5893724041772628928, guid: 8dfb554187516d34a996df4fb9ceb08e, type: 3}
+  StarC3: {fileID: 5893724041772628928, guid: 1e45641b20cd48448946070979db3995, type: 3}
   StarDb3: {fileID: 5893724041772628928, guid: 7f46f89a217e4504c8939543520fd3da, type: 3}
   StarEb3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
   StarF3: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
-  StarAb3: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
-  StarBb3: {fileID: 5893724041772628928, guid: 1e45641b20cd48448946070979db3995, type: 3}
-  positionZ: 180
+  StarGb3: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
+  positionZ: 185
   positionY: -8
-  creationInterval: 2
+  creationInterval: 0.125
   possiblePositionsX: []
 --- !u!1 &1740586368
 GameObject:
@@ -2371,3 +2482,4 @@ SceneRoots:
   - {fileID: 195233290}
   - {fileID: 328897173}
   - {fileID: 2105885726}
+  - {fileID: 1145612381}

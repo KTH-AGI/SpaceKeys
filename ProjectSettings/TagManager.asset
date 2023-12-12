@@ -17,6 +17,8 @@ TagManager:
   - Space Probe
   - Reverb
   - Melody Ab2
+  - Melody C3
+  - Melody Gb3
   layers:
   - Default
   - TransparentFX

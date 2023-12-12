@@ -191,6 +191,13 @@ MonoBehaviour:
       Data3: -14653553
       Data4: -944186534
     Path: event:/Level1/Melody/Melody-Bb2
+  <melodyC3>k__BackingField:
+    Guid:
+      Data1: -1596581215
+      Data2: 1158122461
+      Data3: -1551806300
+      Data4: -2086464906
+    Path: event:/Level1/Melody/Melody-C3
   <melodyDb3>k__BackingField:
     Guid:
       Data1: 245994585
@@ -212,6 +219,13 @@ MonoBehaviour:
       Data3: 463528071
       Data4: 614777422
     Path: event:/Level1/Melody/Melody-F3
+  <melodyGb3>k__BackingField:
+    Guid:
+      Data1: 200678615
+      Data2: 1227985028
+      Data3: -2031234129
+      Data4: -340534805
+    Path: event:/Level1/Melody/Melody-Gb3
   <melodyAb3>k__BackingField:
     Guid:
       Data1: 555188312

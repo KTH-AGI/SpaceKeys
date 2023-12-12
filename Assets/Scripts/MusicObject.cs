@@ -74,6 +74,9 @@ public class MusicObject : MonoBehaviour
             case "Melody Bb2":
                 sound = FMODEvents.instance.melodyBb2;
                 break;
+            case "Melody C3":
+                sound = FMODEvents.instance.melodyC3;
+                break;
             case "Melody Db3":
                 sound = FMODEvents.instance.melodyDb3;
                 break;
@@ -82,6 +85,9 @@ public class MusicObject : MonoBehaviour
                 break;
             case "Melody F3":
                 sound = FMODEvents.instance.melodyF3;
+                break;
+            case "Melody Gb3":
+                sound = FMODEvents.instance.melodyGb3;
                 break;
             case "Melody Ab3":
                 sound = FMODEvents.instance.melodyAb3;

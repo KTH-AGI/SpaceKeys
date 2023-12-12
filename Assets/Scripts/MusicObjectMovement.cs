@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicObjectMovement : MonoBehaviour
 {
-    public float movementSpeed = 5f;
+    [SerializeField] public static float movementSpeed = -10f;
     // Start is called before the first frame update
     void Start()
     {

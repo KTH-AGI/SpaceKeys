@@ -9,18 +9,18 @@ public class GenerateObjects : MonoBehaviour
 {
     [SerializeField] public GameObject StarAb2;
     [SerializeField] public GameObject StarBb2;
+    [SerializeField] public GameObject StarC3;
     [SerializeField] public GameObject StarDb3;
     [SerializeField] public GameObject StarEb3;
     [SerializeField] public GameObject StarF3;
-    [SerializeField] public GameObject StarAb3;
-    [SerializeField] public GameObject StarBb3;
+    [SerializeField] public GameObject StarGb3;
 
     MusicObjectInfo[] sequence = Sequence.sequence;
 
-    [SerializeField] public float positionZ = 180;
-    [SerializeField] public float positionY = -8;
+    [SerializeField] public static float positionZ = 185;  // 180
+    [SerializeField] public static float positionY = -8;
 
-    public float creationInterval = 0.125f;
+    [SerializeField] public static float creationInterval = 0.125f;
     private List<GameObject> notes = new List<GameObject>();
 
 
@@ -49,15 +49,12 @@ public class GenerateObjects : MonoBehaviour
                 notes.Add(newNote);
             }
             
-            
             // Reset the timer
             timer = 0.0f;
             index++;
         }
 
-
         deleteNotes();
-
 
     }
 
@@ -85,38 +82,38 @@ public class GenerateObjects : MonoBehaviour
         {
             
             case "StarAb2":
-                objPosition = new Vector3(-12, musicObject.value, 180);
+                objPosition = new Vector3(-12, musicObject.value, positionZ);
                 newNote = Instantiate(StarAb2, objPosition, Quaternion.identity);
                 return newNote;
 
             case "StarBb2":
-                objPosition = new Vector3(-8, musicObject.value, 180);
+                objPosition = new Vector3(-8, musicObject.value, positionZ);
                 newNote = Instantiate(StarBb2, objPosition, Quaternion.identity);
                 return newNote;
 
+            case "StarC3":
+                objPosition = new Vector3(-4, musicObject.value, positionZ);
+                newNote = Instantiate(StarC3, objPosition, Quaternion.identity);
+                return newNote;
+
             case "StarDb3":
-                objPosition = new Vector3(-4, musicObject.value, 180);
+                objPosition = new Vector3(0, musicObject.value, positionZ);
                 newNote = Instantiate(StarDb3, objPosition, Quaternion.identity);
                 return newNote;
 
             case "StarEb3":
-                objPosition = new Vector3(0, musicObject.value, 180);
+                objPosition = new Vector3(4, musicObject.value, positionZ);
                 newNote = Instantiate(StarEb3, objPosition, Quaternion.identity);
                 return newNote;
 
             case "StarF3":
-                objPosition = new Vector3(4, musicObject.value, 180);
+                objPosition = new Vector3(8, musicObject.value, positionZ);
                 newNote = Instantiate(StarF3, objPosition, Quaternion.identity);
                 return newNote;
 
-            case "StarAb3":
-                objPosition = new Vector3(8, musicObject.value, 180);
-                newNote = Instantiate(StarAb3, objPosition, Quaternion.identity);
-                return newNote;
-
-            case "StarBb3":
-                objPosition = new Vector3(12, musicObject.value, 180);
-                newNote = Instantiate(StarBb3, objPosition, Quaternion.identity);
+            case "StarGb3":
+                objPosition = new Vector3(12, musicObject.value, positionZ);
+                newNote = Instantiate(StarGb3, objPosition, Quaternion.identity);
                 return newNote;
         }
 
