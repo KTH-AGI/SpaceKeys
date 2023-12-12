@@ -781,6 +781,13 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  <melodyAb2>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <melodyBb2>k__BackingField:
     Guid:
       Data1: -736946859
@@ -1883,13 +1890,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9532232f18ec27343b29428a9eccd425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note1: {fileID: 5893724041772628928, guid: fe12ab985e600af418cba97dd5c661ed, type: 3}
-  note2: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
-  note3: {fileID: 5893724041772628928, guid: 8dfb554187516d34a996df4fb9ceb08e, type: 3}
-  note4: {fileID: 5893724041772628928, guid: 7f46f89a217e4504c8939543520fd3da, type: 3}
-  note5: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
-  note6: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
-  note7: {fileID: 5893724041772628928, guid: 1e45641b20cd48448946070979db3995, type: 3}
+  StarAb2: {fileID: 5893724041772628928, guid: fe12ab985e600af418cba97dd5c661ed, type: 3}
+  StarBb2: {fileID: 5893724041772628928, guid: 8dfb554187516d34a996df4fb9ceb08e, type: 3}
+  StarDb3: {fileID: 5893724041772628928, guid: 7f46f89a217e4504c8939543520fd3da, type: 3}
+  StarEb3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
+  StarF3: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
+  StarAb3: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
+  StarBb3: {fileID: 5893724041772628928, guid: 1e45641b20cd48448946070979db3995, type: 3}
   positionZ: 180
   positionY: -8
   creationInterval: 2
