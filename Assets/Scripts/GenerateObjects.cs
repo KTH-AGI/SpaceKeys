@@ -1,26 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GenerateObjects : MonoBehaviour
 {
-    [SerializeField] public GameObject note1;
-    [SerializeField] public GameObject note2;
-    [SerializeField] public GameObject note3;
-    [SerializeField] public GameObject note4;
-    [SerializeField] public GameObject note5;
-    [SerializeField] public GameObject note6;
-    [SerializeField] public GameObject note7;
+    [SerializeField] public GameObject StarAb2;
+    [SerializeField] public GameObject StarBb2;
+    [SerializeField] public GameObject StarDb3;
+    [SerializeField] public GameObject StarEb3;
+    [SerializeField] public GameObject StarF3;
+    [SerializeField] public GameObject StarAb3;
+    [SerializeField] public GameObject StarBb3;
+
+    MusicObjectInfo[] sequence = Sequence.sequence;
 
     [SerializeField] public float positionZ = 180;
     [SerializeField] public float positionY = -8;
-    [SerializeField] public float creationInterval = 1.0f;
 
+    public float creationInterval = 0.125f;
     private List<GameObject> notes = new List<GameObject>();
+
 
     public float[] possiblePositionsX;
     private float timer = 0.0f;
+    private int index = 0;
 
     GameObject noteParent;
 
@@ -28,7 +34,6 @@ public class GenerateObjects : MonoBehaviour
     void Start()
     {
         noteParent = new GameObject("notes");
-        possiblePositionsX = new float[]{ -12f, -8f, -4f, 0, 4f, 8f, 12f };
     }
 
     // Update is called once per frame
@@ -37,61 +42,84 @@ public class GenerateObjects : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= creationInterval)
         {
-            // Instantiate a new object
-            int randomIndex = UnityEngine.Random.Range(0, possiblePositionsX.Length);
-            int randomY = UnityEngine.Random.Range(-10, 10);
-            
-            Vector3 position = new Vector3(possiblePositionsX[randomIndex], randomY, 180);
-
-            GameObject newNote = null;
-            switch (randomIndex)
+            if (sequence[index] != null)
             {
-                case 0: 
-                    newNote = Instantiate(note1, position, Quaternion.identity);
-                    break;
-
-                case 1: 
-                    newNote = Instantiate(note2, position, Quaternion.identity);
-                    break;
-
-                case 2: 
-                    newNote = Instantiate(note3, position, Quaternion.identity);
-                    break;
-
-                case 3: 
-                    newNote = Instantiate(note4, position, Quaternion.identity);
-                    break;
-
-                case 4: 
-                    newNote = Instantiate(note5, position, Quaternion.identity);
-                    break;
-
-                case 5:
-                    newNote = Instantiate(note6, position, Quaternion.identity);
-                    break;
-
-                case 6:
-                    Debug.Log(randomIndex);
-                    newNote = Instantiate(note7, position, Quaternion.identity);
-                    break;
+                GameObject newNote = objectSwitch(sequence[index]);
+                newNote.transform.parent = noteParent.transform;
+                notes.Add(newNote);
             }
-
-            newNote.transform.parent = noteParent.transform;
-            // Add the new object to the list
-            notes.Add(newNote);
-
+            
+            
             // Reset the timer
             timer = 0.0f;
+            index++;
         }
 
-        if (notes.Count > 0) {
-            if (notes[0].transform.position.z < 0 || !notes[0].activeSelf)
+
+        deleteNotes();
+
+
+    }
+
+
+
+    void deleteNotes()
+    {
+        if (notes.Count > 0)
         {
+            if (notes[0].transform.position.z < 0 || !notes[0].activeSelf)
+            {
                 Destroy(notes[0]);
                 notes.RemoveAt(0);
             }
         }
+    }
 
 
+    GameObject objectSwitch(MusicObjectInfo musicObject)
+    {
+        GameObject newNote = null;
+        Vector3 objPosition;
+
+        switch (musicObject.getName())
+        {
+            
+            case "StarAb2":
+                objPosition = new Vector3(-12, musicObject.value, 180);
+                newNote = Instantiate(StarAb2, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "StarBb2":
+                objPosition = new Vector3(-8, musicObject.value, 180);
+                newNote = Instantiate(StarBb2, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "StarDb3":
+                objPosition = new Vector3(-4, musicObject.value, 180);
+                newNote = Instantiate(StarDb3, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "StarEb3":
+                objPosition = new Vector3(0, musicObject.value, 180);
+                newNote = Instantiate(StarEb3, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "StarF3":
+                objPosition = new Vector3(4, musicObject.value, 180);
+                newNote = Instantiate(StarF3, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "StarAb3":
+                objPosition = new Vector3(8, musicObject.value, 180);
+                newNote = Instantiate(StarAb3, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "StarBb3":
+                objPosition = new Vector3(12, musicObject.value, 180);
+                newNote = Instantiate(StarBb3, objPosition, Quaternion.identity);
+                return newNote;
+        }
+
+        return newNote;
     }
 }
