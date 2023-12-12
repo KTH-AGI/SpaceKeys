@@ -6,15 +6,13 @@ public class Sequence
 {
     private static int lenghtOfSongInSamples = 2000;
     public static MusicObjectInfo[] sequence = new MusicObjectInfo[lenghtOfSongInSamples];
-    private static float playerZ;
+    private static float playerZ = 25f;  //GameObject.FindWithTag("Player").transform.position.z;;
 
     // The offset in number of seconds
     private static float timeOffset;
     // / interval between samples
     public static int offset;
     private static float sixteenthTime = GenerateObjects.creationInterval;
-
-    playerZ = 25f;  //GameObject.FindWithTag("Player").transform.position.z;
     private static float additionalOffset = 23f;
 
     void Awake() {
@@ -52,7 +50,7 @@ public class Sequence
     /* Input time at which the audio should be triggered, returns corresponding offset sample 
     bar, beat and sixteenth are 1-indexed 
     offset is to compensate for the distance between spawning position and player position */
-    private static int musicNotationToOffsetSample(int bar, int beat, int sixteenth = 0)
+    private static int musicNotationToOffsetSample(int bar, int beat, int sixteenth = 1)
     {
         float timeInSeconds = (float)(bar - 1) * sixteenthTime * 16 + (float)(beat - 1) * sixteenthTime * 4 + (float)(sixteenth - 1) * sixteenthTime;
         int offsetSample = (int) (timeInSeconds / sixteenthTime) + offset - 1;
