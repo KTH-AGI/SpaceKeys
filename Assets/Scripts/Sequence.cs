@@ -13,11 +13,11 @@ public class Sequence
     // / interval between samples
     public static int offset;
     private static float sixteenthTime = GenerateObjects.creationInterval;
-    private static float additionalOffset = 23f;
+    private static float additionalTimeOffset = 12f;
 
-    void Awake() {
+    void Start() {
         timeOffset = (GenerateObjects.positionZ - playerZ) * MusicObjectMovement.movementSpeed;
-        offset = (int)((timeOffset + additionalOffset) / sixteenthTime);
+        offset = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
     }
 
     static Sequence()
@@ -53,7 +53,7 @@ public class Sequence
     private static int musicNotationToOffsetSample(int bar, int beat, int sixteenth = 1)
     {
         float timeInSeconds = (float)(bar - 1) * sixteenthTime * 16 + (float)(beat - 1) * sixteenthTime * 4 + (float)(sixteenth - 1) * sixteenthTime;
-        int offsetSample = (int) (timeInSeconds / sixteenthTime) + offset - 1;
+        int offsetSample = (int) (timeInSeconds / sixteenthTime) - offset - 1;
         if (offsetSample >= 0)
         {
             return offsetSample;

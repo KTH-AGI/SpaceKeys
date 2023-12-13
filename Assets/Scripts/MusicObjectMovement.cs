@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class MusicObjectMovement : MonoBehaviour
 {
-    [SerializeField] public static float movementSpeed = -10f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] public static float movementSpeed = -15f;
 
-    // Update is called once per frame
     void Update()
     {
         // Get the current position
