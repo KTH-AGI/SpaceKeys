@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class NoteLight : MonoBehaviour
 {
     int gridSize = CircularGrid.gridSize;
     float radius = CircularGrid.radius;
+    private bool hasMissed = false;
 
     [SerializeField] Material missedNoteMaterial;
     [SerializeField] Material lightMaterial;
@@ -15,6 +17,9 @@ public class NoteLight : MonoBehaviour
     [SerializeField] int playerPosition = 25;
     GameObject circularLight;
     Renderer renderer;
+    
+    // Event for when the player misses a note
+    public static event Action<Vector3> OnMissNote;
 
     //LineRenderer lineRenderer;
 
@@ -26,7 +31,7 @@ public class NoteLight : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float zPosition = transform.position.z;
         if (zPosition < zSpawn && zPosition > playerPosition) //25 is the player position, need to change this later
@@ -49,8 +54,13 @@ public class NoteLight : MonoBehaviour
         else {
             if (Mathf.Abs(zPosition - playerPosition)< 0.1 ) { Debug.Log("Time at player is: " + Time.time); }
             circularLight.SetActive(false);
-            if (zPosition < playerPosition) { 
+            if (zPosition < playerPosition && !hasMissed) { 
                 renderer.material = missedNoteMaterial;
+                
+                // Trigger the OnMissWithPosition event
+                OnMissNote?.Invoke(this.transform.position);
+                
+                hasMissed = true;
             }
         }
         
