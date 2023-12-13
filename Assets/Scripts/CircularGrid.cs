@@ -14,11 +14,11 @@ public class CircularGrid : MonoBehaviour
     [SerializeField] public int gridSizeZ = 10;
     
     [SerializeField] public int lineY = -10;
-    [SerializeField] public int lineLengthZ = 150;
-    [SerializeField] float spaceBetweenXLines = 0.1f;
-    [SerializeField] float spaceBetweenZLines = 0.1f;
-    [SerializeField] float moveSpeed = 5.0f; // Speed of grid movement
-    [SerializeField] float lineWidth = 0.3f;
+    [SerializeField] public int lineLengthZ = 180;
+    [SerializeField] float spaceBetweenXLines = 6f;
+    [SerializeField] float spaceBetweenZLines = 20f;
+    [SerializeField] float moveSpeed = 15.0f; // Speed of grid movement
+    [SerializeField] float lineWidth = 0.5f;
 
     public static int gridSize = 10;
     public static float radius = 20;
@@ -98,10 +98,10 @@ public class CircularGrid : MonoBehaviour
 
         if (gridZLines[0].transform.position.z < 0)
         {
+            createZCircle();
             Destroy(gridZLines[0]);
             gridZLines.RemoveAt(0);
 
-            createZCircle();
         }
 
 

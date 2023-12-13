@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311932, g: 0.38073996, b: 0.3587271, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1910,8 +1910,8 @@ MonoBehaviour:
   lineLengthZ: 180
   spaceBetweenXLines: 6
   spaceBetweenZLines: 20
-  moveSpeed: 5
-  lineWidth: 0.2
+  moveSpeed: 15
+  lineWidth: 0.5
 --- !u!1 &1619970393
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,9 +2008,7 @@ MonoBehaviour:
   StarEb3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
   StarF3: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
   StarGb3: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
-  positionZ: 185
   positionY: -8
-  creationInterval: 0.125
   possiblePositionsX: []
 --- !u!1 &1740586368
 GameObject:
