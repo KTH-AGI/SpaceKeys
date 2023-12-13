@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Sequence
 {
@@ -13,10 +14,10 @@ public class Sequence
     // / interval between samples
     public static int offset;
     private static float sixteenthTime = GenerateObjects.creationInterval;
-    private static float additionalTimeOffset = 12f;
+    private static float additionalTimeOffset = 0f;
 
     void Start() {
-        timeOffset = (GenerateObjects.positionZ - playerZ) * MusicObjectMovement.movementSpeed;
+        timeOffset = Math.Abs((GenerateObjects.positionZ - playerZ) / MusicObjectMovement.movementSpeed);
         offset = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
     }
 
