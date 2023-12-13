@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_LocalScale.x
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_LocalScale.y
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_LocalScale.z
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -239,7 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435f0a876be04cb41889c087ce5bfd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: -10
 --- !u!54 &8316920706836630403
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -343,4 +342,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c19e5863bef4f92b940c7a10799c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEffect: 0
+  effect: 0

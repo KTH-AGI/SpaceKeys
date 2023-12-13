@@ -28,8 +28,9 @@ public class Sequence
         // sequence[musicNotationToOffsetSample(3, 1)] = new MusicObjectInfo("Asteroid Field", 0.5f);
         //sequence[musicNotationToOffsetSample(5, 1)] = new MusicObjectInfo("Asteroid Field", 0.5f);
         //sequence[musicNotationToOffsetSample(7, 1)] = new MusicObjectInfo("Supernova", 0.5f);
-        //sequence[musicNotationToOffsetSample(11, 1)] = new MusicObjectInfo("Star Cluster Big 1", 0.5f);
-        //sequence[musicNotationToOffsetSample(15, 1)] = new MusicObjectInfo("Star Cluster Big 2", 0.5f);
+        sequence[musicNotationToOffsetSample(11, 1)] = new MusicObjectInfo("StarCluster1", 0.5f);
+        sequence[musicNotationToOffsetSample(15, 1)] = new MusicObjectInfo("StarCluster2", 0.5f);
+        
 
         // Verse
         sequence[musicNotationToOffsetSample(19, 1)] = new MusicObjectInfo("StarBb2", 0.3f);

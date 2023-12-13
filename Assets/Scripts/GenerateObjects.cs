@@ -14,32 +14,32 @@ public class GenerateObjects : MonoBehaviour
     [SerializeField] public GameObject StarEb3;
     [SerializeField] public GameObject StarF3;
     [SerializeField] public GameObject StarGb3;
+
+    [SerializeField] public GameObject Supernova;
+    [SerializeField] public GameObject AsteroidField;
+    [SerializeField] public GameObject BlackHole;
+    [SerializeField] public GameObject StarCluster1;
+    [SerializeField] public GameObject StarCluster2;
+    [SerializeField] public GameObject Nebula;
+
     MusicObjectInfo[] sequence = Sequence.sequence;
 
     [SerializeField] public static float positionZ = 145;  // 180
     // [SerializeField] public static float positionY = -8;
     public float positionY;
     private float r;
-
-    [SerializeField] public static float creationInterval = 0.125f;
+    
+    public static float creationInterval = 0.125f;
+    
     private List<GameObject> notes = new List<GameObject>();
-
-
-    public float[] possiblePositionsX;
-    // private float timer = 0.0f;
     private int index = 0;
-
-    private float nextActionTime = 0.0f;
-    private bool startedBackgroundMusic;
-    private static float timerEpsilon = creationInterval / 16f;
-
     GameObject noteParent;
 
     void Start()
     {
         noteParent = new GameObject("notes");
-        InvokeRepeating("generateSequence", 0f, creationInterval);
-        Invoke("playBackgroundAudio", 0f);
+        InvokeRepeating("generateSequence", 1f, creationInterval);
+        Invoke("playBackgroundAudio", 1f);
         r = CircularGrid.radius;
     }
 
@@ -102,6 +102,36 @@ public class GenerateObjects : MonoBehaviour
                 objPosition = new Vector3(12, positionY, positionZ);
                 newNote = Instantiate(StarGb3, objPosition, Quaternion.identity);
                 return newNote;
+
+
+
+            case "AsteroidField":
+                objPosition = new Vector3(0, positionY, positionZ);
+                newNote = Instantiate(AsteroidField, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "Nebula":
+                objPosition = new Vector3(0, positionY, positionZ);
+                newNote = Instantiate(Nebula, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "StarCluster1":
+                objPosition = new Vector3(0, positionY, positionZ);
+                newNote = Instantiate(StarCluster1, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "StarCluster2":
+                objPosition = new Vector3(0, positionY, positionZ);
+                newNote = Instantiate(StarCluster2, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "BlackHole":
+                objPosition = new Vector3(0, positionY, positionZ);
+                newNote = Instantiate(BlackHole, objPosition, Quaternion.identity);
+                return newNote;
+
+
+
         }
         return newNote;
     }
@@ -117,7 +147,6 @@ public class GenerateObjects : MonoBehaviour
             newNote.transform.parent = noteParent.transform;
             notes.Add(newNote);
         }
-
         index++;
     }
 
