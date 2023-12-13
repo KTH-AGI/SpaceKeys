@@ -67,6 +67,10 @@ public class PlayerController : MonoBehaviour
 
     private void FistDetection()
     {
+        if (_handLandmarkListLeftHand==null||_handLandmarkListRightHand==null)
+        {
+            return;
+        }
         // Calculate the distance ratios for the left and right hand using the landmark list
         CalculateDistanceRatios(_handLandmarkListLeftHand);
         CalculateDistanceRatios(_handLandmarkListRightHand);

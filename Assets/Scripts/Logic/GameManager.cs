@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
+using Color = UnityEngine.Color;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,12 +14,19 @@ public class GameManager : MonoBehaviour
     
     [FormerlySerializedAs("worldSpaceCanvas")] [SerializeField]
     private Canvas canvas;
+    
+    // UI text for displaying combo count
     [SerializeField]
-    private TextMeshProUGUI  comboText; // UI text for displaying combo count
+    private TextLayers   pointTextLayers; 
+    // UI text for displaying score
     [SerializeField]
-    private TextMeshProUGUI  scoreText; // UI text for displaying score
-    [SerializeField]
-    private TextMeshProUGUI hitQualityTextPrefab; // Prefab for the hit quality text
+    private TextLayers  comboTextLayers; 
+    
+    // Sprites for the hit quality images
+    [SerializeField] private Sprite[] hitQualitySprites;
+    // Prefab for the hit quality image
+    [SerializeField] private Image hitQualityImagePrefab; 
+
     
     private int comboCount = 0; // Current combo count
     private float scoreMultiplier = 1.0f; // Score multiplier
@@ -143,7 +152,7 @@ public class GameManager : MonoBehaviour
             comboCount = 0;
             scoreMultiplier = 1.0f;
             score += (int)(100 * scoreFactor);
-            ShowHitQualityText(notePosition, hitQuality);
+            ShowHitQualityImage(notePosition, hitQuality);
         }
         else
         {
@@ -153,8 +162,8 @@ public class GameManager : MonoBehaviour
             {
                 scoreMultiplier += 0.1f;
             }
-            // Call to show the hit quality text at the music object's position
-            ShowHitQualityText(notePosition, hitQuality);
+            // Call to show the hit quality image at the music object's position
+            ShowHitQualityImage(notePosition, hitQuality);
             Debug.Log("Hit quality: " + hitQuality);
         }
         
@@ -162,34 +171,34 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
     
-    private void ShowHitQualityText(Vector3 noteWorldPosition, string hitQuality)
+    private void ShowHitQualityImage(Vector3 noteWorldPosition, string hitQuality)
     {
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(noteWorldPosition);
-        TextMeshProUGUI textInstance = Instantiate(hitQualityTextPrefab, canvas.transform);
+        Image imageInstance = Instantiate(hitQualityImagePrefab, canvas.transform);
 
-        // Set the text to display hit quality
-        textInstance.text = hitQuality;
+        // Set the image to display hit quality
+        imageInstance.sprite= GetHitQualitySprite(hitQuality);;
 
         // Convert screen coordinates to Canvas local coordinates
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), screenPosition, null, out Vector2 localPoint);
-        // Set the text's local position within the Canvas
-        textInstance.rectTransform.anchoredPosition = localPoint;
+        // Set the image's local position within the Canvas
+        imageInstance.rectTransform.anchoredPosition = localPoint;
         
         // Start the animation coroutine
-        StartCoroutine(AnimateText(textInstance.rectTransform, textInstance));
+        StartCoroutine(AnimateImage(imageInstance.rectTransform, imageInstance));
     }
     
-    private IEnumerator AnimateText(RectTransform rectTransform, TextMeshProUGUI textInstance)
+    private IEnumerator AnimateImage(RectTransform rectTransform, Image imageInstance)
     {
         // Fade in and move up
         float duration = 0.5f; // Duration of the rise and fade in
         float pauseDuration = 0.5f; // Duration of the pause at peak
-        float textHeight = textInstance.preferredHeight; // Approximate height of the text
-        Vector2 startPos = rectTransform.anchoredPosition+ new Vector2(0, -textHeight/2);
-        Vector2 endPos = startPos + new Vector2(0, textHeight/2); // End position after rise
+        float imageHeight = imageInstance.preferredHeight; // Approximate height of the image
+        Vector2 startPos = rectTransform.anchoredPosition+ new Vector2(0, 0);
+        Vector2 endPos = startPos + new Vector2(0, 50); // End position after rise
 
         // Initialize alpha to 0 (transparent)
-        textInstance.color = new Color(textInstance.color.r, textInstance.color.g, textInstance.color.b, 0);
+        imageInstance.color = new Color(imageInstance.color.r, imageInstance.color.g, imageInstance.color.b, 0);
 
         // Rise and fade in animation
         for (float t = 0; t < duration; t += Time.deltaTime)
@@ -198,13 +207,13 @@ public class GameManager : MonoBehaviour
             // Linear interpolation from start to end
             rectTransform.anchoredPosition = Vector2.Lerp(startPos, endPos, normalizedTime);
             // Fade in
-            textInstance.color = new Color(textInstance.color.r, textInstance.color.g, textInstance.color.b, normalizedTime);
+            imageInstance.color = new Color(imageInstance.color.r, imageInstance.color.g, imageInstance.color.b, normalizedTime);
             yield return null;
         }
 
         // Ensure the final values are set after the animation
         rectTransform.anchoredPosition = endPos;
-        textInstance.color = new Color(textInstance.color.r, textInstance.color.g, textInstance.color.b, 1);
+        imageInstance.color = new Color(imageInstance.color.r, imageInstance.color.g, imageInstance.color.b, 1);
 
         // Wait for a while at the peak
         yield return new WaitForSeconds(pauseDuration);
@@ -214,18 +223,40 @@ public class GameManager : MonoBehaviour
         {
             float normalizedTime = t / duration;
             // Fade out
-            textInstance.color = new Color(textInstance.color.r, textInstance.color.g, textInstance.color.b, 1 - normalizedTime);
+            imageInstance.color = new Color(imageInstance.color.r, imageInstance.color.g, imageInstance.color.b, 1 - normalizedTime);
             yield return null;
         }
 
-        // Destroy the text instance after the animation
-        Destroy(textInstance.gameObject);
+        // Destroy the image instance after the animation
+        Destroy(imageInstance.gameObject);
+    }
+    
+    // Method to get the hit quality sprite based on the hit quality name
+    private Sprite GetHitQualitySprite(string hitQuality)
+    {
+        // 根据命中质量名称返回对应的Sprite
+        switch (hitQuality)
+        {
+            case "Stellar":
+                return hitQualitySprites[0];
+            case "Cosmic":
+                return hitQualitySprites[1];
+            case "Galactic":
+                return hitQualitySprites[2];
+            case "Orbital":
+                return hitQualitySprites[3];
+            case "Miss":
+                return hitQualitySprites[4];
+            default:
+                return null;
+        }
     }
 
     private void UpdateUI()
     {
-        comboText.text = "Combo: " + comboCount.ToString();
-        scoreText.text = "Score: " + score.ToString();
+        pointTextLayers.UpdateScoreIncrementally(score);
+        
+        comboTextLayers.UpdateCombo(comboCount);
     }
     
     private void ResetCombo()
