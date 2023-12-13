@@ -7,20 +7,21 @@ public class Sequence
 {
     private static int lenghtOfSongInSamples = 2000;
     public static MusicObjectInfo[] sequence = new MusicObjectInfo[lenghtOfSongInSamples];
-    private static float playerZ = 25f;  //GameObject.FindWithTag("Player").transform.position.z;;
+    private static float playerZ = 25f;  // should not be hard-coded, GameObject.FindWithTag("Player").transform.position.z didn't work
 
-    // The offset in number of seconds
-    private static float timeOffset; // = Math.Abs((GenerateObjects.positionZ - playerZ) / MusicObjectMovement.movementSpeed);
-    // The offset in number of samples
-    public static int offset;//  = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
+    // Extra time to compensate for delay
+    private static float additionalTimeOffset = 2.5f;
     // Interval between samples
     private static float sixteenthTime = GenerateObjects.creationInterval;
-    private static float additionalTimeOffset = 0f;
+    // The offset in number of seconds
+    private static float timeOffset = Math.Abs((GenerateObjects.positionZ - playerZ) / MusicObjectMovement.movementSpeed);
+    // The offset in number of samples
+    public static int offset = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
 
     static Sequence()
     {
-        timeOffset = Math.Abs((GenerateObjects.positionZ - playerZ) / MusicObjectMovement.movementSpeed);
-        offset = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
+        //timeOffset = Math.Abs((GenerateObjects.positionZ - playerZ) / MusicObjectMovement.movementSpeed);
+        //offset = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
         Debug.Log("Offset in Sequence: " + offset);
 
         // Testing

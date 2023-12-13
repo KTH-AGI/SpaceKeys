@@ -26,10 +26,12 @@ public class GenerateObjects : MonoBehaviour
 
 
     public float[] possiblePositionsX;
-    private float timer = 0.0f;
+    // private float timer = 0.0f;
     private int index = 0;
 
+    private float nextActionTime = 0.0f;
     private bool startedBackgroundMusic;
+    private static float timerEpsilon = creationInterval / 16f;
 
     GameObject noteParent;
 
@@ -41,13 +43,14 @@ public class GenerateObjects : MonoBehaviour
 
     void Update()
     {
-        if (timer == 0.0 && !startedBackgroundMusic)
+        /*
+        if (!startedBackgroundMusic)
         {
             AudioManager.instance.StartBackgroundMusic();
             startedBackgroundMusic = true;
-        }
-        timer += Time.deltaTime;
-        if (timer >= creationInterval)
+        }*/
+        // timer += Time.deltaTime;
+        if (Time.time >= nextActionTime - timerEpsilon)
         {
             if (sequence[index] != null)
             {
@@ -57,7 +60,8 @@ public class GenerateObjects : MonoBehaviour
             }
             
             // Reset the timer
-            timer -= creationInterval;
+            // timer -= creationInterval;
+            nextActionTime += creationInterval;
             index++;
         }
         deleteNotes();
@@ -82,8 +86,7 @@ public class GenerateObjects : MonoBehaviour
         positionY = (musicObject.value * 2f - 1f) * r;
 
         switch (musicObject.getName())
-        {
-            
+        {  
             case "StarAb2":
                 objPosition = new Vector3(-12, positionY, positionZ);
                 newNote = Instantiate(StarAb2, objPosition, Quaternion.identity);
