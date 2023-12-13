@@ -2477,8 +2477,13 @@ MonoBehaviour:
   StarEb3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
   StarF3: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
   StarGb3: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
+  Supernova: {fileID: 5893724041772628928, guid: fc128bc585c774b75a0c74b45231f499, type: 3}
+  AsteroidField: {fileID: 0}
+  BlackHole: {fileID: 5868271642398163449, guid: 6188dab151c607e4bae61cc8059ba646, type: 3}
+  StarCluster1: {fileID: 968384220738089674, guid: 584f7a29259277547891cd0aaa5d91ef, type: 3}
+  StarCluster2: {fileID: 7726712037677993486, guid: 89670d1a10b9c9e4fa4e5120987f5f09, type: 3}
+  Nebula: {fileID: 5893724041772628928, guid: fc128bc585c774b75a0c74b45231f499, type: 3}
   positionY: -8
-  possiblePositionsX: []
 --- !u!1 &1740586368
 GameObject:
   m_ObjectHideFlags: 0
