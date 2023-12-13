@@ -10,19 +10,21 @@ public class Sequence
     private static float playerZ = 25f;  //GameObject.FindWithTag("Player").transform.position.z;;
 
     // The offset in number of seconds
-    private static float timeOffset;
-    // / interval between samples
-    public static int offset;
+    private static float timeOffset; // = Math.Abs((GenerateObjects.positionZ - playerZ) / MusicObjectMovement.movementSpeed);
+    // The offset in number of samples
+    public static int offset;//  = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
+    // Interval between samples
     private static float sixteenthTime = GenerateObjects.creationInterval;
     private static float additionalTimeOffset = 0f;
 
-    void Start() {
-        timeOffset = Math.Abs((GenerateObjects.positionZ - playerZ) / MusicObjectMovement.movementSpeed);
-        offset = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
-    }
-
     static Sequence()
     {
+        timeOffset = Math.Abs((GenerateObjects.positionZ - playerZ) / MusicObjectMovement.movementSpeed);
+        offset = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
+        Debug.Log("Offset in Sequence: " + offset);
+
+        // Testing
+        sequence[musicNotationToOffsetSample(9, 1)] = new MusicObjectInfo("StarBb2", 0.3f);
         // Intro
         // sequence[musicNotationToOffsetSample(3, 1)] = new MusicObjectInfo("Asteroid Field", 0.5f);
         //sequence[musicNotationToOffsetSample(5, 1)] = new MusicObjectInfo("Asteroid Field", 0.5f);
@@ -49,20 +51,19 @@ public class Sequence
     }
 
     /* Input time at which the audio should be triggered, returns corresponding offset sample 
-    bar, beat and sixteenth are 1-indexed 
+    bar, beat and sixteenth are 1-indexed: bar > 1, beat and sixteenth in {1, 2, 3, 4} 
     offset is to compensate for the distance between spawning position and player position */
     private static int musicNotationToOffsetSample(int bar, int beat, int sixteenth = 1)
     {
         float timeInSeconds = (float)(bar - 1) * sixteenthTime * 16 + (float)(beat - 1) * sixteenthTime * 4 + (float)(sixteenth - 1) * sixteenthTime;
-        int offsetSample = (int) (timeInSeconds / sixteenthTime) - offset - 1;
+        int offsetSample = (int)(timeInSeconds / sixteenthTime) - offset;
         if (offsetSample >= 0)
         {
             return offsetSample;
         }
         else
         {
-            return lenghtOfSongInSamples;  // TODO: change this later to a better solution
+            return lenghtOfSongInSamples - 1;  // TODO: change this later to a better solution
         }
     }
-
 }

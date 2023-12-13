@@ -14,7 +14,6 @@ public class GenerateObjects : MonoBehaviour
     [SerializeField] public GameObject StarEb3;
     [SerializeField] public GameObject StarF3;
     [SerializeField] public GameObject StarGb3;
-
     MusicObjectInfo[] sequence = Sequence.sequence;
 
     [SerializeField] public static float positionZ = 145;  // 180
@@ -30,6 +29,7 @@ public class GenerateObjects : MonoBehaviour
     private float timer = 0.0f;
     private int index = 0;
 
+    private bool startedBackgroundMusic;
 
     GameObject noteParent;
 
@@ -41,6 +41,11 @@ public class GenerateObjects : MonoBehaviour
 
     void Update()
     {
+        if (timer == 0.0 && !startedBackgroundMusic)
+        {
+            AudioManager.instance.StartBackgroundMusic();
+            startedBackgroundMusic = true;
+        }
         timer += Time.deltaTime;
         if (timer >= creationInterval)
         {
@@ -52,7 +57,7 @@ public class GenerateObjects : MonoBehaviour
             }
             
             // Reset the timer
-            timer = 0.0f;
+            timer -= creationInterval;
             index++;
         }
         deleteNotes();

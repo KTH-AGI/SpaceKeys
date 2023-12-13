@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour
         eventEmitters = new List<StudioEventEmitter>();
     }
 
-    private void Start()
+    public void StartBackgroundMusic()
     {
         InitializeEvent(FMODEvents.instance.background1);
         InitializeEvent(FMODEvents.instance.background2);
