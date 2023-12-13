@@ -8,9 +8,7 @@ using FMODUnity;
 /**
  * Parts of code from https://github.com/shapedbyrainstudios/fmod-audio-system
 */
-
 [RequireComponent(typeof(Collider))]
-
 public class MusicObject : MonoBehaviour
 {
     EventReference sound;
@@ -18,11 +16,16 @@ public class MusicObject : MonoBehaviour
     bool validMusicObject;
     private float x;
     private float y;
+
     private float r;
+
     // public float UFOHeightRatio;
     private string parameterName = "Brightness";
 
     private float _UFOHeightRatio;
+
+    // Event for when the player collides with a note
+    public static event Action<Vector3, Vector3, float> OnCollisionNote;
 
     // Public property with a public getter and private setter
     public float UFOHeightRatio
@@ -45,12 +48,15 @@ public class MusicObject : MonoBehaviour
         r = CircularGrid.radius;
     }
 
-    private void OnTriggerEnter(Collider other)  // should we use OnTriggerEnter2D?
+    private void OnTriggerEnter(Collider other) // should we use OnTriggerEnter2D?
     {
         if (other.gameObject.CompareTag("Player"))
         {
             CollectMusicObject();
-        }        
+            OnCollisionNote?.Invoke(this.transform.position, other.transform.position,
+                other.GetComponent<SphereCollider>().radius * other.transform.lossyScale.x +
+                this.GetComponent<SphereCollider>().radius * this.transform.lossyScale.x);
+        }
     }
 
     private void CollectMusicObject()
@@ -66,7 +72,7 @@ public class MusicObject : MonoBehaviour
         musicObject = gameObject.tag;
         validMusicObject = true;
 
-        switch(musicObject) 
+        switch (musicObject)
         {
             case "Melody Ab2":
                 sound = FMODEvents.instance.melodyAb2;
@@ -101,10 +107,11 @@ public class MusicObject : MonoBehaviour
         if (validMusicObject)
         {
             Debug.Log(parameterName + " for " + musicObject + ": " + UFOHeightRatio);
-            AudioManager.instance.SetParameterAndPlay(sound, parameterName, UFOHeightRatio);  // this.transform.position or Camera.main.transform.position
+            AudioManager.instance.SetParameterAndPlay(sound, parameterName,
+                UFOHeightRatio); // this.transform.position or Camera.main.transform.position
             Debug.Log(musicObject + " audio played");
         }
-        
+
         // todo do score logic
     }
 }

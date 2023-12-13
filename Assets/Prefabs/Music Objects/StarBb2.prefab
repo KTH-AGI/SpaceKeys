@@ -95,7 +95,7 @@ PrefabInstance:
       addedObject: {fileID: 8316920706836630403}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -410230277668956484}
+      addedObject: {fileID: -5581069975368978700}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5233633473731254171}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435f0a876be04cb41889c087ce5bfd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: -10
+  movementSpeed: -25
 --- !u!54 &8316920706836630403
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -267,8 +267,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-410230277668956484
-BoxCollider:
+--- !u!135 &-5581069975368978700
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -286,7 +286,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.041181557, y: 0.045598134, z: 0.049060196}
+  m_Radius: 0.02
   m_Center: {x: 0.00054011587, y: -0.0027974462, z: 0.0007347651}
 --- !u!114 &5233633473731254171
 MonoBehaviour:

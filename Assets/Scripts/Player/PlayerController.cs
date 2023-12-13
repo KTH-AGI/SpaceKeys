@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             HandLandmarkListAnnotation hand = _handLandmarkListAnnotation[i];
+            if (hand == null) return false;
             if(hand.GetHandedness()=="left")
             {
                 _handLandmarkListLeftHand = hand;

@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class HomeSceneManager : MonoBehaviour
 {
     private AsyncOperation sceneAsyncOperation;
-    // Start is called before the first frame update
+    // Start is called before the first frame update    
     void Start()
     {
         // Load the HWDScene asynchronously
-        sceneAsyncOperation = SceneManager.LoadSceneAsync("HWDScene");
+        sceneAsyncOperation = SceneManager.LoadSceneAsync("CompleteScene");
         sceneAsyncOperation.allowSceneActivation = false;
     }
 
