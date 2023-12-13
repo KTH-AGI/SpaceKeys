@@ -28,7 +28,11 @@ public class GameManager : MonoBehaviour
     // Sprites for the hit quality images
     [SerializeField] private Sprite[] hitQualitySprites;
     // Prefab for the hit quality image
-    [SerializeField] private Image hitQualityImagePrefab; 
+    [SerializeField] private Image hitQualityImagePrefab;
+    
+    [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private Image pauseButton;
+
 
     
     private int comboCount = 0; // Current combo count
@@ -87,7 +91,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (isGamePaused && Input.GetKeyDown(KeyCode.Space))
         {
@@ -105,16 +109,24 @@ public class GameManager : MonoBehaviour
     private void PauseGame()
     {
         isGamePaused = true;
-        Time.timeScale = 0; 
+        pauseScreen.SetActive(true);
+        Color color=pauseButton.color;
+        color.a=0.2f;
+        pauseButton.color=color;
         Debug.Log("Game is paused. Press Space to resume.");
+        Time.timeScale = 0;
     }
 
     // Method to resume the game
     private void ResumeGame()
     {
         isGamePaused = false;
-        Time.timeScale = 1; 
+        pauseScreen.SetActive(false);
+        Color color=pauseButton.color;
+        color.a=1f;
+        pauseButton.color=color;
         Debug.Log("Game resumed.");
+        Time.timeScale = 1;
     }
     
     private void OnCollisionNote(Vector3 notePos, Vector3 playerPos, float radius)
