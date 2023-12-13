@@ -44,19 +44,25 @@ public class PlayerController : MonoBehaviour
 
     private void AlignPlayer()
     {
-        // Get left player position in worlds space from hand position in screen space.
-        var playerLeftPosition = ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListLeftHand), _playerZValue);
-        playerLeftPosition = OffsetHandLandmarks(playerLeftPosition);
-        playerLeftPosition = Camera.main.ScreenToWorldPoint(playerLeftPosition);
+        if (_handLandmarkListLeftHand!=null)
+        {
+            // Get left player position in worlds space from hand position in screen space.
+            var playerLeftPosition = ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListLeftHand), _playerZValue);
+            playerLeftPosition = OffsetHandLandmarks(playerLeftPosition);
+            playerLeftPosition = Camera.main.ScreenToWorldPoint(playerLeftPosition);
 
-        _playerLeft.transform.position = playerLeftPosition;
+            _playerLeft.transform.position = playerLeftPosition;
+        }
 
-        // Get right player position in worlds space from hand position in screen space.
-        var playerRightPosition = ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListRightHand), _playerZValue);
-        playerRightPosition = OffsetHandLandmarks(playerRightPosition);
-        playerRightPosition = Camera.main.ScreenToWorldPoint(playerRightPosition);
+        if (_handLandmarkListRightHand!=null)
+        {
+            // Get right player position in worlds space from hand position in screen space.
+            var playerRightPosition = ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListRightHand), _playerZValue);
+            playerRightPosition = OffsetHandLandmarks(playerRightPosition);
+            playerRightPosition = Camera.main.ScreenToWorldPoint(playerRightPosition);
 
-        _playerRight.transform.position = playerRightPosition;
+            _playerRight.transform.position = playerRightPosition;
+        }
     }
 
     private void FistDetection()
@@ -84,10 +90,7 @@ public class PlayerController : MonoBehaviour
             initialized = false;
             return false;
         }
-
-        // Hands already found and initialized!
-        if (initialized) return true;
-
+        
         // Found hands! Initialize Lists and Screen Size
         for (int i = 0; i < 2; i++)
         {
@@ -103,6 +106,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // Hands already found and initialized!
+        if (initialized) return true;
+        
         InitializeScreenDimensions();
         initialized = true;
         return true;

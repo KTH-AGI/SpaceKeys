@@ -5,13 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class HomeSceneManager : MonoBehaviour
 {
-    private AsyncOperation sceneAsyncOperation;
     // Start is called before the first frame update    
     void Start()
     {
-        // Load the HWDScene asynchronously
-        sceneAsyncOperation = SceneManager.LoadSceneAsync("CompleteScene");
-        sceneAsyncOperation.allowSceneActivation = false;
+
     }
 
     // Update is called once per frame
@@ -19,13 +16,10 @@ public class HomeSceneManager : MonoBehaviour
     {
         
     }
-    
+
     public void PlayButtonClicked()
     {
-        // Activate the HWDScene when it is ready
-        if (sceneAsyncOperation != null)
-        {
-            sceneAsyncOperation.allowSceneActivation = true;
-        }
+        // Activate the CompleteScene
+        SceneManager.LoadScene("CompleteScene");
     }
 }
