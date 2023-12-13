@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     // UI text for displaying score
     [SerializeField]
     private TextLayers  comboTextLayers; 
+    // Image for displaying hit quality
+    [SerializeField]
+    private HitQualityImageLayers imageLayers;
     
     // Sprites for the hit quality images
     [SerializeField] private Sprite[] hitQualitySprites;
@@ -152,7 +155,7 @@ public class GameManager : MonoBehaviour
             comboCount = 0;
             scoreMultiplier = 1.0f;
             score += (int)(100 * scoreFactor);
-            ShowHitQualityImage(notePosition, hitQuality);
+            imageLayers.ShowHitQualityImage(notePosition, hitQuality);
         }
         else
         {
@@ -163,93 +166,11 @@ public class GameManager : MonoBehaviour
                 scoreMultiplier += 0.1f;
             }
             // Call to show the hit quality image at the music object's position
-            ShowHitQualityImage(notePosition, hitQuality);
+            imageLayers.ShowHitQualityImage(notePosition, hitQuality);
             Debug.Log("Hit quality: " + hitQuality);
         }
         
-
         UpdateUI();
-    }
-    
-    private void ShowHitQualityImage(Vector3 noteWorldPosition, string hitQuality)
-    {
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(noteWorldPosition);
-        Image imageInstance = Instantiate(hitQualityImagePrefab, canvas.transform);
-
-        // Set the image to display hit quality
-        imageInstance.sprite= GetHitQualitySprite(hitQuality);;
-
-        // Convert screen coordinates to Canvas local coordinates
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), screenPosition, null, out Vector2 localPoint);
-        // Set the image's local position within the Canvas
-        imageInstance.rectTransform.anchoredPosition = localPoint;
-        
-        // Start the animation coroutine
-        StartCoroutine(AnimateImage(imageInstance.rectTransform, imageInstance));
-    }
-    
-    private IEnumerator AnimateImage(RectTransform rectTransform, Image imageInstance)
-    {
-        // Fade in and move up
-        float duration = 0.5f; // Duration of the rise and fade in
-        float pauseDuration = 0.5f; // Duration of the pause at peak
-        float imageHeight = imageInstance.preferredHeight; // Approximate height of the image
-        Vector2 startPos = rectTransform.anchoredPosition+ new Vector2(0, 0);
-        Vector2 endPos = startPos + new Vector2(0, 50); // End position after rise
-
-        // Initialize alpha to 0 (transparent)
-        imageInstance.color = new Color(imageInstance.color.r, imageInstance.color.g, imageInstance.color.b, 0);
-
-        // Rise and fade in animation
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float normalizedTime = t / duration;
-            // Linear interpolation from start to end
-            rectTransform.anchoredPosition = Vector2.Lerp(startPos, endPos, normalizedTime);
-            // Fade in
-            imageInstance.color = new Color(imageInstance.color.r, imageInstance.color.g, imageInstance.color.b, normalizedTime);
-            yield return null;
-        }
-
-        // Ensure the final values are set after the animation
-        rectTransform.anchoredPosition = endPos;
-        imageInstance.color = new Color(imageInstance.color.r, imageInstance.color.g, imageInstance.color.b, 1);
-
-        // Wait for a while at the peak
-        yield return new WaitForSeconds(pauseDuration);
-
-        // Fade out animation
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float normalizedTime = t / duration;
-            // Fade out
-            imageInstance.color = new Color(imageInstance.color.r, imageInstance.color.g, imageInstance.color.b, 1 - normalizedTime);
-            yield return null;
-        }
-
-        // Destroy the image instance after the animation
-        Destroy(imageInstance.gameObject);
-    }
-    
-    // Method to get the hit quality sprite based on the hit quality name
-    private Sprite GetHitQualitySprite(string hitQuality)
-    {
-        // 根据命中质量名称返回对应的Sprite
-        switch (hitQuality)
-        {
-            case "Stellar":
-                return hitQualitySprites[0];
-            case "Cosmic":
-                return hitQualitySprites[1];
-            case "Galactic":
-                return hitQualitySprites[2];
-            case "Orbital":
-                return hitQualitySprites[3];
-            case "Miss":
-                return hitQualitySprites[4];
-            default:
-                return null;
-        }
     }
 
     private void UpdateUI()
