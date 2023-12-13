@@ -8,7 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Client_Server/HostScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Client_Server/ClientScene.unity
     guid: 402aaaec794fe174f8b010f3ef6c139c
+  - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: 40b0863e6a0fda34d975f14aab34b3b9
+  - enabled: 0
+    path: Assets/Scenes/HWDScene.unity
+    guid: b717a90358b586040883f124f47126ff
+  - enabled: 1
+    path: Assets/Scenes/CompleteScene.unity
+    guid: 3471d1660e488514da90caa62e369140
   m_configObjects: {}
