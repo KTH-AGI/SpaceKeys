@@ -49,6 +49,7 @@ public class MusicObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Time that has passed until collision: " + Time.time);
             CollectMusicObject();
         }        
     }

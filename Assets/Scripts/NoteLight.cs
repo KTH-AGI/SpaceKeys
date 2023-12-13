@@ -47,6 +47,7 @@ public class NoteLight : MonoBehaviour
             }
         }
         else {
+            if (Mathf.Abs(zPosition - playerPosition)< 0.1 ) { Debug.Log("Time at player is: " + Time.time); }
             circularLight.SetActive(false);
             if (zPosition < playerPosition) { 
                 renderer.material = missedNoteMaterial;

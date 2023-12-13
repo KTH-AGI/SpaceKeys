@@ -38,32 +38,13 @@ public class GenerateObjects : MonoBehaviour
     void Start()
     {
         noteParent = new GameObject("notes");
+        InvokeRepeating("generateSequence", 0f, creationInterval);
+        Invoke("playBackgroundAudio", 0f);
         r = CircularGrid.radius;
     }
 
     void Update()
-    {
-        /*
-        if (!startedBackgroundMusic)
-        {
-            AudioManager.instance.StartBackgroundMusic();
-            startedBackgroundMusic = true;
-        }*/
-        // timer += Time.deltaTime;
-        if (Time.time >= nextActionTime - timerEpsilon)
-        {
-            if (sequence[index] != null)
-            {
-                GameObject newNote = objectSwitch(sequence[index]);
-                newNote.transform.parent = noteParent.transform;
-                notes.Add(newNote);
-            }
-            
-            // Reset the timer
-            // timer -= creationInterval;
-            nextActionTime += creationInterval;
-            index++;
-        }
+    {   
         deleteNotes();
     }
 
@@ -124,4 +105,26 @@ public class GenerateObjects : MonoBehaviour
         }
         return newNote;
     }
+
+
+
+    void generateSequence()
+    {
+        if (sequence[index] != null)
+        {
+            GameObject newNote = objectSwitch(sequence[index]);
+            Debug.Log("Time for note is: " + Time.time);
+            newNote.transform.parent = noteParent.transform;
+            notes.Add(newNote);
+        }
+
+        index++;
+    }
+
+    void playBackgroundAudio()
+    {  
+        AudioManager.instance.StartBackgroundMusic();
+    }
+
+
 }
