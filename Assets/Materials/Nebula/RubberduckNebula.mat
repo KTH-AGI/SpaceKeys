@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CustomNebulaMat
+  m_Name: RubberduckNebula
   m_Shader: {fileID: -6465566751694194690, guid: 0d9200826e7f942969c8d2bfb1e411cc, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -23,12 +23,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _volume:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _volumeTex:
-        m_Texture: {fileID: 11700000, guid: 40eef6d9a9b3b6e48b43d1a5e285f491, type: 3}
+        m_Texture: {fileID: 11700000, guid: 1099a5fff615e594a967641d747a909e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -45,25 +41,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _NoiseAmp: 0.042
-    - _NoiseSpeed: 0.352
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _darknessThreshold: 0.1
-    - _densityScale: 0.06
-    - _lightAbsorb: 0.44
-    - _lightStepSize: 0.02
-    - _numLightSteps: 8
-    - _numSteps: 64
-    - _stepSize: 0.02
-    - _transmittance: 1.6
+    - _darknessThreshold: 0
+    - _densityScale: 0.5
+    - _lightAbsorb: 0
+    - _lightStepSize: 0
+    - _numLightSteps: 0
+    - _numSteps: 16
+    - _stepSize: 0.1
+    - _transmittance: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
-    - _ShadowColor: {r: 0.31132078, g: 0.0102794655, b: 0.0102794655, a: 0}
-    - _Sphere: {r: 0, g: 0, b: 0, a: 0.34}
+    - _ShadowColor: {r: 1, g: 1, b: 1, a: 0}
     - _offset: {r: 0.5, g: 0.5, b: 0.5, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &3045474858049734558
+--- !u!114 &2564665592659291684
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
