@@ -57,6 +57,21 @@ public class AudioManager : MonoBehaviour
         eventInstance.start();
     }
 
+    public void InitializeEventForDuration(EventReference eventReference, float duration=16)
+    {
+        eventInstance = CreateInstance(eventReference);
+        eventInstance.start();
+        StartCoroutine(StopEvent(eventInstance, duration));
+    }
+
+    private System.Collections.IEnumerator StopEvent(EventInstance eventInstance, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+        Debug.Log("Stopped audio event");
+    }
+
     private void InitializeEventAtTime(EventReference eventReference, int time)
     {  // Not used yet
         eventInstance = CreateInstance(eventReference);

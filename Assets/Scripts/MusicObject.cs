@@ -26,6 +26,7 @@ public class MusicObject : MonoBehaviour
 
     // Event for when the player collides with a note
     public static event Action<Vector3, Vector3, float> OnCollisionNote;
+    bool actionEvent = true;
 
     // Public property with a public getter and private setter
     public float UFOHeightRatio
@@ -72,6 +73,7 @@ public class MusicObject : MonoBehaviour
 
         musicObject = gameObject.tag;
         validMusicObject = true;
+        actionEvent = true;
 
         switch (musicObject)
         {
@@ -105,13 +107,21 @@ public class MusicObject : MonoBehaviour
             case "Space Probe":
                 sound = FMODEvents.instance.spaceProbe;
                 break;
+            case "Star Cluster 1":
+                AudioManager.instance.InitializeEventForDuration(FMODEvents.instance.harmony3, 16);
+                actionEvent = false;
+                break;
+            case "Star Cluster 2":
+                AudioManager.instance.InitializeEventForDuration(FMODEvents.instance.harmony4, 16);
+                actionEvent = false;
+                break;
             default:
                 validMusicObject = false;
-                Debug.Log("Game object without audio encountered: " + musicObject);
+                Debug.Log("Game object without audio tag encountered: " + musicObject);
                 break;
         }
 
-        if (validMusicObject)
+        if (validMusicObject && actionEvent)
         {
             Debug.Log(parameterName + " for " + musicObject + ": " + UFOHeightRatio);
             AudioManager.instance.SetParameterAndPlay(sound, parameterName,
