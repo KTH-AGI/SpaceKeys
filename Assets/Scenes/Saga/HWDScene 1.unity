@@ -1439,7 +1439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6721752321743939844, guid: 9c5cfe13524651b4dac804d1204a9a1e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 180
+      value: 566
       objectReference: {fileID: 0}
     - target: {fileID: 6721752321743939844, guid: 9c5cfe13524651b4dac804d1204a9a1e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2686,14 +2686,16 @@ MonoBehaviour:
   StarEb3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
   StarF3: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
   StarAb3: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
-  Supernova: {fileID: 5893724041772628928, guid: fc128bc585c774b75a0c74b45231f499, type: 3}
+  Supernova: {fileID: 3507259758254108314, guid: b5a5f750e3d3c7c4ca8d42b9f02a1aa8, type: 3}
   AsteroidField: {fileID: 2103432355971161382, guid: f18998d1490fd5241aae8849309321b1, type: 3}
   BlackHole: {fileID: 5868271642398163449, guid: 6188dab151c607e4bae61cc8059ba646, type: 3}
   StarClusterBig: {fileID: 3722350881108144354, guid: caa8c54e6b568004b92517df82ba5c49, type: 3}
   StarCluster1: {fileID: 968384220738089674, guid: 584f7a29259277547891cd0aaa5d91ef, type: 3}
   StarCluster2: {fileID: 7726712037677993486, guid: 89670d1a10b9c9e4fa4e5120987f5f09, type: 3}
-  Nebula: {fileID: 5893724041772628928, guid: fc128bc585c774b75a0c74b45231f499, type: 3}
+  Nebula: {fileID: 6867191540085726167, guid: 1eea03dc2ec86f34d95d7ae8ac5b3150, type: 3}
   SpaceProbe: {fileID: 1412742708598286, guid: 18e38bc29867e4e4aa3ae695505f66cf, type: 3}
+  Quasar: {fileID: 3507259758254108314, guid: 31d75fcb095374448b7292b2c4ef32b6, type: 3}
+  Wormhole: {fileID: 4756001150957506167, guid: 9e2db633f7be44244aa247f54c019419, type: 3}
 --- !u!1 &1740586368
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class GenerateObjects : MonoBehaviour
     [SerializeField] public GameObject StarCluster2;
     [SerializeField] public GameObject Nebula;
     [SerializeField] public GameObject SpaceProbe;
+    [SerializeField] public GameObject Quasar;
+    [SerializeField] public GameObject Wormhole;
 
     MusicObjectInfo[] sequence = Sequence.sequence;
 
@@ -139,6 +141,21 @@ public class GenerateObjects : MonoBehaviour
             case "SpaceProbe":
                 objPosition = new Vector3(positionX, positionY, positionZ);
                 newNote = Instantiate(SpaceProbe, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "Quasar":
+                objPosition = new Vector3(positionX, positionY, positionZ);
+                newNote = Instantiate(Quasar, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "Wormhole":
+                objPosition = new Vector3(positionX, positionY, positionZ);
+                newNote = Instantiate(Wormhole, objPosition, Quaternion.identity);
+                return newNote;
+
+            case "Supernova":
+                objPosition = new Vector3(positionX, positionY, positionZ);
+                newNote = Instantiate(Supernova, objPosition, Quaternion.identity);
                 return newNote;
 
             case "End":

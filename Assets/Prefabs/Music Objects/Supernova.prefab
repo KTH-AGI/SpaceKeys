@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2722704217525815839}
+  - component: {fileID: 3661752478688319058}
+  - component: {fileID: -8866707151521403506}
   m_Layer: 0
   m_Name: Supernova
   m_TagString: Untagged
@@ -32,6 +34,36 @@ Transform:
   - {fileID: 3445249893240832202}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3661752478688319058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3507259758254108314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435f0a876be04cb41889c087ce5bfd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8866707151521403506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3507259758254108314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718d1431c55f71c4e81bc95fbc8deafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missedNoteMaterial: {fileID: 0}
+  lightMaterial: {fileID: 2100000, guid: d8ca46e00a485cc4abd3b5dc7d9163e9, type: 2}
+  moveSpeed: 5
+  lineWidth: 0.5
+  zSpawn: 50
+  playerPosition: 25
 --- !u!1 &3932314191207941433
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5539343584871212413}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.38490355, y: -0.2213531, z: -0.095632955, w: 0.89090204}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
@@ -175,7 +207,7 @@ Transform:
   - {fileID: 6862164470617030140}
   - {fileID: 5969183368796213411}
   m_Father: {fileID: 2722704217525815839}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &3139249883571555270
 PrefabInstance:
   m_ObjectHideFlags: 0
