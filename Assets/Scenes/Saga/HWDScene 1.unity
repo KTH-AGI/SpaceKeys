@@ -1753,6 +1753,10 @@ MonoBehaviour:
   _playerLeft: {fileID: 0}
   _playerRight: {fileID: 0}
   _playerZValue: 35
+  minX: -10
+  maxX: 10
+  minY: -5
+  maxY: 5
   ratioThreshold: 1.1
 --- !u!1 &1223870913
 GameObject:
