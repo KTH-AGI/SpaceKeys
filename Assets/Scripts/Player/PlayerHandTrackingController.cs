@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Mediapipe.Unity;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerHandTrackingController : MonoBehaviour
 {
     [SerializeField] private MultiHandLandmarkListAnnotation _handLandmarkListAnnotation;
     [SerializeField] private GameObject _playerLeft;

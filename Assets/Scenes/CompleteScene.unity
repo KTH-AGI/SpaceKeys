@@ -1846,7 +1846,7 @@ GameObject:
   - component: {fileID: 1248190007}
   - component: {fileID: 1248190006}
   m_Layer: 0
-  m_Name: PlayerController
+  m_Name: PlayerHandTrackingController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1979,6 +1979,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4670638636866847803, guid: fa61193d8b978e24c82aec62a31cd41b, type: 3}
   m_PrefabInstance: {fileID: 1961271863}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1332875358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332875351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188c83df87869774d8bccb0abf02b1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -10
+  maxX: 10
+  minY: -5
+  maxY: 5
+  _playerLeft: {fileID: 0}
+  _playerRight: {fileID: 0}
+  moveSpeed: 5
 --- !u!4 &1335748237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4044370252296748503, guid: e6896ff74537be744aedc26f4d9574e1, type: 3}
@@ -2900,7 +2919,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4670638636866847803, guid: fa61193d8b978e24c82aec62a31cd41b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2099255790}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5447844495906938497, guid: fa61193d8b978e24c82aec62a31cd41b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1332875358}
   m_SourcePrefab: {fileID: 100100000, guid: fa61193d8b978e24c82aec62a31cd41b, type: 3}
 --- !u!1 &1976407161
 GameObject:
