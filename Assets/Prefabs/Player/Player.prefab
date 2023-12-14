@@ -186,9 +186,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 380cbd36ec8086b47a91260418fddde8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1049294085745964755}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 380cbd36ec8086b47a91260418fddde8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7219557971027009282}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 380cbd36ec8086b47a91260418fddde8, type: 3}
       insertIndex: -1
@@ -199,23 +196,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 380cbd36ec8086b47a91260418fddde8, type: 3}
   m_PrefabInstance: {fileID: 5141923737403433936}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1049294085745964755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5447844495906938497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b10bca162dadd741bee7a09c6768df2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: -20
-  maxX: 20
-  minZ: -20
-  maxZ: 20
-  moveSpeed: 30
 --- !u!114 &7219557971027009282
 MonoBehaviour:
   m_ObjectHideFlags: 0

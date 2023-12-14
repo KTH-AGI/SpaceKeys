@@ -17,7 +17,7 @@ public class HomeSceneManager : MonoBehaviour
         
     }
 
-    public void PlayButtonClicked()
+    public void LoadGameScene()
     {
         // Activate the CompleteScene
         SceneManager.LoadScene("CompleteScene");
