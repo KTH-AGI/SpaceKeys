@@ -13,7 +13,7 @@ public class GenerateObjects : MonoBehaviour
     [SerializeField] public GameObject StarDb3;
     [SerializeField] public GameObject StarEb3;
     [SerializeField] public GameObject StarF3;
-    [SerializeField] public GameObject StarGb3;
+    [SerializeField] public GameObject StarAb3;
 
     [SerializeField] public GameObject Supernova;
     [SerializeField] public GameObject AsteroidField;
@@ -98,9 +98,9 @@ public class GenerateObjects : MonoBehaviour
                 newNote = Instantiate(StarF3, objPosition, Quaternion.identity);
                 return newNote;
 
-            case "StarGb3":
+            case "StarAb3":
                 objPosition = new Vector3(12, positionY, positionZ);
-                newNote = Instantiate(StarGb3, objPosition, Quaternion.identity);
+                newNote = Instantiate(StarAb3, objPosition, Quaternion.identity);
                 return newNote;
 
 

@@ -70,11 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 07f1771206ad9fe4d86572d7f7a15e72, type: 2}
     - target: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_Name
-      value: StarGb3
+      value: StarAb3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_TagString
-      value: Melody Gb3
+      value: Melody Ab3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d51eb54bcd795404b822d6460339d6de, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -239,7 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435f0a876be04cb41889c087ce5bfd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: -25
 --- !u!54 &6890827725994513798
 Rigidbody:
   m_ObjectHideFlags: 0
