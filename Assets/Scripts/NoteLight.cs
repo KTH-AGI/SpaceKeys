@@ -11,11 +11,10 @@ public class NoteLight : MonoBehaviour
 
     [SerializeField] Material missedNoteMaterial;
     [SerializeField] Material lightMaterial;
-    [SerializeField] float moveSpeed = 5.0f;
-    [SerializeField] float lineWidth = 0.5f;
-    // [SerializeField] 
-    float zSpawn = GenerateObjects.positionZ;  // 50
-    [SerializeField] int playerPosition = 25;
+    public static float lineWidth = 0.5f;
+    public static int playerPosition = 25;
+    public static float zSpawn = (GenerateObjects.positionZ - playerPosition) / 2f;
+    
     GameObject circularLight;
     Renderer renderer;
     

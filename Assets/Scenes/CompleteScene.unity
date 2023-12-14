@@ -2202,7 +2202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1462609823
 Transform:
   m_ObjectHideFlags: 0
@@ -2892,8 +2892,8 @@ MonoBehaviour:
   lineY: -10
   lineLengthZ: 180
   spaceBetweenXLines: 6
+  moveSpeed: 15
   spaceBetweenZLines: 20
-  moveSpeed: 5
   lineWidth: 0.2
 --- !u!1001 &1705519193
 PrefabInstance:

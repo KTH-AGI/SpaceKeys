@@ -10,7 +10,7 @@ public class GridGenerator : MonoBehaviour
     [SerializeField] public int gridSizeY = 10;
     [SerializeField] public float cellSize = 1.0f;
     [SerializeField] float spaceBetweenCells = 0.1f;
-    [SerializeField] float moveSpeed = 5.0f; // Speed of grid movement
+    [SerializeField] float moveSpeed = 15.0f; // Speed of grid movement
 
     GameObject gridParent; 
     List<GameObject> gridBlocks = new List<GameObject>();

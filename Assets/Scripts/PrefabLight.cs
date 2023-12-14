@@ -11,10 +11,9 @@ public class PrefabLight : MonoBehaviour
 
     [SerializeField] Material missedNoteMaterial;
     [SerializeField] Material lightMaterial;
-    [SerializeField] float moveSpeed = 5.0f;
-    [SerializeField] float lineWidth = 0.5f;
-    [SerializeField] int zSpawn = 50;
-    [SerializeField] int playerPosition = 25;
+    static float lineWidth; // = 0.5f;
+    static float zSpawn;
+    static int playerPosition;
     GameObject circularLight;
     
     // Event for when the player misses a note
@@ -25,6 +24,9 @@ public class PrefabLight : MonoBehaviour
     void Start()
     {
         //lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineWidth = NoteLight.lineWidth;
+        zSpawn = NoteLight.zSpawn;
+        playerPosition = NoteLight.playerPosition;
         createRoundLight();
     }
 
