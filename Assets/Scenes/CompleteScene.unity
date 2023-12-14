@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311932, g: 0.38073996, b: 0.3587271, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1210,21 +1210,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9532232f18ec27343b29428a9eccd425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StarAb2: {fileID: 5893724041772628928, guid: fe12ab985e600af418cba97dd5c661ed, type: 3}
-  StarBb2: {fileID: 5893724041772628928, guid: 8dfb554187516d34a996df4fb9ceb08e, type: 3}
-  StarC3: {fileID: 5893724041772628928, guid: 1e45641b20cd48448946070979db3995, type: 3}
-  StarDb3: {fileID: 5893724041772628928, guid: 7f46f89a217e4504c8939543520fd3da, type: 3}
-  StarEb3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
-  StarF3: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
-  StarAb3: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
+  StarAb2: {fileID: 0}
+  StarBb2: {fileID: 0}
+  StarC3: {fileID: 0}
+  StarDb3: {fileID: 0}
+  StarEb3: {fileID: 0}
+  StarF3: {fileID: 0}
+  StarAb3: {fileID: 0}
   Supernova: {fileID: 0}
-  AsteroidField: {fileID: 2103432355971161382, guid: f18998d1490fd5241aae8849309321b1, type: 3}
-  BlackHole: {fileID: 5868271642398163449, guid: 6188dab151c607e4bae61cc8059ba646, type: 3}
-  StarClusterBig: {fileID: 3722350881108144354, guid: caa8c54e6b568004b92517df82ba5c49, type: 3}
-  StarCluster1: {fileID: 968384220738089674, guid: 584f7a29259277547891cd0aaa5d91ef, type: 3}
-  StarCluster2: {fileID: 7726712037677993486, guid: 89670d1a10b9c9e4fa4e5120987f5f09, type: 3}
+  AsteroidField: {fileID: 0}
+  BlackHole: {fileID: 0}
+  StarClusterBig: {fileID: 0}
+  StarCluster1: {fileID: 0}
+  StarCluster2: {fileID: 0}
   Nebula: {fileID: 0}
-  SpaceProbe: {fileID: 1412742708598286, guid: 18e38bc29867e4e4aa3ae695505f66cf, type: 3}
+  SpaceProbe: {fileID: 0}
 --- !u!1 &937134779
 GameObject:
   m_ObjectHideFlags: 0
@@ -3289,6 +3289,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713830907}
   m_CullTransparentMesh: 1
+--- !u!1 &1740766571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1740766573}
+  - component: {fileID: 1740766572}
+  m_Layer: 0
+  m_Name: generateObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1740766572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740766571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9532232f18ec27343b29428a9eccd425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StarAb2: {fileID: 5893724041772628928, guid: fe12ab985e600af418cba97dd5c661ed, type: 3}
+  StarBb2: {fileID: 5893724041772628928, guid: 8dfb554187516d34a996df4fb9ceb08e, type: 3}
+  StarC3: {fileID: 5893724041772628928, guid: 1e45641b20cd48448946070979db3995, type: 3}
+  StarDb3: {fileID: 5893724041772628928, guid: 7f46f89a217e4504c8939543520fd3da, type: 3}
+  StarEb3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
+  StarF3: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
+  StarAb3: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
+  Supernova: {fileID: 5893724041772628928, guid: fc128bc585c774b75a0c74b45231f499, type: 3}
+  AsteroidField: {fileID: 2103432355971161382, guid: f18998d1490fd5241aae8849309321b1, type: 3}
+  BlackHole: {fileID: 5868271642398163449, guid: 6188dab151c607e4bae61cc8059ba646, type: 3}
+  StarClusterBig: {fileID: 3722350881108144354, guid: caa8c54e6b568004b92517df82ba5c49, type: 3}
+  StarCluster1: {fileID: 968384220738089674, guid: 584f7a29259277547891cd0aaa5d91ef, type: 3}
+  StarCluster2: {fileID: 7726712037677993486, guid: 89670d1a10b9c9e4fa4e5120987f5f09, type: 3}
+  Nebula: {fileID: 5893724041772628928, guid: fc128bc585c774b75a0c74b45231f499, type: 3}
+  SpaceProbe: {fileID: 1412742708598286, guid: 18e38bc29867e4e4aa3ae695505f66cf, type: 3}
+--- !u!4 &1740766573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740766571}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.33376, y: 4.871422, z: 43.816704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1961271863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3654,3 +3713,4 @@ SceneRoots:
   - {fileID: 1632247100}
   - {fileID: 1652459695}
   - {fileID: 1518120417}
+  - {fileID: 1740766573}

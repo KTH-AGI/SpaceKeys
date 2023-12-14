@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4665338958653888755}
   - component: {fileID: 3706565664817351527}
   - component: {fileID: 5222856055207516821}
+  - component: {fileID: 2410170354020440940}
   m_Layer: 0
   m_Name: NebulaNote
   m_TagString: Untagged
@@ -105,3 +106,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2410170354020440940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867191540085726167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c19e5863bef4f92b940c7a10799c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: 0
