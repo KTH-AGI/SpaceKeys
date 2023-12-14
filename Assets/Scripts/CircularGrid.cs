@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
-
+using System;
 
 public class CircularGrid : MonoBehaviour
 {
@@ -16,8 +16,8 @@ public class CircularGrid : MonoBehaviour
     [SerializeField] public int lineY = -10;
     [SerializeField] public int lineLengthZ = 180;
     [SerializeField] float spaceBetweenXLines = 6f;
-    [SerializeField] float spaceBetweenZLines = 20f;
-    [SerializeField] float moveSpeed = 15.0f; // Speed of grid movement
+    [SerializeField] float moveSpeed;  // Speed of grid movement
+    [SerializeField] float spaceBetweenZLines;
     [SerializeField] float lineWidth = 0.5f;
 
     public static int gridSize = 10;
@@ -35,7 +35,16 @@ public class CircularGrid : MonoBehaviour
         lineZParent = new GameObject("ZLines");
         lineXParent.transform.parent = gridParent.transform;
         lineZParent.transform.parent = gridParent.transform;
+        moveSpeed = Math.Abs(MusicObjectMovement.movementSpeed);
+        spaceBetweenZLines = moveSpeed;  // The multiplying this with m means a line every m'th second
+        StartCoroutine(DelayedStart());
+    }
 
+    private System.Collections.IEnumerator DelayedStart()
+    {
+        // Wait before generating the circular grid to make them in sync with music
+        yield return new WaitForSeconds(0.65f);
+        
         GenerateCircularGrid();
     }
 
