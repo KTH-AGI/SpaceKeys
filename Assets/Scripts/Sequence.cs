@@ -26,11 +26,11 @@ public class Sequence
         // sequence[musicNotationToOffsetSample(3)] = new MusicObjectInfo("Asteroid Field", 0.5f);
         //sequence[musicNotationToOffsetSample(5)] = new MusicObjectInfo("Asteroid Field", 0.5f);
         //sequence[musicNotationToOffsetSample(7)] = new MusicObjectInfo("Supernova", 0.5f);
-        // sequence[musicNotationToOffsetSample(9)] = new MusicObjectInfo("Space Probe", 0.5f);
+        // sequence[musicNotationToOffsetSample(9)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         // sequence[musicNotationToOffsetSample(11)] = new MusicObjectInfo("StarClusterBig1", 0.5f);
         sequence[musicNotationToOffsetSample(13)] = new MusicObjectInfo("StarBb2", 0.5f);
         //sequence[musicNotationToOffsetSample(15)] = new MusicObjectInfo("StarClusterBig2", 0.5f);
-        // sequence[musicNotationToOffsetSample(17)] = new MusicObjectInfo("Space Probe", 0.5f);
+        // sequence[musicNotationToOffsetSample(17)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         
 
         // Verse 1
@@ -42,9 +42,9 @@ public class Sequence
         // Interlude 1
         int interlude1StartBar = 27;  // 27-34
         sequence[musicNotationToOffsetSample(interlude1StartBar)] = new MusicObjectInfo("StarCluster1", 0.5f);
-        // sequence[musicNotationToOffsetSample(interlude1StartBar + 2)] = new MusicObjectInfo("Space Probe", 0.5f);
+        // sequence[musicNotationToOffsetSample(interlude1StartBar + 2)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         // sequence[musicNotationToOffsetSample(interlude1StartBar + 4)] = new MusicObjectInfo("BlackHole", 0.5f);
-        // sequence[musicNotationToOffsetSample(interlude1StartBar + 6)] = new MusicObjectInfo("Space Probe", 0.5f);
+        // sequence[musicNotationToOffsetSample(interlude1StartBar + 6)] = new MusicObjectInfo("SpaceProbe", 0.5f);
 
         // Chorus 1
         int chorus1StartBar = 35;  // 35-42
@@ -71,22 +71,22 @@ public class Sequence
         // Bridge
         int bridgeStartBar = 67;  // 67-82
         sequence[musicNotationToOffsetSample(bridgeStartBar)] = new MusicObjectInfo("StarCluster2", 0.5f);
-        // sequence[musicNotationToOffsetSample(bridgeStartBar + 4)] = new MusicObjectInfo("Space Probe", 0.5f);
+        // sequence[musicNotationToOffsetSample(bridgeStartBar + 4)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         sequence[musicNotationToOffsetSample(bridgeStartBar + 8)] = new MusicObjectInfo("StarCluster2", 0.5f);
-        // sequence[musicNotationToOffsetSample(bridgeStartBar + 8)] = new MusicObjectInfo("Space Probe", 0.5f);
+        // sequence[musicNotationToOffsetSample(bridgeStartBar + 8)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         // sequence[musicNotationToOffsetSample(bridgeStartBar + 12)] = new MusicObjectInfo("WormHole", 0.5f);
-        // sequence[musicNotationToOffsetSample(bridgeStartBar + 14)] = new MusicObjectInfo("Space Probe", 0.5f);
+        // sequence[musicNotationToOffsetSample(bridgeStartBar + 14)] = new MusicObjectInfo("SpaceProbe", 0.5f);
 
         // Chorus 3
         int chorus3StartBar = 83;  // 83-90
         writeChorusStartingAtBar(chorus3StartBar, 0.55f, 0.65f);
         writeChorusStartingAtBar(chorus3StartBar + 4, 0.65f, 0.75f);
         // sequence[musicNotationToOffsetSample(chorus3StartBar + 4)] = new MusicObjectInfo("Quasar", 0.5f);
-        // sequence[musicNotationToOffsetSample(interlude2StartBar + 6)] = new MusicObjectInfo("Space Probe", 0.5f);
+        // sequence[musicNotationToOffsetSample(interlude2StartBar + 6)] = new MusicObjectInfo("SpaceProbe", 0.5f);
 
         // Outro
         int outroStartBar = 91;  // 91-99
-        // sequence[musicNotationToOffsetSample(outroStartBar + 8)] = new MusicObjectInfo("Space Probe", 0.5f);
+        // sequence[musicNotationToOffsetSample(outroStartBar + 8)] = new MusicObjectInfo("SpaceProbe", 0.5f);
     }
 
     /* Input time at which the audio should be triggered, returns corresponding offset sample 
