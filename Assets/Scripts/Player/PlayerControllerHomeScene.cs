@@ -19,15 +19,6 @@ public class PlayerControllerHomeScene : MonoBehaviour
     // Boolean used to check if hands were already initialized before.
     private bool initialized = false;
 
-    // Threshold for determining if a fist is made
-    [SerializeField] private float ratioThreshold = 1.1f;
-
-    private bool isLeftFistMade = false;
-    private bool isRightFistMade = false;
-    
-    public delegate void FistDetectedHandler(bool isFistMade); 
-    public event FistDetectedHandler OnFistDetected;
-
     void Update()
     {
         // Find hand position first before updating player position

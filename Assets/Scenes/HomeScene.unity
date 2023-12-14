@@ -948,7 +948,6 @@ MonoBehaviour:
   _playerLeft: {fileID: 974178462}
   _playerRight: {fileID: 1731565677}
   _playerZValue: 130
-  ratioThreshold: 0.7
 --- !u!1001 &887664866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1286,7 +1285,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 858881892}
         m_TargetAssemblyTypeName: HomeSceneManager, Assembly-CSharp
-        m_MethodName: PlayButtonClicked
+        m_MethodName: LoadGameScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

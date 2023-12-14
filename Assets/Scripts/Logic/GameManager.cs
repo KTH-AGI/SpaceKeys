@@ -2,22 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
+using Color = UnityEngine.Color;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     
-    public PlayerController playerController;
+    public PlayerHandTrackingController playerController;
     
     [FormerlySerializedAs("worldSpaceCanvas")] [SerializeField]
     private Canvas canvas;
+    
+    // UI text for displaying combo count
     [SerializeField]
-    private TextMeshProUGUI  comboText; // UI text for displaying combo count
+    private TextLayers   pointTextLayers; 
+    // UI text for displaying score
     [SerializeField]
-    private TextMeshProUGUI  scoreText; // UI text for displaying score
+    private TextLayers  comboTextLayers; 
+    // Image for displaying hit quality
     [SerializeField]
-    private TextMeshProUGUI hitQualityTextPrefab; // Prefab for the hit quality text
+    private HitQualityImageLayers imageLayers;
+    [SerializeField]
+    private PauseScreenLayers pauseScreenLayers;
     
     private int comboCount = 0; // Current combo count
     private float scoreMultiplier = 1.0f; // Score multiplier
@@ -75,7 +84,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (isGamePaused && Input.GetKeyDown(KeyCode.Space))
         {
@@ -93,18 +102,34 @@ public class GameManager : MonoBehaviour
     private void PauseGame()
     {
         isGamePaused = true;
-        Time.timeScale = 0; 
+        pauseScreenLayers.ShowPauseScreen();
         Debug.Log("Game is paused. Press Space to resume.");
+        Time.timeScale = 0;
+        imageLayers.DestroyHitQualityImage();
     }
 
     // Method to resume the game
     private void ResumeGame()
     {
         isGamePaused = false;
-        Time.timeScale = 1; 
+        pauseScreenLayers.HidePauseScreen();
         Debug.Log("Game resumed.");
+        Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("CompleteScene");
+        
     }
     
+    public void LoadHomeScene()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("HomeScene");
+    }
+
     private void OnCollisionNote(Vector3 notePos, Vector3 playerPos, float radius)
     {
         notePos.z=playerPos.z;
@@ -143,7 +168,7 @@ public class GameManager : MonoBehaviour
             comboCount = 0;
             scoreMultiplier = 1.0f;
             score += (int)(100 * scoreFactor);
-            ShowHitQualityText(notePosition, hitQuality);
+            imageLayers.ShowHitQualityImage(notePosition, hitQuality);
         }
         else
         {
@@ -153,79 +178,19 @@ public class GameManager : MonoBehaviour
             {
                 scoreMultiplier += 0.1f;
             }
-            // Call to show the hit quality text at the music object's position
-            ShowHitQualityText(notePosition, hitQuality);
+            // Call to show the hit quality image at the music object's position
+            imageLayers.ShowHitQualityImage(notePosition, hitQuality);
             Debug.Log("Hit quality: " + hitQuality);
         }
         
-
         UpdateUI();
-    }
-    
-    private void ShowHitQualityText(Vector3 noteWorldPosition, string hitQuality)
-    {
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(noteWorldPosition);
-        TextMeshProUGUI textInstance = Instantiate(hitQualityTextPrefab, canvas.transform);
-
-        // Set the text to display hit quality
-        textInstance.text = hitQuality;
-
-        // Convert screen coordinates to Canvas local coordinates
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), screenPosition, null, out Vector2 localPoint);
-        // Set the text's local position within the Canvas
-        textInstance.rectTransform.anchoredPosition = localPoint;
-        
-        // Start the animation coroutine
-        StartCoroutine(AnimateText(textInstance.rectTransform, textInstance));
-    }
-    
-    private IEnumerator AnimateText(RectTransform rectTransform, TextMeshProUGUI textInstance)
-    {
-        // Fade in and move up
-        float duration = 0.5f; // Duration of the rise and fade in
-        float pauseDuration = 0.5f; // Duration of the pause at peak
-        float textHeight = textInstance.preferredHeight; // Approximate height of the text
-        Vector2 startPos = rectTransform.anchoredPosition+ new Vector2(0, -textHeight/2);
-        Vector2 endPos = startPos + new Vector2(0, textHeight/2); // End position after rise
-
-        // Initialize alpha to 0 (transparent)
-        textInstance.color = new Color(textInstance.color.r, textInstance.color.g, textInstance.color.b, 0);
-
-        // Rise and fade in animation
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float normalizedTime = t / duration;
-            // Linear interpolation from start to end
-            rectTransform.anchoredPosition = Vector2.Lerp(startPos, endPos, normalizedTime);
-            // Fade in
-            textInstance.color = new Color(textInstance.color.r, textInstance.color.g, textInstance.color.b, normalizedTime);
-            yield return null;
-        }
-
-        // Ensure the final values are set after the animation
-        rectTransform.anchoredPosition = endPos;
-        textInstance.color = new Color(textInstance.color.r, textInstance.color.g, textInstance.color.b, 1);
-
-        // Wait for a while at the peak
-        yield return new WaitForSeconds(pauseDuration);
-
-        // Fade out animation
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float normalizedTime = t / duration;
-            // Fade out
-            textInstance.color = new Color(textInstance.color.r, textInstance.color.g, textInstance.color.b, 1 - normalizedTime);
-            yield return null;
-        }
-
-        // Destroy the text instance after the animation
-        Destroy(textInstance.gameObject);
     }
 
     private void UpdateUI()
     {
-        comboText.text = "Combo: " + comboCount.ToString();
-        scoreText.text = "Score: " + score.ToString();
+        pointTextLayers.UpdateScoreIncrementally(score);
+        
+        comboTextLayers.UpdateCombo(comboCount);
     }
     
     private void ResetCombo()
