@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     
     public PlayerController playerController;
     
-    [FormerlySerializedAs("worldSpaceCanvas")] [SerializeField]
-    private Canvas canvas;
-    
     // UI text for displaying combo count
     [SerializeField]
     private TextLayers   pointTextLayers; 
@@ -63,6 +60,11 @@ public class GameManager : MonoBehaviour
         if (playerController != null)
         {
             playerController.OnFistDetected -= HandleFistDetected;
+        }
+        if (Instance != null)
+        {
+            Destroy(Instance.gameObject);
+            Instance = null;
         }
     }
     
