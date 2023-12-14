@@ -68,6 +68,7 @@ public class Sequence
         // Chorus 2
         int chorus2StartBar = 59;  // 59-66
         writeChorusStartingAtBar(chorus2StartBar, 0.55f, 0.65f);
+        // sequence[musicNotationToOffsetSample(chorus2StartBar)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         writeChorusStartingAtBar(chorus2StartBar + 4, 0.65f, 0.75f);
         // sequence[musicNotationToOffsetSample(chorus2StartBar + 4)] = new MusicObjectInfo("Nebula", 0.5f);
 

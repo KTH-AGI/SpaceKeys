@@ -57,8 +57,23 @@ public class AudioManager : MonoBehaviour
         eventInstance.start();
     }
 
+    public void InitializeEventForDuration(EventReference eventReference, float duration=16)
+    {
+        eventInstance = CreateInstance(eventReference);
+        eventInstance.start();
+        StartCoroutine(StopEvent(eventInstance, duration));
+    }
+
+    private System.Collections.IEnumerator StopEvent(EventInstance eventInstance, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+        Debug.Log("Stopped audio event");
+    }
+
     private void InitializeEventAtTime(EventReference eventReference, int time)
-    {  // not used yet
+    {  // Not used yet
         eventInstance = CreateInstance(eventReference);
         eventInstance.setTimelinePosition(time);
         eventInstance.start();
@@ -103,7 +118,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public StudioEventEmitter InitializeEventEmitter(EventReference eventReference, GameObject emitterGameObject)
-    {
+    {  // Not used yet
         StudioEventEmitter emitter = emitterGameObject.GetComponent<StudioEventEmitter>();
         emitter.EventReference = eventReference;
         eventEmitters.Add(emitter);
@@ -112,16 +127,56 @@ public class AudioManager : MonoBehaviour
 
     private void CleanUp()
     {
-        // stop and release any created instances
+        // Stop and release any created instances
         foreach (EventInstance eventInstance in eventInstances)
         {
             eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventInstance.release();
         }
-        // stop all of the event emitters, because if we don't they may hang around in other scenes
+        // Stop all of the event emitters, because if we don't they may hang around in other scenes
         foreach (StudioEventEmitter eventEmitter in eventEmitters)
         {
             eventEmitter.Stop();
+        }
+    }
+
+    private void Pause()
+{
+    // Pause any created instances
+    foreach (EventInstance eventInstance in eventInstances)
+    {
+        eventInstance.setPaused(true);
+    }
+
+    // Pause all of the event emitters
+    foreach (StudioEventEmitter eventEmitter in eventEmitters)
+    {
+        // Assuming you have access to the EventInstance associated with the StudioEventEmitter
+        EventInstance associatedInstance = eventEmitter.EventInstance;
+        if (!ReferenceEquals(associatedInstance, null))
+        {
+            associatedInstance.setPaused(true);
+        }
+    }
+}
+
+    private void Resume()
+    {
+        // Resume playback for any created instances
+        foreach (EventInstance eventInstance in eventInstances)
+        {
+            eventInstance.setPaused(false);
+        }
+
+        // Resume playback for all of the event emitters
+        foreach (StudioEventEmitter eventEmitter in eventEmitters)
+        {
+            // Assuming we have access to the EventInstance associated with the StudioEventEmitter
+            EventInstance associatedInstance = eventEmitter.EventInstance;
+            if (!ReferenceEquals(associatedInstance, null))
+            {
+                associatedInstance.setPaused(false);
+            }
         }
     }
 

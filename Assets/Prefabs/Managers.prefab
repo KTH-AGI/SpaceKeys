@@ -177,6 +177,20 @@ MonoBehaviour:
       Data3: -510612805
       Data4: 1420107906
     Path: event:/Level1/Harmony/Harmony-2
+  <harmony3>k__BackingField:
+    Guid:
+      Data1: -1576156049
+      Data2: 1278698121
+      Data3: -718593401
+      Data4: 1418908488
+    Path: event:/Level1/Harmony/Harmony-3
+  <harmony4>k__BackingField:
+    Guid:
+      Data1: 852174849
+      Data2: 1242064083
+      Data3: 1271884727
+      Data4: -871961343
+    Path: event:/Level1/Harmony/Harmony-4
   <melodyAb2>k__BackingField:
     Guid:
       Data1: 259185533
