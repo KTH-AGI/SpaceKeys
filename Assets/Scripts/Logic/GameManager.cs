@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     
-    public PlayerController playerController;
+    public PlayerHandTrackingController playerController;
     
     [FormerlySerializedAs("worldSpaceCanvas")] [SerializeField]
     private Canvas canvas;
