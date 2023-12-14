@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7778233729032736476}
   - component: {fileID: 6225747055859435091}
   - component: {fileID: 7154595495698413952}
+  - component: {fileID: 941212336921832742}
   m_Layer: 0
   m_Name: Star cluster 2
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1348544094551959140}
@@ -135,6 +136,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &941212336921832742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726712037677993486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718d1431c55f71c4e81bc95fbc8deafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missedNoteMaterial: {fileID: 0}
+  lightMaterial: {fileID: 2100000, guid: 40c5046ff23bbd54a950e5a64320756b, type: 2}
+  moveSpeed: 5
+  lineWidth: 0.5
+  zSpawn: 50
+  playerPosition: 25
 --- !u!1001 &1205029015122511904
 PrefabInstance:
   m_ObjectHideFlags: 0
