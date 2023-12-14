@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3806893539852788170}
   - component: {fileID: 78637647109489491}
   - component: {fileID: 8053950893112243305}
+  - component: {fileID: -8460190410393595360}
   m_Layer: 0
   m_Name: Blackhole 3d
   m_TagString: Untagged
@@ -118,4 +119,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435f0a876be04cb41889c087ce5bfd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+--- !u!114 &-8460190410393595360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868271642398163449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c19e5863bef4f92b940c7a10799c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: 0
