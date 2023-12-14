@@ -1136,6 +1136,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Supernova
       objectReference: {fileID: 0}
+    - target: {fileID: 3970297630920643439, guid: b5a5f750e3d3c7c4ca8d42b9f02a1aa8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.09621616
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970297630920643439, guid: b5a5f750e3d3c7c4ca8d42b9f02a1aa8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.09621616
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970297630920643439, guid: b5a5f750e3d3c7c4ca8d42b9f02a1aa8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4332210024852056142, guid: b5a5f750e3d3c7c4ca8d42b9f02a1aa8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
