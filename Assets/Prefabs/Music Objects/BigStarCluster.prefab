@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6162249376407413096}
   - component: {fileID: 3559532115481554845}
   m_Layer: 0
-  m_Name: Star Cluster Particle System
+  m_Name: BigStarCluster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
