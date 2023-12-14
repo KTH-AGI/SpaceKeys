@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _playerLeft;
     [SerializeField] private GameObject _playerRight;
     [SerializeField] private float _playerZValue = 100;
+    
+    [SerializeField] float minX = -10f; // Adjust the minimum x-coordinate as needed
+    [SerializeField] float maxX = 10f;  // Adjust the maximum x-coordinate as needed
+    [SerializeField] float minY = -5f; // Adjust the minimum z-coordinate as needed
+    [SerializeField] float maxY = 5f;  // Adjust the maximum z-coordinate as needed
 
     // Lists containing the Hand Landmarks
     private HandLandmarkListAnnotation _handLandmarkListLeftHand;
@@ -50,6 +55,10 @@ public class PlayerController : MonoBehaviour
             var playerLeftPosition = ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListLeftHand), _playerZValue);
             playerLeftPosition = OffsetHandLandmarks(playerLeftPosition);
             playerLeftPosition = Camera.main.ScreenToWorldPoint(playerLeftPosition);
+            
+            // Clamp the player's position within the defined boundaries
+            playerLeftPosition.x = Mathf.Clamp(playerLeftPosition.x, minX, maxX);
+            playerLeftPosition.y = Mathf.Clamp(playerLeftPosition.y, minY, maxY);
 
             _playerLeft.transform.position = playerLeftPosition;
         }
@@ -60,6 +69,10 @@ public class PlayerController : MonoBehaviour
             var playerRightPosition = ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListRightHand), _playerZValue);
             playerRightPosition = OffsetHandLandmarks(playerRightPosition);
             playerRightPosition = Camera.main.ScreenToWorldPoint(playerRightPosition);
+            
+            // Clamp the player's position within the defined boundaries
+            playerRightPosition.x = Mathf.Clamp(playerRightPosition.x, minX, maxX);
+            playerRightPosition.y = Mathf.Clamp(playerRightPosition.y, minY, maxY);
 
             _playerRight.transform.position = playerRightPosition;
         }
