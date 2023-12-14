@@ -49,14 +49,14 @@ Material:
     - _NoiseSpeed: 0.352
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _darknessThreshold: 0.17
+    - _darknessThreshold: 0.59
     - _densityScale: 0.78
     - _lightAbsorb: 1.33
     - _lightStepSize: 0.02
     - _numLightSteps: 42
     - _numSteps: 64
     - _stepSize: 0.02
-    - _transmittance: 0.73
+    - _transmittance: 1
     m_Colors:
     - _Color: {r: 0.9529412, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 0.8962264, g: 0.83053327, b: 0.5707102, a: 0}
