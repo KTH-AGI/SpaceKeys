@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1170,17 +1170,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9532232f18ec27343b29428a9eccd425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note1: {fileID: 5893724041772628928, guid: fe12ab985e600af418cba97dd5c661ed, type: 3}
-  note2: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
-  note3: {fileID: 5893724041772628928, guid: 8dfb554187516d34a996df4fb9ceb08e, type: 3}
-  note4: {fileID: 5893724041772628928, guid: 7f46f89a217e4504c8939543520fd3da, type: 3}
-  note5: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
-  note6: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
-  note7: {fileID: 5893724041772628928, guid: 1e45641b20cd48448946070979db3995, type: 3}
-  positionZ: 180
-  positionY: -8
-  creationInterval: 2
-  possiblePositionsX: []
+  StarAb2: {fileID: 5893724041772628928, guid: fe12ab985e600af418cba97dd5c661ed, type: 3}
+  StarBb2: {fileID: 5893724041772628928, guid: 8dfb554187516d34a996df4fb9ceb08e, type: 3}
+  StarC3: {fileID: 5893724041772628928, guid: 1e45641b20cd48448946070979db3995, type: 3}
+  StarDb3: {fileID: 5893724041772628928, guid: 7f46f89a217e4504c8939543520fd3da, type: 3}
+  StarEb3: {fileID: 5893724041772628928, guid: c0192c220099ed144951ef7f30a2f785, type: 3}
+  StarF3: {fileID: 5893724041772628928, guid: e3754c108d55f4b43a6cff732c1edb00, type: 3}
+  StarAb3: {fileID: 5893724041772628928, guid: 7a3a78451aef85947a0e71c63e0dbb8c, type: 3}
+  Supernova: {fileID: 0}
+  AsteroidField: {fileID: 2103432355971161382, guid: f18998d1490fd5241aae8849309321b1, type: 3}
+  BlackHole: {fileID: 5868271642398163449, guid: 6188dab151c607e4bae61cc8059ba646, type: 3}
+  StarClusterBig: {fileID: 3722350881108144354, guid: caa8c54e6b568004b92517df82ba5c49, type: 3}
+  StarCluster1: {fileID: 968384220738089674, guid: 584f7a29259277547891cd0aaa5d91ef, type: 3}
+  StarCluster2: {fileID: 7726712037677993486, guid: 89670d1a10b9c9e4fa4e5120987f5f09, type: 3}
+  Nebula: {fileID: 0}
+  SpaceProbe: {fileID: 1412742708598286, guid: 18e38bc29867e4e4aa3ae695505f66cf, type: 3}
 --- !u!1 &979603633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,6 +1901,10 @@ MonoBehaviour:
   _playerLeft: {fileID: 1332875351}
   _playerRight: {fileID: 1239532833}
   _playerZValue: 45
+  minX: -25
+  maxX: 25
+  minY: -15
+  maxY: 15
   ratioThreshold: 0.7
 --- !u!4 &1248190007
 Transform:
