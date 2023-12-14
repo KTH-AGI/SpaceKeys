@@ -24,40 +24,43 @@ public class PlayerController : MonoBehaviour
 
     private bool isLeftFistMade = false;
     private bool isRightFistMade = false;
-    
-    public delegate void FistDetectedHandler(bool isFistMade); 
+
+    public delegate void FistDetectedHandler(bool isFistMade);
+
     public event FistDetectedHandler OnFistDetected;
 
     void Update()
     {
         // Find hand position first before updating player position
-        if (FindHands()) 
+
+        if (FindHands())
         {
             if (!GameManager.Instance.IsGamePaused)
             {
                 AlignPlayer();
+                FistDetection();
             }
-            FistDetection();
         }
-
     }
 
     private void AlignPlayer()
     {
-        if (_handLandmarkListLeftHand!=null)
+        if (_handLandmarkListLeftHand != null)
         {
             // Get left player position in worlds space from hand position in screen space.
-            var playerLeftPosition = ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListLeftHand), _playerZValue);
+            var playerLeftPosition =
+                ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListLeftHand), _playerZValue);
             playerLeftPosition = OffsetHandLandmarks(playerLeftPosition);
             playerLeftPosition = Camera.main.ScreenToWorldPoint(playerLeftPosition);
 
             _playerLeft.transform.position = playerLeftPosition;
         }
 
-        if (_handLandmarkListRightHand!=null)
+        if (_handLandmarkListRightHand != null)
         {
             // Get right player position in worlds space from hand position in screen space.
-            var playerRightPosition = ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListRightHand), _playerZValue);
+            var playerRightPosition =
+                ModifyClippingPlane(GetPalmLocalPosition(_handLandmarkListRightHand), _playerZValue);
             playerRightPosition = OffsetHandLandmarks(playerRightPosition);
             playerRightPosition = Camera.main.ScreenToWorldPoint(playerRightPosition);
 
@@ -67,20 +70,21 @@ public class PlayerController : MonoBehaviour
 
     private void FistDetection()
     {
-        if (_handLandmarkListLeftHand==null||_handLandmarkListRightHand==null)
+        if (_handLandmarkListLeftHand == null || _handLandmarkListRightHand == null)
         {
             return;
         }
+
         // Calculate the distance ratios for the left and right hand using the landmark list
         CalculateDistanceRatios(_handLandmarkListLeftHand);
         CalculateDistanceRatios(_handLandmarkListRightHand);
-        
+
         // Check if a fist is made with the left and right hand
         isLeftFistMade = CheckIfFist(_handLandmarkListLeftHand);
         isRightFistMade = CheckIfFist(_handLandmarkListRightHand);
-        
+
         // If both hands have made fists, trigger the OnFistDetected event and pass the states of both fists
-        if (isRightFistMade && isLeftFistMade)
+        if (isRightFistMade && isLeftFistMade && !GameManager.Instance.IsGamePaused)
         {
             OnFistDetected?.Invoke(true);
         }
@@ -94,17 +98,17 @@ public class PlayerController : MonoBehaviour
             initialized = false;
             return false;
         }
-        
+
         // Found hands! Initialize Lists and Screen Size
         for (int i = 0; i < 2; i++)
         {
             HandLandmarkListAnnotation hand = _handLandmarkListAnnotation[i];
             if (hand == null) return false;
-            if(hand.GetHandedness()=="left")
+            if (hand.GetHandedness() == "left")
             {
                 _handLandmarkListLeftHand = hand;
             }
-            else if(hand.GetHandedness()=="right")
+            else if (hand.GetHandedness() == "right")
             {
                 _handLandmarkListRightHand = hand;
             }
@@ -112,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
         // Hands already found and initialized!
         if (initialized) return true;
-        
+
         InitializeScreenDimensions();
         initialized = true;
         return true;
@@ -162,7 +166,7 @@ public class PlayerController : MonoBehaviour
     {
         return new Vector3(v.x + _screenWidth / 2, v.y + _screenHeight / 2, v.z);
     }
-    
+
     // Calculate the distance from a hand landmark to the wrist
     private float GetDistanceToWrist(Vector3 landmarkPosition, Vector3 wristPosition)
     {
@@ -265,7 +269,7 @@ public class PlayerController : MonoBehaviour
     void OnGUI()
     {
         GUIStyle myLabelStyle = new GUIStyle(GUI.skin.label);
-        myLabelStyle.fontSize = 30; 
+        myLabelStyle.fontSize = 30;
         // Display the ratios on the GUI
         /*GUI.Label(new Rect(120, 10, 300, 20), $"Ratio Index Base/Tip: {ratioIndex}");
         GUI.Label(new Rect(120, 30, 300, 20), $"Ratio Middle Base/Tip: {ratioMiddle}");

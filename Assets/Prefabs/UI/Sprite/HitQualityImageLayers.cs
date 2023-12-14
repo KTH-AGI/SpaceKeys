@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,14 +7,26 @@ using UnityEngine.UI;
 [System.Serializable]
 public class HitQualityImageLayers : MonoBehaviour
 {
-    public Canvas canvas;
+    private Canvas canvas;
     public Image hitQualityImagePrefab;
     public Sprite[] hitQualitySprites;
+    private Image imageInstance;
+    private Coroutine animateCoroutine;
+
+    private void Awake()
+    {
+        canvas = GameObject.Find("CameraCanvas").GetComponent<Canvas>();
+        if (canvas!=null)
+        {
+            Debug.Log("Canvas found");
+        }
+    }
+
 
     public void ShowHitQualityImage(Vector3 noteWorldPosition, string hitQuality)
     {
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(noteWorldPosition);
-        Image imageInstance = Instantiate(hitQualityImagePrefab, canvas.transform);
+        imageInstance = Instantiate(hitQualityImagePrefab, canvas.transform);
 
         // Set the image to display hit quality
         imageInstance.sprite = GetHitQualitySprite(hitQuality);
@@ -24,7 +37,24 @@ public class HitQualityImageLayers : MonoBehaviour
         imageInstance.rectTransform.anchoredPosition = localPoint;
 
         // Start the animation coroutine
-        StartCoroutine(AnimateImage(imageInstance.rectTransform, imageInstance));
+        animateCoroutine=StartCoroutine(AnimateImage(imageInstance.rectTransform, imageInstance));
+    }
+    
+    public void DestroyHitQualityImage()
+    {
+        if (animateCoroutine != null)
+        {
+            // Stop the coroutine
+            StopCoroutine(animateCoroutine);
+            animateCoroutine = null;
+
+            // Additional action after stopping the coroutine
+            if (imageInstance != null)
+            {
+                Destroy(imageInstance.gameObject);
+            }
+        }
+        
     }
 
     private IEnumerator AnimateImage(RectTransform rectTransform, Image imageInstance)

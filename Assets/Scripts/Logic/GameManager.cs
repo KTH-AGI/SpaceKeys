@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Color = UnityEngine.Color;
@@ -24,16 +25,8 @@ public class GameManager : MonoBehaviour
     // Image for displaying hit quality
     [SerializeField]
     private HitQualityImageLayers imageLayers;
-    
-    // Sprites for the hit quality images
-    [SerializeField] private Sprite[] hitQualitySprites;
-    // Prefab for the hit quality image
-    [SerializeField] private Image hitQualityImagePrefab;
-    
-    [SerializeField] private GameObject pauseScreen;
-    [SerializeField] private Image pauseButton;
-
-
+    [SerializeField]
+    private PauseScreenLayers pauseScreenLayers;
     
     private int comboCount = 0; // Current combo count
     private float scoreMultiplier = 1.0f; // Score multiplier
@@ -109,26 +102,34 @@ public class GameManager : MonoBehaviour
     private void PauseGame()
     {
         isGamePaused = true;
-        pauseScreen.SetActive(true);
-        Color color=pauseButton.color;
-        color.a=0.2f;
-        pauseButton.color=color;
+        pauseScreenLayers.ShowPauseScreen();
         Debug.Log("Game is paused. Press Space to resume.");
         Time.timeScale = 0;
+        imageLayers.DestroyHitQualityImage();
     }
 
     // Method to resume the game
     private void ResumeGame()
     {
         isGamePaused = false;
-        pauseScreen.SetActive(false);
-        Color color=pauseButton.color;
-        color.a=1f;
-        pauseButton.color=color;
+        pauseScreenLayers.HidePauseScreen();
         Debug.Log("Game resumed.");
         Time.timeScale = 1;
     }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("CompleteScene");
+        
+    }
     
+    public void LoadHomeScene()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("HomeScene");
+    }
+
     private void OnCollisionNote(Vector3 notePos, Vector3 playerPos, float radius)
     {
         notePos.z=playerPos.z;
