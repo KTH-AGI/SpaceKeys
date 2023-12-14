@@ -107,11 +107,11 @@ public class MusicObject : MonoBehaviour
             case "Space Probe":
                 sound = FMODEvents.instance.spaceProbe;
                 break;
-            case "Star Cluster 1":
+            case "Harmony 3":
                 AudioManager.instance.InitializeEventForDuration(FMODEvents.instance.harmony3, 16);
                 actionEvent = false;
                 break;
-            case "Star Cluster 2":
+            case "Harmony 4":
                 AudioManager.instance.InitializeEventForDuration(FMODEvents.instance.harmony4, 16);
                 actionEvent = false;
                 break;

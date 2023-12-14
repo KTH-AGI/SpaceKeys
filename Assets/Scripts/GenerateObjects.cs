@@ -141,9 +141,12 @@ public class GenerateObjects : MonoBehaviour
                 newNote = Instantiate(SpaceProbe, objPosition, Quaternion.identity);
                 return newNote;
 
-            default:
+            case "End":
+                AudioManager.instance.CleanUp();
                 break;
 
+            default:
+                break;
 
         }
         return newNote;
@@ -162,9 +165,12 @@ public class GenerateObjects : MonoBehaviour
             float positionY = (musicObject.getYValue(0) * 2f - 1f) * r;
             float positionX = musicObject.getXValue(0);
             GameObject newNote = objectSwitch(musicObject.getName(0), positionX, positionY);
-            newNote.transform.parent = noteParent.transform;
-            notes.Add(newNote);
-
+            
+            if (newNote != null) {
+                newNote.transform.parent = noteParent.transform;
+                notes.Add(newNote);
+            }
+            
             if (musicObject.isTwo())
             {
                 Debug.Log("TWO MUSIC NOTES GENERATED");
@@ -175,7 +181,6 @@ public class GenerateObjects : MonoBehaviour
                 notes.Add(newNote2);
             }
             Debug.Log("Time for note is: " + Time.time);
-            
         }
         index++;
     }
