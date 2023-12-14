@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private void InitializeEventAtTime(EventReference eventReference, int time)
-    {  // not used yet
+    {  // Not used yet
         eventInstance = CreateInstance(eventReference);
         eventInstance.setTimelinePosition(time);
         eventInstance.start();
@@ -103,7 +103,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public StudioEventEmitter InitializeEventEmitter(EventReference eventReference, GameObject emitterGameObject)
-    {
+    {  // Not used yet
         StudioEventEmitter emitter = emitterGameObject.GetComponent<StudioEventEmitter>();
         emitter.EventReference = eventReference;
         eventEmitters.Add(emitter);
@@ -112,16 +112,33 @@ public class AudioManager : MonoBehaviour
 
     private void CleanUp()
     {
-        // stop and release any created instances
+        // Stop and release any created instances
         foreach (EventInstance eventInstance in eventInstances)
         {
             eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventInstance.release();
         }
-        // stop all of the event emitters, because if we don't they may hang around in other scenes
+        // Stop all of the event emitters, because if we don't they may hang around in other scenes
         foreach (StudioEventEmitter eventEmitter in eventEmitters)
         {
             eventEmitter.Stop();
+        }
+    }
+
+    private void Pause()
+    {
+        // Pause any created instances
+        foreach (EventInstance eventInstance in eventInstances)
+        {
+            eventInstance.setPaused(true);
+        }
+
+        // Pause all of the event emitters
+        // Assuming we have access to the EventInstance associated with the StudioEventEmitter
+        EventInstance associatedInstance = eventEmitter.EventInstance;
+        if (!ReferenceEquals(associatedInstance, null))
+        {
+            associatedInstance.setPaused(true);
         }
     }
 

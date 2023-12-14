@@ -26,7 +26,7 @@ public class AudioEffectTrigger : MonoBehaviour
     private float endValue;
     
     // [SerializeField, Range(0f, 64f)]
-    private float durationInSeconds = 16f;
+    private float durationInSeconds = 8f;
 
     private string parameterName;
     //private float minValue;
