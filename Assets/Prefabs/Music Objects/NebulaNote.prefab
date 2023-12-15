@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -4372721560664375176}
   - component: {fileID: -1500463069034712166}
   - component: {fileID: 9021228167951438124}
+  - component: {fileID: 5236234210469752191}
   m_Layer: 0
   m_Name: NebulaNote
   m_TagString: Untagged
@@ -33,8 +34,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.17622569, z: 0, w: 0.98434985}
   m_LocalPosition: {x: 0.24, y: -0.13, z: 0.102}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -20.3, z: 0}
@@ -173,3 +174,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ea82b12fd884b1eb7a943a418d573f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5236234210469752191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867191540085726167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718d1431c55f71c4e81bc95fbc8deafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missedNoteMaterial: {fileID: 0}
+  lightMaterial: {fileID: 2100000, guid: 66662f63e63f60349a93689ebceabdf4, type: 2}
