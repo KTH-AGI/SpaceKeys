@@ -25,7 +25,7 @@ public class Sequence
         // Intro
         // DON'T GENERATE STUFF BEFORE BAR 5
         //sequence[musicNotationToOffsetSample(5)] = new MusicObjectInfo("AsteroidField", 0.5f); //possible to just add an x-value after here if you want
-        sequence[musicNotationToOffsetSample(7)] = new MusicObjectInfo("Supernova", 0.5f);
+        //sequence[musicNotationToOffsetSample(7)] = new MusicObjectInfo("Supernova", 0.5f);
         sequence[musicNotationToOffsetSample(9)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         sequence[musicNotationToOffsetSample(11)] = new MusicObjectInfo("StarClusterBig", 0.5f);
         sequence[musicNotationToOffsetSample(13)] = new MusicObjectInfo("StarBb2", 0.5f);
@@ -42,7 +42,7 @@ public class Sequence
         // Interlude 1
         int interlude1StartBar = 27;  // 27-34
         sequence[musicNotationToOffsetSample(interlude1StartBar)] = new MusicObjectInfo("StarCluster1", 0.5f, -4f);
-        sequence[musicNotationToOffsetSample(interlude1StartBar)] = new MusicObjectInfo("Supernova", 0.5f);
+        //sequence[musicNotationToOffsetSample(interlude1StartBar)] = new MusicObjectInfo("Supernova", 0.5f);
         sequence[musicNotationToOffsetSample(interlude1StartBar + 2)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         sequence[musicNotationToOffsetSample(interlude1StartBar + 4)] = new MusicObjectInfo("BlackHole", 0.5f);
         sequence[musicNotationToOffsetSample(interlude1StartBar + 6)] = new MusicObjectInfo("SpaceProbe", 0.5f);
@@ -51,7 +51,7 @@ public class Sequence
         int chorus1StartBar = 35;  // 35-42
         writeChorusStartingAtBar(chorus1StartBar, 0.55f, 0.65f);
         writeChorusStartingAtBar(chorus1StartBar + 4, 0.65f, 0.75f);
-        sequence[musicNotationToOffsetSample(chorus1StartBar + 4)] = new MusicObjectInfo("Supernova", 0.5f);
+        //sequence[musicNotationToOffsetSample(chorus1StartBar + 4)] = new MusicObjectInfo("Supernova", 0.5f);
 
         // Interlude 2
         int interlude2StartBar = 43;  // 43-50
@@ -76,7 +76,7 @@ public class Sequence
         int bridgeStartBar = 67;  // 67-82
         sequence[musicNotationToOffsetSample(bridgeStartBar)] = new MusicObjectInfo("StarCluster2", 0.5f);
         sequence[musicNotationToOffsetSample(bridgeStartBar + 4)] = new MusicObjectInfo("SpaceProbe", 0.5f);
-        sequence[musicNotationToOffsetSample(chorus1StartBar + 8)] = new MusicObjectInfo("Supernova", 0.5f);
+        //sequence[musicNotationToOffsetSample(chorus1StartBar + 8)] = new MusicObjectInfo("Supernova", 0.5f);
         sequence[musicNotationToOffsetSample(bridgeStartBar + 8)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         sequence[musicNotationToOffsetSample(bridgeStartBar + 12)] = new MusicObjectInfo("Wormhole", 0.5f);
         sequence[musicNotationToOffsetSample(bridgeStartBar + 14)] = new MusicObjectInfo("SpaceProbe", 0.5f);
