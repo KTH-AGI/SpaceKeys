@@ -28,6 +28,7 @@ public class Sequence
         sequence[musicNotationToOffsetSample(5)] = new MusicObjectInfo("AsteroidField", 0.5f); //possible to just add an x-value after here if you want
         //sequence[musicNotationToOffsetSample(7)] = new MusicObjectInfo("Supernova", 0.5f);
         sequence[musicNotationToOffsetSample(9)] = new MusicObjectInfo("SpaceProbe", 0.5f);
+        //sequence[musicNotationToOffsetSample(9)] = new MusicObjectInfo("Wormhole", 0.5f);
         sequence[musicNotationToOffsetSample(11)] = new MusicObjectInfo("StarClusterBig", 0.5f);
         sequence[musicNotationToOffsetSample(13)] = new MusicObjectInfo("StarBb2", 0.5f);
         // sequence[musicNotationToOffsetSample(13)] = new MusicObjectInfo("StarBb2", "StarAb2", 0.5f, 0.5f);
