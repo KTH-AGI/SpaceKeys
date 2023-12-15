@@ -2001,7 +2001,7 @@ MonoBehaviour:
   _handLandmarkListAnnotation: {fileID: 1296129388}
   _playerLeft: {fileID: 1332875351}
   _playerRight: {fileID: 1239532833}
-  _playerZValue: 45
+  _playerZValue: 35
   minX: -25
   maxX: 25
   minY: -15
