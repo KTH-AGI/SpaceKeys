@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Assertions;
 
 public class Sequence
 {
@@ -41,8 +42,7 @@ public class Sequence
 
         // Interlude 1
         int interlude1StartBar = 27;  // 27-34
-        // sequence[musicNotationToOffsetSample(interlude1StartBar)] = new MusicObjectInfo("StarCluster1", 0.5f, -4f);
-        sequence[musicNotationToOffsetSample(interlude1StartBar)].addSecond("StarCluster1", 0.5f, -4f);
+        // sequence[musicNotationToOffsetSample(interlude1StartBar)].addSecond("StarCluster1", 0.5f, -4f);
         // sequence[musicNotationToOffsetSample(interlude1StartBar)] = new MusicObjectInfo("Supernova", 0.5f);
         sequence[musicNotationToOffsetSample(interlude1StartBar + 2)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         sequence[musicNotationToOffsetSample(interlude1StartBar + 4)] = new MusicObjectInfo("BlackHole", 0.5f);
@@ -68,7 +68,7 @@ public class Sequence
         // Chorus 2
         int chorus2StartBar = 59;  // 59-66
         writeChorusStartingAtBar(chorus2StartBar, 0.55f, 0.65f);
-        sequence[musicNotationToOffsetSample(chorus2StartBar)] = new MusicObjectInfo("SpaceProbe", 0.5f);
+        // sequence[musicNotationToOffsetSample(chorus2StartBar)].addSecond("SpaceProbe", 0.5f);
         writeChorusStartingAtBar(chorus2StartBar + 4, 0.65f, 0.75f);
         // sequence[musicNotationToOffsetSample(chorus2StartBar + 4)] = new MusicObjectInfo("Nebula", 0.5f);
 
@@ -84,7 +84,7 @@ public class Sequence
         // Chorus 3
         int chorus3StartBar = 83;  // 83-90
         writeChorusStartingAtBar(chorus3StartBar, 0.55f, 0.65f);
-        sequence[musicNotationToOffsetSample(chorus3StartBar)] = new MusicObjectInfo("AsteroidField", 0.5f);
+        // sequence[musicNotationToOffsetSample(chorus3StartBar)].addSecond("AsteroidField", 0.5f);
         writeChorusStartingAtBar(chorus3StartBar + 4, 0.65f, 0.75f);
         // sequence[musicNotationToOffsetSample(chorus3StartBar + 4)] = new MusicObjectInfo("Quasar", 0.5f);
         sequence[musicNotationToOffsetSample(chorus3StartBar + 6)] = new MusicObjectInfo("SpaceProbe", 0.5f);
