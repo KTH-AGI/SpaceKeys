@@ -55,9 +55,18 @@ public class MusicObject : MonoBehaviour
         {
             Debug.Log("Time that has passed until collision: " + Time.time);
             CollectMusicObject();
+            
+            // If this object does not have a SphereCollider, return. Todo Extend to other colliders? 
+            if (!this.GetComponent<SphereCollider>())
+            {
+                return;
+            }
             OnCollisionNote?.Invoke(this.transform.position, other.transform.position,
                 other.GetComponent<SphereCollider>().radius * other.transform.lossyScale.x +
                 this.GetComponent<SphereCollider>().radius * this.transform.lossyScale.x);
+            
+            
+            
         }
     }
 

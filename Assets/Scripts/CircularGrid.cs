@@ -99,6 +99,11 @@ public class CircularGrid : MonoBehaviour
 
     void MoveGrid()
     {
+        if (gridZLines.Count <= 0)
+        {
+            return;
+        }
+        
         for (int i = 0; i < gridZLines.Count; i++)
         {
             GameObject yLine = gridZLines[i];
