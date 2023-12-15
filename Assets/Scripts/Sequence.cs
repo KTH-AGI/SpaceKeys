@@ -90,7 +90,7 @@ public class Sequence
         sequence[musicNotationToOffsetSample(chorus3StartBar)] = new MusicObjectInfo("AsteroidField", 0.5f);  // use AddSecond() row below later
         // sequence[musicNotationToOffsetSample(chorus3StartBar)].AddSecond("AsteroidField", 0.5f);
         writeChorusStartingAtBar(chorus3StartBar + 4, 0.65f, 0.75f);
-        sequence[musicNotationToOffsetSample(chorus3StartBar + 4)] = new MusicObjectInfo("Quasar", 0.5f);
+        //sequence[musicNotationToOffsetSample(chorus3StartBar + 4)] = new MusicObjectInfo("Quasar", 0.5f);
         sequence[musicNotationToOffsetSample(chorus3StartBar + 6)] = new MusicObjectInfo("SpaceProbe", 0.5f);
 
         // Outro
