@@ -23,7 +23,7 @@ public class Sequence
         offset = (int)((timeOffset + additionalTimeOffset) / sixteenthTime);
 
         // Intro
-        //sequence[musicNotationToOffsetSample(3)] = new MusicObjectInfo("Asteroid Field", 0.5f);
+        // DON'T GENERATE STUFF BEFORE BAR 5
         sequence[musicNotationToOffsetSample(5)] = new MusicObjectInfo("AsteroidField", 0.5f); //possible to just add an x-value after here if you want
         sequence[musicNotationToOffsetSample(7)] = new MusicObjectInfo("Supernova", 0.5f);
         sequence[musicNotationToOffsetSample(9)] = new MusicObjectInfo("SpaceProbe", 0.5f);
