@@ -11,10 +11,10 @@ public class NoteLight : MonoBehaviour
 
     [SerializeField] Material missedNoteMaterial;
     [SerializeField] Material lightMaterial;
-    [SerializeField] float moveSpeed = 5.0f;
-    [SerializeField] float lineWidth = 0.5f;
-    [SerializeField] int zSpawn = 50;
-    [SerializeField] int playerPosition = 25;
+    public static float lineWidth = 0.5f;
+    public static int playerPosition = 25;
+    public static float zSpawn = (GenerateObjects.positionZ - playerPosition) / 2f;
+    
     GameObject circularLight;
     Renderer renderer;
     
@@ -52,14 +52,13 @@ public class NoteLight : MonoBehaviour
             }
         }
         else {
+            if (Mathf.Abs(zPosition - playerPosition)< 0.1 ) { Debug.Log("Time at player is: " + Time.time); }
             circularLight.SetActive(false);
             if (zPosition < playerPosition && !hasMissed) { 
                 renderer.material = missedNoteMaterial;
-                
+                hasMissed = true;
                 // Trigger the OnMissWithPosition event
                 OnMissNote?.Invoke(this.transform.position);
-                
-                hasMissed = true;
             }
         }
         

@@ -239,7 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435f0a876be04cb41889c087ce5bfd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: -25
 --- !u!54 &6890827725994513798
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -287,7 +286,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.02
-  m_Center: {x: 0.00054011587, y: -0.0027974462, z: 0.0007347651}
+  m_Center: {x: 0.00054011587, y: -0.0027974462, z: 0}
 --- !u!114 &-8469858627877777501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +344,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missedNoteMaterial: {fileID: 2100000, guid: ffd02689fa14d26419fda6526baf6ea3, type: 2}
   lightMaterial: {fileID: 2100000, guid: 620b29b7b5cac0a42be247eb7a4227c8, type: 2}
-  moveSpeed: 5
-  lineWidth: 0.3
-  zSpawn: 50
-  playerPosition: 25

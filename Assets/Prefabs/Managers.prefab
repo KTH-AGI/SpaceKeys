@@ -177,6 +177,20 @@ MonoBehaviour:
       Data3: -510612805
       Data4: 1420107906
     Path: event:/Level1/Harmony/Harmony-2
+  <harmony3>k__BackingField:
+    Guid:
+      Data1: -1576156049
+      Data2: 1278698121
+      Data3: -718593401
+      Data4: 1418908488
+    Path: event:/Level1/Harmony/Harmony-3
+  <harmony4>k__BackingField:
+    Guid:
+      Data1: 852174849
+      Data2: 1242064083
+      Data3: 1271884727
+      Data4: -871961343
+    Path: event:/Level1/Harmony/Harmony-4
   <melodyAb2>k__BackingField:
     Guid:
       Data1: 259185533
@@ -191,6 +205,13 @@ MonoBehaviour:
       Data3: -14653553
       Data4: -944186534
     Path: event:/Level1/Melody/Melody-Bb2
+  <melodyC3>k__BackingField:
+    Guid:
+      Data1: -1596581215
+      Data2: 1158122461
+      Data3: -1551806300
+      Data4: -2086464906
+    Path: event:/Level1/Melody/Melody-C3
   <melodyDb3>k__BackingField:
     Guid:
       Data1: 245994585
@@ -212,6 +233,13 @@ MonoBehaviour:
       Data3: 463528071
       Data4: 614777422
     Path: event:/Level1/Melody/Melody-F3
+  <melodyGb3>k__BackingField:
+    Guid:
+      Data1: 200678615
+      Data2: 1227985028
+      Data3: -2031234129
+      Data4: -340534805
+    Path: event:/Level1/Melody/Melody-Gb3
   <melodyAb3>k__BackingField:
     Guid:
       Data1: 555188312

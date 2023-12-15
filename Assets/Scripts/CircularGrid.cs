@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
-
+using System;
 
 public class CircularGrid : MonoBehaviour
 {
@@ -14,11 +14,11 @@ public class CircularGrid : MonoBehaviour
     [SerializeField] public int gridSizeZ = 10;
     
     [SerializeField] public int lineY = -10;
-    [SerializeField] public int lineLengthZ = 150;
-    [SerializeField] float spaceBetweenXLines = 0.1f;
-    [SerializeField] float spaceBetweenZLines = 0.1f;
-    [SerializeField] float moveSpeed = 5.0f; // Speed of grid movement
-    [SerializeField] float lineWidth = 0.3f;
+    [SerializeField] public int lineLengthZ = 180;
+    [SerializeField] float spaceBetweenXLines = 6f;
+    [SerializeField] float moveSpeed;  // Speed of grid movement
+    [SerializeField] float spaceBetweenZLines;
+    [SerializeField] float lineWidth = 0.5f;
 
     public static int gridSize = 10;
     public static float radius = 20;
@@ -35,7 +35,16 @@ public class CircularGrid : MonoBehaviour
         lineZParent = new GameObject("ZLines");
         lineXParent.transform.parent = gridParent.transform;
         lineZParent.transform.parent = gridParent.transform;
+        moveSpeed = Math.Abs(MusicObjectMovement.movementSpeed);
+        spaceBetweenZLines = moveSpeed;  // The multiplying this with m means a line every m'th second
+        StartCoroutine(DelayedStart());
+    }
 
+    private System.Collections.IEnumerator DelayedStart()
+    {
+        // Wait before generating the circular grid to make them in sync with music
+        yield return new WaitForSeconds(0.65f);
+        
         GenerateCircularGrid();
     }
 
@@ -90,20 +99,23 @@ public class CircularGrid : MonoBehaviour
 
     void MoveGrid()
     {
+        if (gridZLines.Count <= 0)
+        {
+            return;
+        }
+        
         for (int i = 0; i < gridZLines.Count; i++)
         {
             GameObject yLine = gridZLines[i];
             yLine.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
         }
 
-        if (gridZLines[0].transform.position.z < 0)
+        if (gridZLines.Count > 0 && gridZLines[0].transform.position.z < 0)
         {
+            createZCircle();
             Destroy(gridZLines[0]);
             gridZLines.RemoveAt(0);
-
-            createZCircle();
         }
-
 
     }
 

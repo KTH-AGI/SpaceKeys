@@ -242,9 +242,10 @@ GameObject:
   - component: {fileID: 4874934499113314}
   - component: {fileID: 3584371707708282463}
   - component: {fileID: 4291016753898515808}
-  - component: {fileID: -6359555981409723279}
   - component: {fileID: 1298948829762333968}
   - component: {fileID: 5147573755416494430}
+  - component: {fileID: 2567031635736853030}
+  - component: {fileID: 101920977331866810}
   m_Layer: 0
   m_Name: Space Probe
   m_TagString: Space Probe
@@ -262,8 +263,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4894664100643180}
   - {fileID: 4956838324547778}
@@ -287,7 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435f0a876be04cb41889c087ce5bfd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: -10
 --- !u!54 &4291016753898515808
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -315,27 +315,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-6359555981409723279
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412742708598286}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.041181557, y: 0.045598134, z: 0.049060196}
-  m_Center: {x: 0.00054011587, y: -0.0027974462, z: 0.0007347651}
 --- !u!114 &1298948829762333968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +358,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ea82b12fd884b1eb7a943a418d573f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2567031635736853030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412742708598286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718d1431c55f71c4e81bc95fbc8deafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missedNoteMaterial: {fileID: 0}
+  lightMaterial: {fileID: 2100000, guid: 620b29b7b5cac0a42be247eb7a4227c8, type: 2}
+--- !u!135 &101920977331866810
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412742708598286}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1577956311297630
 GameObject:
   m_ObjectHideFlags: 0

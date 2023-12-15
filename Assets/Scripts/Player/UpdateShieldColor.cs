@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class UpdateShieldColor : MonoBehaviour
@@ -28,13 +29,22 @@ public class UpdateShieldColor : MonoBehaviour
     // Set collision layer to only include "Notes"
     private void OnTriggerEnter(Collider other)
     {
+        
         // Get emission color from note trigger
-        Material noteMaterial = other.gameObject.GetComponent<Renderer>().material;
-        _noteColor = noteMaterial.GetColor(_EmissionColor);
-        
-        // Update last color for gradient
-        UpdateGradient(_noteColor);
-        
+        Material noteMaterial;
+        if (!other.gameObject.GetComponent<Renderer>())
+        {
+            return;
+        }
+
+        // Check if other object has an Emission color
+        noteMaterial = other.gameObject.GetComponent<Renderer>().material;
+        if (noteMaterial.HasProperty(_EmissionColor))
+        {
+            _noteColor = noteMaterial.GetColor(_EmissionColor);
+            // Update last color for gradient
+            UpdateGradient(_noteColor);
+        }
     }
 
     void Update()
