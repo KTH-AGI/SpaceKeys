@@ -7,26 +7,22 @@ using UnityEngine.UI;
 [System.Serializable]
 public class HitQualityImageLayers : MonoBehaviour
 {
-    private Canvas canvas;
-    public Image hitQualityImagePrefab;
-    public Sprite[] hitQualitySprites;
-    private Image imageInstance;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private Image hitQualityImagePrefab;
+    [SerializeField] private Sprite[] hitQualitySprites;
     private Coroutine animateCoroutine;
-
-    private void Awake()
-    {
-        canvas = GameObject.Find("CameraCanvas").GetComponent<Canvas>();
-        if (canvas!=null)
-        {
-            Debug.Log("Canvas found");
-        }
-    }
-
-
+    private Image imageInstance;
+    
     public void ShowHitQualityImage(Vector3 noteWorldPosition, string hitQuality)
     {
+        
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(noteWorldPosition);
+        while (canvas==null)
+        {
+            canvas= GameObject.Find("CameraCanvas").GetComponent<Canvas>();
+        }
         imageInstance = Instantiate(hitQualityImagePrefab, canvas.transform);
+
 
         // Set the image to display hit quality
         imageInstance.sprite = GetHitQualitySprite(hitQuality);

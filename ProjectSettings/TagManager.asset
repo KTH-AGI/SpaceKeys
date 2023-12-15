@@ -17,6 +17,10 @@ TagManager:
   - Space Probe
   - Reverb
   - Melody Ab2
+  - PointTextTag
+  - ComboTextTag
+  - CameraCanvasTag
+  - HitQualityImage
   layers:
   - Default
   - TransparentFX

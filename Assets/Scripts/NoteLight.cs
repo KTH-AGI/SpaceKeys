@@ -55,11 +55,9 @@ public class NoteLight : MonoBehaviour
             circularLight.SetActive(false);
             if (zPosition < playerPosition && !hasMissed) { 
                 renderer.material = missedNoteMaterial;
-                
+                hasMissed = true;
                 // Trigger the OnMissWithPosition event
                 OnMissNote?.Invoke(this.transform.position);
-                
-                hasMissed = true;
             }
         }
         
