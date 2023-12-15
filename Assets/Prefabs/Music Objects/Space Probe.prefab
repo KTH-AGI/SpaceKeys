@@ -242,10 +242,10 @@ GameObject:
   - component: {fileID: 4874934499113314}
   - component: {fileID: 3584371707708282463}
   - component: {fileID: 4291016753898515808}
-  - component: {fileID: -6359555981409723279}
   - component: {fileID: 1298948829762333968}
   - component: {fileID: 5147573755416494430}
   - component: {fileID: 2567031635736853030}
+  - component: {fileID: 101920977331866810}
   m_Layer: 0
   m_Name: Space Probe
   m_TagString: Space Probe
@@ -315,27 +315,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-6359555981409723279
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412742708598286}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7.984288, y: 4.4971204, z: 3.51259}
-  m_Center: {x: 0.043622017, y: 0.5768671, z: -0.019488275}
 --- !u!114 &1298948829762333968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,10 +372,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missedNoteMaterial: {fileID: 0}
   lightMaterial: {fileID: 2100000, guid: 620b29b7b5cac0a42be247eb7a4227c8, type: 2}
-  moveSpeed: 5
-  lineWidth: 0.5
-  zSpawn: 50
-  playerPosition: 25
+--- !u!135 &101920977331866810
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412742708598286}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1577956311297630
 GameObject:
   m_ObjectHideFlags: 0
