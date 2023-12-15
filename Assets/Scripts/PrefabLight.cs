@@ -13,7 +13,7 @@ public class PrefabLight : MonoBehaviour
     [SerializeField] Material lightMaterial;
     static float lineWidth; // = 0.5f;
     static float zSpawn;
-    static int playerPosition;
+    static float playerPosition;
     GameObject circularLight;
     
     // Event for when the player misses a note

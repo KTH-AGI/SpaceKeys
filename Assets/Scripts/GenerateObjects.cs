@@ -160,6 +160,7 @@ public class GenerateObjects : MonoBehaviour
 
             case "End":
                 AudioManager.instance.CleanUp();
+                GameManager.Instance.LoadEndScene();
                 break;
 
             default:
@@ -168,11 +169,6 @@ public class GenerateObjects : MonoBehaviour
         }
         return newNote;
     }
-
-
-
-
-
 
     void generateSequence()
     {

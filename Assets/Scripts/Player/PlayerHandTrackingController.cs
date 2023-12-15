@@ -278,17 +278,4 @@ public class PlayerHandTrackingController : MonoBehaviour
         // Return true if fist is detected, false otherwise
         return isFist;
     }
-
-    void OnGUI()
-    {
-        GUIStyle myLabelStyle = new GUIStyle(GUI.skin.label);
-        myLabelStyle.fontSize = 30;
-        // Display the ratios on the GUI
-        /*GUI.Label(new Rect(120, 10, 300, 20), $"Ratio Index Base/Tip: {ratioIndex}");
-        GUI.Label(new Rect(120, 30, 300, 20), $"Ratio Middle Base/Tip: {ratioMiddle}");
-        GUI.Label(new Rect(120, 50, 300, 20), $"Ratio Ring Base/Tip: {ratioRing}");
-        GUI.Label(new Rect(120, 70, 300, 20), $"Ratio Pinky Base/Tip: {ratioPinky}");*/
-        GUI.Label(new Rect(20, 10, 500, 50), $"Left Hand Is Fist: {isLeftFistMade}", myLabelStyle);
-        GUI.Label(new Rect(20, 60, 500, 50), $"Right Hand Is Fist: {isRightFistMade}", myLabelStyle);
-    }
 }

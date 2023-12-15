@@ -10,6 +10,8 @@ public class HitQualityImageLayers : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image hitQualityImagePrefab;
     [SerializeField] private Sprite[] hitQualitySprites;
+    [SerializeField] private Vector2 leftScreenPosition = new Vector2(-700, 0); 
+    [SerializeField] private Vector2 rightScreenPosition = new Vector2(700, 0);
     private Coroutine animateCoroutine;
     private Image imageInstance;
     
@@ -17,20 +19,17 @@ public class HitQualityImageLayers : MonoBehaviour
     {
         
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(noteWorldPosition);
-        while (canvas==null)
-        {
-            canvas= GameObject.Find("CameraCanvas").GetComponent<Canvas>();
-        }
         imageInstance = Instantiate(hitQualityImagePrefab, canvas.transform);
 
 
         // Set the image to display hit quality
         imageInstance.sprite = GetHitQualitySprite(hitQuality);
 
-        // Convert screen coordinates to local coordinates
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), screenPosition, null, out Vector2 localPoint);
-        // Set the image's local position
-        imageInstance.rectTransform.anchoredPosition = localPoint;
+        // Decide the fixed screen position based on the noteWorldPosition.x
+        Vector2 fixedScreenPosition = noteWorldPosition.x <= 0 ? leftScreenPosition : rightScreenPosition;
+    
+        // Set the image's local position to the fixed position
+        imageInstance.rectTransform.anchoredPosition = fixedScreenPosition;
 
         // Start the animation coroutine
         animateCoroutine=StartCoroutine(AnimateImage(imageInstance.rectTransform, imageInstance));
@@ -58,8 +57,8 @@ public class HitQualityImageLayers : MonoBehaviour
         // Fade in and move up
         float duration = 0.5f; // Duration of the rise and fade in
         float pauseDuration = 0.5f; // Duration of the pause at peak
-        Vector2 startPos = rectTransform.anchoredPosition+ new Vector2(0, 0);
-        Vector2 endPos = startPos + new Vector2(0, 50); // End position after rise
+        Vector2 startPos = rectTransform.anchoredPosition+ new Vector2(0, -25);
+        Vector2 endPos = startPos + new Vector2(0, 25); // End position after rise
 
         // Initialize alpha to 0 (transparent)
         imageInstance.color = new Color(imageInstance.color.r, imageInstance.color.g, imageInstance.color.b, 0);
