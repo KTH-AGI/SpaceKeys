@@ -37,21 +37,14 @@ public class UpdateShieldColor : MonoBehaviour
             return;
         }
 
+        // Check if other object has an Emission color
         noteMaterial = other.gameObject.GetComponent<Renderer>().material;
-
-        foreach (var keyword in noteMaterial.enabledKeywords)
+        if (noteMaterial.HasProperty(_EmissionColor))
         {
-            Debug.LogWarning("Keyword: " + keyword);
+            _noteColor = noteMaterial.GetColor(_EmissionColor);
+            // Update last color for gradient
+            UpdateGradient(_noteColor);
         }
-        // if (noteMaterial.enabledKeywords.Contains())
-        // {
-            // return;
-        // }
-        _noteColor = noteMaterial.GetColor(_EmissionColor);
-
-        // Update last color for gradient
-        UpdateGradient(_noteColor);
-        
     }
 
     void Update()

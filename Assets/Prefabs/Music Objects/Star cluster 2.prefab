@@ -64,8 +64,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 2
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!114 &-7778233729032736476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,10 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missedNoteMaterial: {fileID: 0}
   lightMaterial: {fileID: 2100000, guid: 40c5046ff23bbd54a950e5a64320756b, type: 2}
-  moveSpeed: 5
-  lineWidth: 0.5
-  zSpawn: 50
-  playerPosition: 25
 --- !u!1001 &1205029015122511904
 PrefabInstance:
   m_ObjectHideFlags: 0
