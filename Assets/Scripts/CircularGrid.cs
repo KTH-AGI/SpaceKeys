@@ -105,14 +105,12 @@ public class CircularGrid : MonoBehaviour
             yLine.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
         }
 
-        if (gridZLines[0].transform.position.z < 0)
+        if (gridZLines.Count > 0 && gridZLines[0].transform.position.z < 0)
         {
             createZCircle();
             Destroy(gridZLines[0]);
             gridZLines.RemoveAt(0);
-
         }
-
 
     }
 
