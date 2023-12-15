@@ -99,22 +99,24 @@ public class GameManager : MonoBehaviour
     }
     
     // Method to pause the game
-    private void PauseGame()
+    public void PauseGame()
     {
         isGamePaused = true;
         pauseScreenLayers.ShowPauseScreen();
         Debug.Log("Game is paused. Press Space to resume.");
         Time.timeScale = 0;
         imageLayers.DestroyHitQualityImage();
+        AudioManager.instance.Pause();
     }
 
     // Method to resume the game
-    private void ResumeGame()
+    public void ResumeGame()
     {
         isGamePaused = false;
         pauseScreenLayers.HidePauseScreen();
         Debug.Log("Game resumed.");
         Time.timeScale = 1;
+        AudioManager.instance.Resume();
     }
 
     public void RestartGame()
