@@ -20,6 +20,6 @@ public class HomeSceneManager : MonoBehaviour
     public void LoadGameScene()
     {
         // Activate the CompleteScene
-        SceneManager.LoadScene("CompleteScene");
+        SceneManager.LoadScene(1);
     }
 }
