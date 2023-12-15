@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4525799386631767203}
   - component: {fileID: -9094885361405131420}
   - component: {fileID: -2604228454781037079}
+  - component: {fileID: 622721940418850556}
   m_Layer: 0
   m_Name: Quasar
   m_TagString: Untagged
@@ -77,10 +78,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missedNoteMaterial: {fileID: 2100000, guid: d8ca46e00a485cc4abd3b5dc7d9163e9, type: 2}
   lightMaterial: {fileID: 0}
-  moveSpeed: 5
-  lineWidth: 0.5
-  zSpawn: 50
-  playerPosition: 25
 --- !u!54 &-9094885361405131420
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,6 +126,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &622721940418850556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3507259758254108314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ea82b12fd884b1eb7a943a418d573f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4102993096282684242
 GameObject:
   m_ObjectHideFlags: 0

@@ -4786,6 +4786,7 @@ GameObject:
   - component: {fileID: 6867862158428871496}
   - component: {fileID: 4637935545035178109}
   - component: {fileID: 8373674294387967918}
+  - component: {fileID: 5764257940754738232}
   m_Layer: 0
   m_Name: Wormhole
   m_TagString: Untagged
@@ -9586,10 +9587,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missedNoteMaterial: {fileID: 0}
   lightMaterial: {fileID: 2100000, guid: d8ca46e00a485cc4abd3b5dc7d9163e9, type: 2}
-  moveSpeed: 5
-  lineWidth: 0.5
-  zSpawn: 50
-  playerPosition: 25
 --- !u!65 &8373674294387967918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9611,3 +9608,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.3864055, y: 5.3864055, z: 11.76}
   m_Center: {x: 0, y: 0, z: 3.75}
+--- !u!114 &5764257940754738232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756001150957506167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ea82b12fd884b1eb7a943a418d573f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

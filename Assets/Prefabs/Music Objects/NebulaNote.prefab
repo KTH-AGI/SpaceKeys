@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2410170354020440940}
   - component: {fileID: -4372721560664375176}
   - component: {fileID: -1500463069034712166}
+  - component: {fileID: 9021228167951438124}
   m_Layer: 0
   m_Name: NebulaNote
   m_TagString: Untagged
@@ -158,5 +159,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 435f0a876be04cb41889c087ce5bfd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9021228167951438124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867191540085726167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ea82b12fd884b1eb7a943a418d573f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
