@@ -2587,8 +2587,8 @@ MonoBehaviour:
   lineY: -10
   lineLengthZ: 180
   spaceBetweenXLines: 6
-  spaceBetweenZLines: 20
   moveSpeed: 15
+  spaceBetweenZLines: 20
   lineWidth: 0.5
 --- !u!1 &1619970393
 GameObject:
@@ -3020,6 +3020,10 @@ PrefabInstance:
     - target: {fileID: 2600549625936089957, guid: 3f809202b24854283951813161b46b78, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661923461800442545, guid: 3f809202b24854283951813161b46b78, type: 3}
+      propertyPath: far clip plane
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4991863948301387935, guid: 3f809202b24854283951813161b46b78, type: 3}
       propertyPath: m_LocalPosition.x

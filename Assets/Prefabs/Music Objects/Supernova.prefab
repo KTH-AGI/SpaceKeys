@@ -283,6 +283,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.09621616
       objectReference: {fileID: 0}
+    - target: {fileID: 6005586430788566224, guid: 32e5f65e0b7ea9b439b6c94c72aeb221, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6867191540085726167, guid: 32e5f65e0b7ea9b439b6c94c72aeb221, type: 3}
       propertyPath: m_Name
       value: Torus
