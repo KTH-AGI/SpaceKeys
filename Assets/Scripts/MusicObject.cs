@@ -117,7 +117,7 @@ public class MusicObject : MonoBehaviour
                 break;
             default:
                 validMusicObject = false;
-                Debug.Log("Game object without audio tag encountered: " + musicObject);
+                Debug.Log("Game object without known audio tag encountered: " + musicObject);
                 break;
         }
 
