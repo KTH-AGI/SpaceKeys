@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d0ff159a74b62428b51652e30d4b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  canvas: {fileID: 1518120416}
   hitQualityImagePrefab: {fileID: 183038695}
   hitQualitySprites:
   - {fileID: 21300000, guid: d09efe4d7e364874bbbd29b54ec0b574, type: 3}
@@ -471,6 +471,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7d96e7e5d7936d44f906e7afec5a5f52, type: 3}
   - {fileID: 21300000, guid: dde907b4b6051984ba8af3023b57a1e6, type: 3}
   - {fileID: 21300000, guid: 2e179b906c48ec44c974000a6751176b, type: 3}
+  leftScreenPosition: {x: -700, y: 0}
+  rightScreenPosition: {x: 700, y: 0}
 --- !u!114 &183038695 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6420818726834980295, guid: 481505b6114d5e2468db8841cd8faf7d, type: 3}
@@ -3258,7 +3260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8571076842338426133, guid: 140d1d2c406167c50819d89f86d9092e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -65.8
+      value: -151.2
       objectReference: {fileID: 0}
     - target: {fileID: 8571076842338426133, guid: 140d1d2c406167c50819d89f86d9092e, type: 3}
       propertyPath: m_AnchoredPosition.y
