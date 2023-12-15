@@ -131,10 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missedNoteMaterial: {fileID: 0}
   lightMaterial: {fileID: 2100000, guid: 07f1771206ad9fe4d86572d7f7a15e72, type: 2}
-  moveSpeed: 5
-  lineWidth: 0.5
-  zSpawn: 50
-  playerPosition: 25
 --- !u!1001 &241140547470456966
 PrefabInstance:
   m_ObjectHideFlags: 0

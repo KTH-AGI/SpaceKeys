@@ -21,6 +21,9 @@ TagManager:
   - ComboTextTag
   - CameraCanvasTag
   - HitQualityImage
+  - Melody C3
+  - Harmony 4
+  - Harmony 3
   layers:
   - Default
   - TransparentFX

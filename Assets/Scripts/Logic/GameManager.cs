@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
             comboCount = 0;
             scoreMultiplier = 1.0f;
             score += (int)(100 * scoreFactor);
-            imageLayers.ShowHitQualityImage(notePosition, hitQuality);
+            //imageLayers.ShowHitQualityImage(notePosition, hitQuality);
             
         }
         else
@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
                 scoreMultiplier += 0.1f;
             }
             // Call to show the hit quality image at the music object's position
-            imageLayers.ShowHitQualityImage(notePosition, hitQuality);
+            //imageLayers.ShowHitQualityImage(notePosition, hitQuality);
             Debug.Log("Hit quality: " + hitQuality);
         }
         

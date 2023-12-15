@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1215,17 +1215,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9532232f18ec27343b29428a9eccd425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note1: {fileID: 0}
-  note2: {fileID: 0}
-  note3: {fileID: 0}
-  note4: {fileID: 0}
-  note5: {fileID: 0}
-  note6: {fileID: 0}
-  note7: {fileID: 0}
-  positionZ: 180
-  positionY: -8
-  creationInterval: 1
-  possiblePositionsX: []
+  StarAb2: {fileID: 0}
+  StarBb2: {fileID: 0}
+  StarC3: {fileID: 0}
+  StarDb3: {fileID: 0}
+  StarEb3: {fileID: 0}
+  StarF3: {fileID: 0}
+  StarAb3: {fileID: 0}
+  Supernova: {fileID: 0}
+  AsteroidField: {fileID: 0}
+  BlackHole: {fileID: 0}
+  StarClusterBig: {fileID: 0}
+  StarCluster1: {fileID: 0}
+  StarCluster2: {fileID: 0}
+  Nebula: {fileID: 0}
+  SpaceProbe: {fileID: 0}
+  Quasar: {fileID: 0}
+  Wormhole: {fileID: 0}
 --- !u!1 &937134779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26360739af1a2ff45bfa987242cbb8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
 --- !u!143 &1239532841
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1858,7 +1865,7 @@ CharacterController:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
@@ -1934,6 +1941,10 @@ MonoBehaviour:
   _playerLeft: {fileID: 1332875351}
   _playerRight: {fileID: 1239532833}
   _playerZValue: 45
+  minX: -25
+  maxX: 25
+  minY: -15
+  maxY: 15
   ratioThreshold: 0.7
 --- !u!4 &1248190007
 Transform:
@@ -2065,6 +2076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26360739af1a2ff45bfa987242cbb8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
 --- !u!143 &1332875362
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2082,7 +2094,7 @@ CharacterController:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
@@ -2772,6 +2784,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Actions: {fileID: 0}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &1652459695
 Transform:
   m_ObjectHideFlags: 0
@@ -2837,8 +2867,8 @@ MonoBehaviour:
   lineY: -10
   lineLengthZ: 180
   spaceBetweenXLines: 6
-  spaceBetweenZLines: 20
   moveSpeed: 15
+  spaceBetweenZLines: 20
   lineWidth: 0.2
 --- !u!1001 &1705519193
 PrefabInstance:
