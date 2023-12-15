@@ -26,6 +26,7 @@ public class MusicObject : MonoBehaviour
 
     // Event for when the player collides with a note
     public static event Action<Vector3, Vector3, float> OnCollisionNote;
+    bool actionEvent = true;
 
     // Public property with a public getter and private setter
     public float UFOHeightRatio
@@ -52,6 +53,7 @@ public class MusicObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Time that has passed until collision: " + Time.time);
             CollectMusicObject();
             OnCollisionNote?.Invoke(this.transform.position, other.transform.position,
                 other.GetComponent<SphereCollider>().radius * other.transform.lossyScale.x +
@@ -71,6 +73,7 @@ public class MusicObject : MonoBehaviour
 
         musicObject = gameObject.tag;
         validMusicObject = true;
+        actionEvent = true;
 
         switch (musicObject)
         {
@@ -79,6 +82,9 @@ public class MusicObject : MonoBehaviour
                 break;
             case "Melody Bb2":
                 sound = FMODEvents.instance.melodyBb2;
+                break;
+            case "Melody C3":
+                sound = FMODEvents.instance.melodyC3;
                 break;
             case "Melody Db3":
                 sound = FMODEvents.instance.melodyDb3;
@@ -89,6 +95,9 @@ public class MusicObject : MonoBehaviour
             case "Melody F3":
                 sound = FMODEvents.instance.melodyF3;
                 break;
+            case "Melody Gb3":
+                sound = FMODEvents.instance.melodyGb3;
+                break;
             case "Melody Ab3":
                 sound = FMODEvents.instance.melodyAb3;
                 break;
@@ -98,13 +107,21 @@ public class MusicObject : MonoBehaviour
             case "Space Probe":
                 sound = FMODEvents.instance.spaceProbe;
                 break;
+            case "Harmony 3":
+                AudioManager.instance.InitializeEventForDuration(FMODEvents.instance.harmony3, 16);
+                actionEvent = false;
+                break;
+            case "Harmony 4":
+                AudioManager.instance.InitializeEventForDuration(FMODEvents.instance.harmony4, 16);
+                actionEvent = false;
+                break;
             default:
                 validMusicObject = false;
-                Debug.Log("Game object without audio encountered: " + musicObject);
+                Debug.Log("Game object without audio tag encountered: " + musicObject);
                 break;
         }
 
-        if (validMusicObject)
+        if (validMusicObject && actionEvent)
         {
             Debug.Log(parameterName + " for " + musicObject + ": " + UFOHeightRatio);
             AudioManager.instance.SetParameterAndPlay(sound, parameterName,

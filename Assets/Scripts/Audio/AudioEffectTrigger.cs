@@ -26,7 +26,7 @@ public class AudioEffectTrigger : MonoBehaviour
     private float endValue;
     
     // [SerializeField, Range(0f, 64f)]
-    private float durationInSeconds = 16f;
+    private float durationInSeconds = 8f;
 
     private string parameterName;
     //private float minValue;
@@ -45,15 +45,15 @@ public class AudioEffectTrigger : MonoBehaviour
                 break;
             case AudioEffect.LPFilter:
                 parameterName = "Low-Pass Threshold";
-                startValue = 2000f;
-                endValue = 22000f;
+                startValue = 0.5f;
+                endValue = 1f;
                 //minValue = 10f;
                 //maxValue = 22000f;
                 break;
             case AudioEffect.HPFilter:
                 parameterName = "High-Pass Threshold";
-                startValue = 4000f;
-                endValue = 10f;
+                startValue = 0.5f;
+                endValue = 0f;
                 //minValue = 10f;
                 //maxValue = 22000f;
                 break;
