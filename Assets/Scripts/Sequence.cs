@@ -72,7 +72,7 @@ public class Sequence
         sequence[musicNotationToOffsetSample(chorus2StartBar)] = new MusicObjectInfo("SpaceProbe", 0.5f);  // use AddSecond() row below later
         // sequence[musicNotationToOffsetSample(chorus2StartBar)].AddSecond("SpaceProbe", 0.5f);
         writeChorusStartingAtBar(chorus2StartBar + 4, 0.65f, 0.75f);
-        // sequence[musicNotationToOffsetSample(chorus2StartBar + 4)] = new MusicObjectInfo("Nebula", 0.5f);
+        sequence[musicNotationToOffsetSample(chorus2StartBar + 4)] = new MusicObjectInfo("Nebula", 0.5f);
 
         // Bridge
         int bridgeStartBar = 67;  // 67-82
@@ -80,7 +80,7 @@ public class Sequence
         sequence[musicNotationToOffsetSample(bridgeStartBar + 4)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         // sequence[musicNotationToOffsetSample(chorus1StartBar + 8)] = new MusicObjectInfo("Supernova", 0.5f);
         sequence[musicNotationToOffsetSample(bridgeStartBar + 8)] = new MusicObjectInfo("SpaceProbe", 0.5f);
-        // sequence[musicNotationToOffsetSample(bridgeStartBar + 12)] = new MusicObjectInfo("WormHole", 0.5f);
+        sequence[musicNotationToOffsetSample(bridgeStartBar + 12)] = new MusicObjectInfo("WormHole", 0.5f);
         sequence[musicNotationToOffsetSample(bridgeStartBar + 14)] = new MusicObjectInfo("SpaceProbe", 0.5f);
 
         // Chorus 3
@@ -89,7 +89,7 @@ public class Sequence
         sequence[musicNotationToOffsetSample(chorus3StartBar)] = new MusicObjectInfo("AsteroidField", 0.5f);  // use AddSecond() row below later
         // sequence[musicNotationToOffsetSample(chorus3StartBar)].AddSecond("AsteroidField", 0.5f);
         writeChorusStartingAtBar(chorus3StartBar + 4, 0.65f, 0.75f);
-        // sequence[musicNotationToOffsetSample(chorus3StartBar + 4)] = new MusicObjectInfo("Quasar", 0.5f);
+        sequence[musicNotationToOffsetSample(chorus3StartBar + 4)] = new MusicObjectInfo("Quasar", 0.5f);
         sequence[musicNotationToOffsetSample(chorus3StartBar + 6)] = new MusicObjectInfo("SpaceProbe", 0.5f);
 
         // Outro
