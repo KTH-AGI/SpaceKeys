@@ -41,7 +41,8 @@ public class Sequence
 
         // Interlude 1
         int interlude1StartBar = 27;  // 27-34
-        sequence[musicNotationToOffsetSample(interlude1StartBar)] = new MusicObjectInfo("StarCluster1", 0.5f, -4f);
+        // sequence[musicNotationToOffsetSample(interlude1StartBar)] = new MusicObjectInfo("StarCluster1", 0.5f, -4f);
+        sequence[musicNotationToOffsetSample(interlude1StartBar)].addSecond("StarCluster1", 0.5f, -4f);
         // sequence[musicNotationToOffsetSample(interlude1StartBar)] = new MusicObjectInfo("Supernova", 0.5f);
         sequence[musicNotationToOffsetSample(interlude1StartBar + 2)] = new MusicObjectInfo("SpaceProbe", 0.5f);
         sequence[musicNotationToOffsetSample(interlude1StartBar + 4)] = new MusicObjectInfo("BlackHole", 0.5f);
@@ -63,7 +64,6 @@ public class Sequence
         int verse2StartBar = 51;  // 51-58
         writeVerseStartingAtBar(verse2StartBar, 0.3f, 0.3f);
         writeVerseStartingAtBar(verse2StartBar + 4, 0.3f, 0.55f);
-        sequence[musicNotationToOffsetSample(verse2StartBar + 8)] = new MusicObjectInfo("StarBb2", 0.5f);
         
         // Chorus 2
         int chorus2StartBar = 59;  // 59-66
@@ -98,11 +98,15 @@ public class Sequence
     }
 
     /* Input time at which the audio should be triggered, returns corresponding offset sample 
-    bar, beat and sixteenth are 1-indexed. bar > 0, beat and sixteenth in [1, 4].
+    bar, beat and sixteenth are 1-indexed. bar > 4, beat and sixteenth in [1, 4].
     offset is to compensate for the distance between spawning position and player position */
     private static int musicNotationToOffsetSample(int bar, int beat=1, int sixteenth=1)
     {
-        // TODO: create assertion for bar, beat and sixteenth
+        // Assert that the input values are valid
+        Assert.IsTrue(bar > 4, "Bar should be greater than 4");
+        Assert.IsTrue(beat > 0 && beat <= 4, "Beat should be between 1 and 4");
+        Assert.IsTrue(sixteenth > 0 && sixteenth <= 4, "Sixteenth should be between 1 and 4");
+
         float timeInSeconds = (float)(bar - 1) * sixteenthTime * 16 + (float)(beat - 1) * sixteenthTime * 4 + (float)(sixteenth - 1) * sixteenthTime;
         int offsetSample = (int)(timeInSeconds / sixteenthTime) - offset;
         if (offsetSample >= 0)

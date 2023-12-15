@@ -135,27 +135,27 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Pause()
-{
-    // Pause any created instances
-    foreach (EventInstance eventInstance in eventInstances)
+    public void Pause()
     {
-        eventInstance.setPaused(true);
-    }
-
-    // Pause all of the event emitters
-    foreach (StudioEventEmitter eventEmitter in eventEmitters)
-    {
-        // Assuming you have access to the EventInstance associated with the StudioEventEmitter
-        EventInstance associatedInstance = eventEmitter.EventInstance;
-        if (!ReferenceEquals(associatedInstance, null))
+        // Pause any created instances
+        foreach (EventInstance eventInstance in eventInstances)
         {
-            associatedInstance.setPaused(true);
+            eventInstance.setPaused(true);
+        }
+
+        // Pause all of the event emitters
+        foreach (StudioEventEmitter eventEmitter in eventEmitters)
+        {
+            // Assuming you have access to the EventInstance associated with the StudioEventEmitter
+            EventInstance associatedInstance = eventEmitter.EventInstance;
+            if (!ReferenceEquals(associatedInstance, null))
+            {
+                associatedInstance.setPaused(true);
+            }
         }
     }
-}
 
-    private void Resume()
+    public void Resume()
     {
         // Resume playback for any created instances
         foreach (EventInstance eventInstance in eventInstances)
