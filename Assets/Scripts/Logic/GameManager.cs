@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     
     public PlayerHandTrackingController playerController;
     
-    [FormerlySerializedAs("worldSpaceCanvas")] [SerializeField]
-    private Canvas canvas;
-    
     // UI text for displaying combo count
     [SerializeField]
     private TextLayers   pointTextLayers; 
@@ -29,6 +26,7 @@ public class GameManager : MonoBehaviour
     private PauseScreenLayers pauseScreenLayers;
     
     private int comboCount = 0; // Current combo count
+    private int maxCombo = 0; // Maximum combo count
     private float scoreMultiplier = 1.0f; // Score multiplier
     private int score = 0; // Current score
     
@@ -40,12 +38,12 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            Debug.Log("GameManager Created");
         }
         else if (Instance != this)
         {
+            Debug.Log("GameManager already exists, destroying duplicate.");
             Destroy(gameObject);
-            return;
         }
         
         // Subscribe to the OnFistDetected event of the PlayerController
@@ -57,6 +55,7 @@ public class GameManager : MonoBehaviour
         NoteLight.OnMissNote += OnMissNote;
     }
     
+
     private void OnDestroy()
     {
         // Unsubscribe from the OnFistDetected event to prevent memory leaks
@@ -64,6 +63,13 @@ public class GameManager : MonoBehaviour
         {
             playerController.OnFistDetected -= HandleFistDetected;
         }
+        if (Instance != null)
+        {
+            Destroy(Instance.gameObject);
+            Instance = null;
+        }
+        MusicObject.OnCollisionNote -= OnCollisionNote;
+        NoteLight.OnMissNote -= OnMissNote;
     }
     
     // Be called when the OnFistDetected event is triggered
@@ -131,6 +137,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("HomeScene");
     }
+    
+    public void LoadEndScene()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("EndScene");
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.SetInt("MaxCombo", maxCombo);
+    }
 
     private void OnCollisionNote(Vector3 notePos, Vector3 playerPos, float radius)
     {
@@ -153,24 +167,27 @@ public class GameManager : MonoBehaviour
         else if (distance < radius)
         {
             UpdateScoreAndCombo("Orbital", 0.2f, notePos, resetCombo: true);
-            ResetCombo();
         }
     }
     
     private void OnMissNote(Vector3 notePos)
     {
         UpdateScoreAndCombo("Miss", 0, notePos, resetCombo: true);
-        ResetCombo();
     }
     
     private void UpdateScoreAndCombo(string hitQuality, float scoreFactor, Vector3 notePosition, bool resetCombo = false)
     {
         if (resetCombo)
         {
+            if (comboCount > maxCombo)
+            {
+                maxCombo = comboCount;
+            }
             comboCount = 0;
             scoreMultiplier = 1.0f;
             score += (int)(100 * scoreFactor);
             imageLayers.ShowHitQualityImage(notePosition, hitQuality);
+            
         }
         else
         {
@@ -193,12 +210,5 @@ public class GameManager : MonoBehaviour
         pointTextLayers.UpdateScoreIncrementally(score);
         
         comboTextLayers.UpdateCombo(comboCount);
-    }
-    
-    private void ResetCombo()
-    {
-        comboCount = 0;
-        scoreMultiplier = 1.0f;
-        UpdateUI();
     }
 }

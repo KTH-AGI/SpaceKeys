@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,14 @@ public class TextLayers : MonoBehaviour
     public TextMeshProUGUI shadowText1;
     public TextMeshProUGUI shadowText2;
     public float animationDuration = 0.8f; // 动画持续时间
+    public float maxFontScale = 1.5f; 
+    public float normalFontScale = 1.2f;// 最大缩放尺寸
+    private  Vector3 originalScale; // 初始尺寸
+
+    private void Awake()
+    {
+        originalScale = mainText.transform.localScale;
+    }
 
     // 逐渐增加分数
     public void UpdateScoreIncrementally(int targetScore)
@@ -64,8 +73,11 @@ public class TextLayers : MonoBehaviour
     // 播放缩放动画
     private IEnumerator PlayScaleAnimation()
     {
-        Vector3 originalScale = mainText.transform.localScale;
-        Vector3 targetScale = originalScale * 1.2f;
+        Vector3 maxScale = originalScale * maxFontScale; // 1.5倍最大缩放尺寸
+        Vector3 targetScale = originalScale * normalFontScale; // 目标缩放尺寸
+
+        // 确保目标缩放尺寸不超过最大尺寸
+        targetScale = Vector3.Min(targetScale, maxScale);
 
         float timer = 0;
         while (timer <= animationDuration / 2)
@@ -95,5 +107,6 @@ public class TextLayers : MonoBehaviour
         shadowText1.transform.localScale = originalScale;
         shadowText2.transform.localScale = originalScale;
     }
+
 
 }

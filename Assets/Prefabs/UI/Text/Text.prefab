@@ -95,9 +95,9 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 150
-  m_fontSizeBase: 36
+  m_fontSizeBase: 150
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 50
   m_fontSizeMax: 150
   m_fontStyle: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
   mainText: {fileID: 7394209913122086370}
   shadowText1: {fileID: 690002089600388671}
   shadowText2: {fileID: 4249533730055411136}
+  animationDuration: 0.8
 --- !u!1 &2226138687713290750
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,9 +286,9 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 150
-  m_fontSizeBase: 36
+  m_fontSizeBase: 150
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 50
   m_fontSizeMax: 150
   m_fontStyle: 0
@@ -421,9 +422,9 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 150
-  m_fontSizeBase: 36
+  m_fontSizeBase: 150
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 50
   m_fontSizeMax: 150
   m_fontStyle: 0

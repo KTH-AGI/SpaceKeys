@@ -11,16 +11,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Client_Server/ClientScene.unity
     guid: 402aaaec794fe174f8b010f3ef6c139c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: 40b0863e6a0fda34d975f14aab34b3b9
   - enabled: 0
     path: Assets/Scenes/HWDScene.unity
     guid: b717a90358b586040883f124f47126ff
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CompleteScene.unity
     guid: 3471d1660e488514da90caa62e369140
   - enabled: 1
-    path: Assets/Scenes/Saga/HWDScene 1.unity
-    guid: c146b676e5da5e54dba96d8bb544faa5
+    path: Assets/Scenes/EndScene.unity
+    guid: 98079c898c1d12b4ba75310d05412dd0
   m_configObjects: {}

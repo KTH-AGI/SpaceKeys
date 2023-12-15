@@ -13,12 +13,14 @@ TagManager:
   - Melody F3
   - Melody Ab3
   - Melody Bb3
+  - Asteroid Field 1
   - Space Probe
+  - Reverb
   - Melody Ab2
-  - Melody C3
-  - Melody Gb3
-  - Harmony 3
-  - Harmony 4
+  - PointTextTag
+  - ComboTextTag
+  - CameraCanvasTag
+  - HitQualityImage
   layers:
   - Default
   - TransparentFX
