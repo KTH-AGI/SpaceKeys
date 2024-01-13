@@ -28,6 +28,7 @@ public class Sequence
         sequence[musicNotationToOffsetSample(5)] = new MusicObjectInfo("AsteroidField", 0.5f); //possible to just add an x-value after here if you want
         //sequence[musicNotationToOffsetSample(7)] = new MusicObjectInfo("Supernova", 0.5f);
         sequence[musicNotationToOffsetSample(9)] = new MusicObjectInfo("SpaceProbe", 0.5f);
+        //sequence[musicNotationToOffsetSample(9)] = new MusicObjectInfo("Wormhole", 0.5f);
         sequence[musicNotationToOffsetSample(11)] = new MusicObjectInfo("StarClusterBig", 0.5f);
         sequence[musicNotationToOffsetSample(13)] = new MusicObjectInfo("StarBb2", 0.5f);
         // sequence[musicNotationToOffsetSample(13)] = new MusicObjectInfo("StarBb2", "StarAb2", 0.5f, 0.5f);
@@ -89,7 +90,7 @@ public class Sequence
         sequence[musicNotationToOffsetSample(chorus3StartBar)] = new MusicObjectInfo("AsteroidField", 0.5f);  // use AddSecond() row below later
         // sequence[musicNotationToOffsetSample(chorus3StartBar)].AddSecond("AsteroidField", 0.5f);
         writeChorusStartingAtBar(chorus3StartBar + 4, 0.65f, 0.75f);
-        sequence[musicNotationToOffsetSample(chorus3StartBar + 4)] = new MusicObjectInfo("Quasar", 0.5f);
+        //sequence[musicNotationToOffsetSample(chorus3StartBar + 4)] = new MusicObjectInfo("Quasar", 0.5f);
         sequence[musicNotationToOffsetSample(chorus3StartBar + 6)] = new MusicObjectInfo("SpaceProbe", 0.5f);
 
         // Outro
