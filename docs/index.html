@@ -43,9 +43,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Space Keys</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <a href="index.html" class="logo me-auto"><img src="assets/img/SPACE KEYS.png" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -61,13 +59,13 @@
   </header><!-- End Header -->
 
   <!-- ======= Demo Section ======= -->
-  <section id="demo" class="d-flex align-items-center">
-    <video width="100%" height="auto" controls>
+  <section id="demo" class="demo d-flex align-items-center">
+    <video width="100%" height="auto" controls autoplay loop>
       <source src="assets/videos/SpaceKeys_demo.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
-  </section><!-- Demo Hero -->
+  </section><!-- Demo Section -->
 
   <main id="main">
 
@@ -81,13 +79,28 @@
 
         <div class="row content">
           <div class="col-lg-6">
+            <h3>Description</h3>
             <p>
-              Description goes here
+              Space Keys is a captivating game that challenges your rhythm and reflexes. 
+              Your mission is to catch as many celestial music objects as possible, 
+              by navigating two UFOs through space using webcam-based hand tracking technology. 
+              Scores ranging from "Stellar!" for perfect catches to "Lost in space" for 
+              the occasional miss add a dynamic layer to your interstellar journey. 
+              Each successful catch not only contributes to your score but also 
+              enhances the song, creating a harmonious symphony that evolves with your skill. 
+              Are you ready to listen to some great music on your journey through space?
             </p>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
+            <h3>Motivation</h3>
             <p>
-              Motivation goes here
+              For this project we wanted to do something that was just for fun and 
+              could be taken in any creative direction that we wished for it to go, 
+              and which didn’t speak to any bigger cause or was meant to inform people. 
+              Another requirement we had was to not be limited by access to hardware, 
+              as our previous project had provided some limitations in that regard. 
+              Finally, we wanted to work with game logic and include sound from the 
+              very beginning, instead of it being an addition towards the end. 
             </p>
           </div>
         </div>
@@ -101,12 +114,45 @@
 
         <div class="section-title">
           <h2>The Process</h2>
-          <h3>Technology Used</h3>
-          <p>Technology description and justification of choices goes here</p>
-          <h3>Challenges and Obstacles</h3>
-          <p>Description of challenges and obstacles faced with this project</p>
-          <h3>Lessons learned</h3>
-          <p>Lessons learned during the course of this project</p>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <h3>Technology Used</h3>
+            <ul>
+              <li><p>
+                Unity is a real-time development engine made for facilitating collaboration
+                and building games and other interactive experiences. It was used to host the game 
+                world, because we had previous experience with Unity within the team.
+              </p></li>
+              <li><p>
+                Blender is a free and open source software commonly used for 3D modeling and animation.
+                We used Blender to create our own 3D models which we could import into Unity, and 
+                we opted to use this tool because we had experience with this within the team too.
+              </p></li>
+              <li><p>
+                FMOD was used to add music to our game, because it is easily integrated with Unity.
+              </p></li>
+              <li><p>
+                Mediapipe for Unity is an existing solution which enables, among other things, hand 
+                tracking using webcam. On top of this solution we also built our own algorithms to decide
+                the position of the center of a tracked hand, as well as to detect when the user makes
+                fists with their hands.
+              </p></li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <h3>Challenges and Obstacles</h3>
+            <p>Description of challenges and obstacles faced with this project</p>
+          </div>
+          <div class="col-lg-6">
+            <h3>Lessons learned</h3>
+            <p>Lessons learned during the course of this project</p>
+          </div>
+        </div>
+
+        <div class="section-title">
+          <h3>The making of Space Keys</h3>
         </div>
 
       </div>
@@ -118,7 +164,6 @@
 
         <div class="section-title">
           <h2>Team</h2>
-          <p>Overall team description?</p>
         </div>
 
         <div class="row">
@@ -128,10 +173,64 @@
               <div class="pic"><img src="assets/img/profiles/Akshata.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Akshata Murdeshwar</h4>
-                <p>Individual contribution</p>
-                <div class="social">
-                  <!-- CONTACT DETAILS -->
+                <div class="contact-details">
+                  <p>akshata@kth.se</p>
                 </div>
+                <h5>User Interface</h5>
+                <p>The user interface was inspired by traditional arcade machines and games. 
+                  Since the overarching theme of the game was neon and retro, much like old 
+                  arcades, we followed the same for the GUI of the game. The UI was meant to
+                  blend in with the rest of the game using similar color schemes and placed 
+                  in locations that would not interfere with the player’s experience of 
+                  playing the game. Its main purpose was to provide instructions, remind 
+                  players of possible actions, show progress, and give feedback. 
+                  There were two elements that received special attention:</p>
+                  <ul>
+                    <li>
+                      <h5>Text</h5>
+                      <p>Each text element was mostly white with 2 undertones of other 
+                        colors - one darker and one lighter to give it a 3D feel. The 
+                        font chosen was bold and in capitals. This choice was based on 
+                        the fact that a lot was happening on the screen at all times in 
+                        terms of light as well as movement. Hence, the text needed to be 
+                        clearly visible without a lot of effort.</p>
+                    </li>
+                    <li>
+                      <h5>Icons</h5>
+                      <p>The icons were instrumental in communicating instructions clearly. 
+                        Since our interactions were mostly based on hand gestures, we used 
+                        bold white line icons of hand positions and gestures with text to 
+                        support the same.</p>
+                    </li>
+                  </ul>
+                  <h5>General Art Direction</h5>
+                  <ul>
+                    <li>
+                      <p>Making Mood Boards and collecting resources to anchor our graphic elements</p>
+                    </li>
+                    <li>
+                      <p>Making sketches of possible stage arrangements</p>
+                    </li>
+                    <li>
+                      <p>Making the first mock-up of the decoration around the stage</p>
+                    </li>
+                    <li>
+                      <p>Working on developing Emissive materials and exploring their use within the 
+                        game for beautification and graphic enhancement</p>
+                    </li>
+                  </ul>
+                  <h5>3D Modeling of Elements</h5>
+                  <p>The prism shaped game objects were initially developed as a part of the stage 
+                    decoration. However, they were later adapted to work as interactive gameplay 
+                    objects used to trigger the melody.
+                    I also create a 3D model of an asteroid field. In the process, I used Blender modeling. 
+                    I learned UV wrapping and unwrapping, animating objects in Blender and Unity.
+                    I attempted to write a script in Unity to animate the asteroids with the help of a friend.
+                    A functional black hole. Used a free Unity shader online and modified it to our needs.
+                    Learned how to use particle systems and restrict them within a sphere for the star clusters. 
+                    Learned to write a bit of code to spawn and control particles and their brightness, size, etc.</p>
+                    <h5>Evaluation and Documentation</h5>
+                    <p>I also conducted evaluation during testing, and edited the making-of video.</p>
               </div>
             </div>
           </div>
@@ -141,10 +240,10 @@
               <div class="pic"><img src="assets/img/profiles/Jacky.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Jacky Liu</h4>
-                <p>Individual contribution</p>
-                <div class="social">
-                  <!-- CONTACT DETAILS -->
+                <div class="contact-details">
+                  <p>hjjliu@kth.se</p>
                 </div>
+                <p>Individual contribution</p>
               </div>
             </div>
           </div>
@@ -154,10 +253,32 @@
               <div class="pic"><img src="assets/img/profiles/Linnéa.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Linnéa Gustafsson</h4>
-                <p>Individual contribution</p>
-                <div class="social">
-                  <!-- CONTACT DETAILS -->
+                <div class="contact-details">
+                  <p>linneag2@kth.se</p>
                 </div>
+                <h5>Audio-Visual Mapping</h5>
+                <p>Since the audio is a central part of this game, it needed to be properly and intuitively 
+                  integrated into the experience. The melody pitch and brightness were spatially mapped to 
+                  the horizontal and vertical positions of the melody objects (stars). The colors of music 
+                  objects also had an intuitive mapping based on audio-color mapping research. The choice 
+                  of which space objects to use for which music object was also made with logical reasoning 
+                  behind it: hard objects (asteroids) for drums, single stars for melody and multiple stars 
+                  for harmony, a black hole for the low-pass filter (absorbing the song’s top frequencies), 
+                  etc.</p>
+                  <h5>Audio Composition</h5>
+                  <p>We created our own music and background audio. It comprises 18 audio files created in 
+                    Logic Pro and four audio effects applied in Unity. The song was designed in Logic Pro, 
+                    and exported in shorter samples that were then looped and triggered in Unity at the right 
+                    positions in time.</p>
+                  <h5>Audio Programming</h5>
+                  <p>For the audio programming, the Unity audio system FMOD was used. The audio can be divided 
+                    into background audio and game audio. The background audio is triggered regardless of the 
+                    user's actions – spaceship sound, drums, bass, and some harmony. Game audio is triggered 
+                    as the user collides with specific music objects. The generation of music objects was 
+                    programmed as a low-level version of a MIDI editor, with a function triggering a specific 
+                    music object at a specific time and (x, y) position. The game audio consists of melody, 
+                    harmony, “space probe” audio, and sound effects (reverb, low-pass filter, high-pass filter, 
+                    and flanger).</p>
               </div>
             </div>
           </div>
@@ -167,10 +288,10 @@
               <div class="pic"><img src="assets/img/profiles/Saga.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Saga Palmér</h4>
-                <p>Individual contribution</p>
-                <div class="social">
-                  <!-- CONTACT DETAILS -->
+                <div class="contact-details">
+                  <p>sagapa@kth.se</p>
                 </div>
+                <p>Individual contribution</p>
               </div>
             </div>
           </div>
@@ -180,10 +301,24 @@
               <div class="pic"><img src="assets/img/profiles/Shiqi.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Shiqi Gong</h4>
-                <p>Individual contribution</p>
-                <div class="social">
-                  <!-- CONTACT DETAILS -->
+                <div class="contact-details">
+                  <p>shiqig@kth.se</p>
                 </div>
+                <h5>User Interface</h5>
+                <p>Established the functional framework of the user interface and was responsible 
+                for collaborating with the UI designer to bring the design elements into that framework.
+                Completed the development of the game user interface, including the Home Scene, Main Game 
+                Scene, and End Scene.The user interface also has implemented multi-resolution adaptation 
+                on different devices.</p>
+                <h5>Game Logic</h5>
+                <p>Designed the game's scoring rules and created the animations for the game score and score 
+                  changes. I also wrote a GameManager to control the main logic of the game. This includes the 
+                  game's pause, resume, scene transitions, etc. MediaPipe's Unity plugin does not have a hand 
+                  gesture tracking solution. Therefore, I developed a gesture detection feature based on the 
+                  hand-tracking solution for detecting fists.</p>
+                <h5>Game Testing</h5>
+                <p>After the scene merging, I was responsible for testing and debugging the main scene, and fixing 
+                  problems caused by the code and scene merging.</p>
               </div>
             </div>
           </div>
@@ -193,10 +328,10 @@
               <div class="pic"><img src="assets/img/profiles/Sofia.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Sofia Bergqvist</h4>
-                <p>Individual contribution</p>
-                <div class="social">
-                  <!-- CONTACT DETAILS -->
+                <div class="contact-details">
+                  <p>sobergqv@kth.se</p>
                 </div>
+                <p>Individual contribution</p>
               </div>
             </div>
           </div>
@@ -206,7 +341,7 @@
       </div>
     </section><!-- End Team Section -->
 
-    <!-- ======= Team Section ======= -->
+    <!-- ======= Reference Section ======= -->
     <section id="references" class="team section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -216,7 +351,7 @@
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section><!-- End Reference Section -->
 
   </main><!-- End #main -->
 
