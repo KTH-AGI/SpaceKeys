@@ -268,6 +268,10 @@ section {
   background-color: #000;
 }
 
+.about .center-container {
+  text-align: center;
+}
+
 .about .content h3 {
   padding-top: 30px;
   font-size: 20px;
