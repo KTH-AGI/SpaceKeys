@@ -25,6 +25,12 @@ a:hover {
   text-decoration: none;
 }
 
+p {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #fff;
+}
+
 h1,
 h2,
 h3,
@@ -250,10 +256,6 @@ section {
   color: #C03CFE;
 }
 
-.section-title p {
-  margin-bottom: 0;
-}
-
 /*--------------------------------------------------------------
 # Demo
 --------------------------------------------------------------*/
@@ -335,12 +337,24 @@ section {
 .team .member p {
   margin: 10px 0 0 0;
   font-size: 14px;
+  color: #444444;
 }
 
 .team .member .contact-details {
   font-size: 14px;
   color: #4C3CFE;
   padding-bottom: 20px;
+}
+
+/*--------------------------------------------------------------
+# References
+--------------------------------------------------------------*/
+.references {
+  background-color: #000;
+}
+
+.references p {
+  margin-bottom: 15px;
 }
 
 /*--------------------------------------------------------------
