@@ -264,7 +264,38 @@
                 <div class="contact-details">
                   <p>hjjliu@kth.se</p>
                 </div>
-                <p>Individual contribution</p>
+                <h5>Server-Client Architecture</h5>
+                <p>Initially, we wanted the player to be able to control the UFO by using their phone. When 
+                  the player moves their phone up-and-down or left-to-right, so would the UFO in-game. A 
+                  server was set up so the player could connect to it. Once connected, the player’s phone 
+                  would send its gyroscope and accelerometer data to the server and update the UFO’s position 
+                  accordingly. However, we quickly found out that this method is too imprecise, as the data 
+                  contains too much noise.
+                </p>
+                <h5>Hand Tracking</h5>
+                <p>In the end, we decided to use hand-tracking for controlling the player movement. We made 
+                  use of MediaPipe’s Framework and their pre-trained solution for Hand-landmark detection. 
+                  Using MediaPipeUnityPlugin as the base, we further modified it to suit SpaceKeys needs.
+                  I was in charge of importing this framework, making sure that we can accurately control the UOF’s 
+                  position using hand-tracking and then handed it off to the other teammates for further adjustments.
+                  </p>
+                <h5>
+                  3D Modelling and Visual effects
+                </h5>
+                <p>
+                  The shield was modeled in Blender, by taking a sphere and then subdividing the surface to get 
+                  individual hexagons and pentagons. The UV shield texture was then further modified in Krita, to 
+                  get a highlighted outline. Using Unity’s ShaderGraph, we control the color and the oscillation 
+                  effect of the shield.
+                  To render the following music objects: Nebula, Quasar and Supernova, a method called Volumetric 
+                  Raymarching was used. By using volumetric textures, we can determine the density of the cosmic 
+                  clouds at each pixel. Using this density, we can then deduce the color for that pixel.
+                  To get the volumetric textures, we first modeled a cloud in Houdini. Houdini provides a convenient 
+                  function to create clouds out of geometries using noise (Cloud geometry node). After tweaking the 
+                  noise parameters, we can then export the model as a Volume Texture using the Volume Texture Export 
+                  geometry node.
+
+                </p>
               </div>
             </div>
           </div>
@@ -312,7 +343,20 @@
                 <div class="contact-details">
                   <p>sagapa@kth.se</p>
                 </div>
-                <p>Individual contribution</p>
+                <h5>Game Logic</h5>
+                <p>Responsible for the overall logic of the game itself, and for putting it all together.
+                  I created the main scene with a star particle system as a background, and generated the
+                  procedural circular grid. I also added and generated the music objects in the given 
+                  sequential order, was responsible for creating the collision logic, and syncing it all 
+                  with the music. 
+                </p>
+                <h5>Visuals</h5>
+                <p>I added the UFO player object, and created light rings from the music objects and the UFO on
+                  the circular grid, to provide players with support to understand the positions of the UFO 
+                  and the music objects coming towards them. 
+                </p>
+                <h5>Game Testing</h5>
+                <p>Tested the game and fixed miscellaneous bugs throughout the project.</p>
               </div>
             </div>
           </div>
