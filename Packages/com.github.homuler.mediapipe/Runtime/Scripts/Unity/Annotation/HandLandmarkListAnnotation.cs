@@ -20,7 +20,7 @@ namespace Mediapipe.Unity
     [SerializeField] private PointListAnnotation _landmarkListAnnotation;
     [SerializeField] private ConnectionListAnnotation _connectionListAnnotation;
     [SerializeField] private Color _leftLandmarkColor = Color.green;
-    [SerializeField] private Color _rightLandmarkColor = Color.green;
+    [SerializeField] private Color _rightLandmarkColor = Color.yellow;
 
     public enum Hand
     {
@@ -28,7 +28,7 @@ namespace Mediapipe.Unity
       Right,
     }
 
-    private string _handedness;
+    private Hand _handedness;
 
     private const int _LandmarkCount = 21;
     private readonly List<(int, int)> _connections = new List<(int, int)> {
@@ -83,7 +83,7 @@ namespace Mediapipe.Unity
       _connectionListAnnotation.Fill(_connections, _landmarkListAnnotation);
     }
     
-    public string GetHandedness()
+    public Hand GetHandedness()
     {
       return _handedness;
     }
@@ -118,12 +118,12 @@ namespace Mediapipe.Unity
       if (handedness == Hand.Left)
       {
         _landmarkListAnnotation.SetColor(_leftLandmarkColor);
-        _handedness = "left";
+        _handedness = Hand.Left;
       }
       else if (handedness == Hand.Right)
       {
         _landmarkListAnnotation.SetColor(_rightLandmarkColor);
-        _handedness = "right";
+        _handedness = Hand.Right;
       }
     }
 

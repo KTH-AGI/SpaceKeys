@@ -61,23 +61,31 @@ public class PlayerControllerHomeScene : MonoBehaviour
             return false;
         }
 
+        // Hands already found and initialized!
+        if (initialized) return true;
+        
         // Found hands! Initialize Lists and Screen Size
-        for (int i = 0; i < 2; i++)
+        _handLandmarkListLeftHand = _handLandmarkListAnnotation[0];
+        _handLandmarkListRightHand = _handLandmarkListAnnotation[1];
+        
+        // TODO Fix: GetHandedness does not always return a value, even if hands are found!
+        /*for (int i = 0; i < 2; i++)
         {
             HandLandmarkListAnnotation hand = _handLandmarkListAnnotation[i];
             if (hand == null) return false;
-            if(hand.GetHandedness()=="left")
+            
+            if (hand.GetHandedness() == HandLandmarkListAnnotation.Hand.Left)
             {
                 _handLandmarkListLeftHand = hand;
             }
-            else if(hand.GetHandedness()=="right")
+            if (hand.GetHandedness() == HandLandmarkListAnnotation.Hand.Right)
             {
                 _handLandmarkListRightHand = hand;
             }
-        }
+            
+            Debug.LogWarning("Hand: " + i + " is " + hand.GetHandedness());
+        }*/
         
-        // Hands already found and initialized!
-        if (initialized) return true;
 
         InitializeScreenDimensions();
         initialized = true;

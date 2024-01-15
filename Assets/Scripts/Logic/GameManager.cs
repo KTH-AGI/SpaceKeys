@@ -96,6 +96,11 @@ public class GameManager : MonoBehaviour
         {
             ResumeGame();
         }
+
+        if (!isGamePaused && Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
     
     // Property to get the value of isGamePaused

@@ -20,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CompleteScene.unity
     guid: 3471d1660e488514da90caa62e369140
-  - enabled: 0
-    path: Assets/Scenes/CompleteScene_OpenHouse.unity
-    guid: cddcdf77bcd7fc944954b82cc495af78
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 98079c898c1d12b4ba75310d05412dd0
