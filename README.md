@@ -1,4 +1,3 @@
-# SpaceKeys
 <p align="center">
     <a href="https://github.com/KTH-AGI/SpaceKeys/commits/main/">
         <img alt="Last Commit" src="https://img.shields.io/github/last-commit/KTH-AGI/SpaceKeys.svg?style=flat-square&logo=github&logoColor=white">
@@ -10,6 +9,8 @@
         <img alt="Pull Requests" src="https://img.shields.io/github/issues-pr-raw/KTH-AGI/SpaceKeys.svg?style=flat-square&logo=github&logoColor=white">
     </a>
 </p>
+
+# SpaceKeys
 
 [SpaceKeys website](https://kth-agi.github.io/SpaceKeys/)
 
