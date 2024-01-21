@@ -16,7 +16,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/KTH_Royal_Institute_of_Technology_logo.svg/1200px-KTH_Royal_Institute_of_Technology_logo.svg.png" alt="KTH Logo" align="left" width="90" height="90" style="vertical-align:middle;margin:0px 15px">
 
 ***Group 5, DH2413 Advanced Graphics and Interaction***
-This repository is contains Project 2 for the course *DH2413 Advanced Graphics and Interaction* 2023 at KTH Royal Institute of Technology.
+This repository contains Project 2 for the course *DH2413 Advanced Graphics and Interaction* 2023 at KTH Royal Institute of Technology.
 
 
 ## Description
@@ -53,5 +53,4 @@ This project only runs on Windows. Download the APK from the Release page, unzip
 
 
 ## License
-GNU General Public License
-You also need to get your own individual licences for specific assets from [Unity Asset Store](https://assetstore.unity.com/). See all the licences you need to get under [References and Resouces on our website](https://kth-agi.github.io/SpaceKeys/).
+GNU General Public License. You also need to get your own individual licenses for specific assets from [Unity Asset Store](https://assetstore.unity.com/). See all the licences you need to get under [References and Resouces on our website](https://kth-agi.github.io/SpaceKeys/).
