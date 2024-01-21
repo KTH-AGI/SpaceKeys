@@ -12,9 +12,9 @@
 
 # SpaceKeys
 
-[SpaceKeys website](https://kth-agi.github.io/SpaceKeys/)
-
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/KTH_Royal_Institute_of_Technology_logo.svg/1200px-KTH_Royal_Institute_of_Technology_logo.svg.png" alt="KTH Logo" align="left" width="90" height="90" style="vertical-align:middle;margin:0px 15px">
+
+[SpaceKeys website](https://kth-agi.github.io/SpaceKeys/)
 
 ***Group 5, DH2413 Advanced Graphics and Interaction***
 This repository contains Project 2 for the course *DH2413 Advanced Graphics and Interaction* 2023 at KTH Royal Institute of Technology.
