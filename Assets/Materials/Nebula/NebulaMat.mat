@@ -51,12 +51,12 @@ Material:
     - _QueueOffset: 0
     - _darknessThreshold: 0.1
     - _densityScale: 0.06
-    - _lightAbsorb: 0.44
+    - _lightAbsorb: 0.49
     - _lightStepSize: 0.02
     - _numLightSteps: 8
     - _numSteps: 64
     - _stepSize: 0.02
-    - _transmittance: 1.6
+    - _transmittance: 0.63
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _ShadowColor: {r: 0.31132078, g: 0.0102794655, b: 0.0102794655, a: 0}
