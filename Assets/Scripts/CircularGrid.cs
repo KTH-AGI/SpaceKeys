@@ -36,14 +36,14 @@ public class CircularGrid : MonoBehaviour
         lineXParent.transform.parent = gridParent.transform;
         lineZParent.transform.parent = gridParent.transform;
         moveSpeed = Math.Abs(MusicObjectMovement.movementSpeed);
-        spaceBetweenZLines = moveSpeed;  // The multiplying this with m means a line every m'th second
+        spaceBetweenZLines = moveSpeed; 
         StartCoroutine(DelayedStart());
     }
 
     private System.Collections.IEnumerator DelayedStart()
     {
         // Wait before generating the circular grid to make them in sync with music
-        yield return new WaitForSeconds(0.65f);
+        yield return new WaitForSeconds(0.61f);
         
         GenerateCircularGrid();
     }
